@@ -19,15 +19,15 @@ let productSchema = mongoose.Schema({
     },
     stock: {
       type: Number,
-      require: true;
+      require: true
     },
     price: {
       type: Number,
-      require: true;
-    }
+      require: true
+    },
     category: {
       type: String,
-      require: true;
+      require: true
     }
 });
 

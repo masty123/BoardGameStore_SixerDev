@@ -6,8 +6,10 @@ const path = require('path');
 const app = express();
 var bodyParser = require('body-parser');
 //Bring in Models
-let Article = require('./models/article');
-let Athlete = require('./models/athlete');
+let Product = require('./models/product');
+let Promotion = require('./models/promotion');
+let User = require('./models/user');
+let Transaction = require('./models/transaction');
 
 
 const expressValidator = require('express-validator');
@@ -22,7 +24,6 @@ mongoose.connect(config.database, { useNewUrlParser: true });
 db.on('error', console.error.bind(console, 'connection error:'));
 //Check connection.
 db.once('open', function(){console.log('connected to MongoDB.')});
-
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -76,33 +77,19 @@ app.get('*', function(req, res, next){
 
 //Home Route
 app.get('/', function (req, res) {
-  Article.find({}, function(err, article){
-    Athlete.find({}, (err, athlete) => {
-        if (err) {
-            console.log(err);
-        } else {
-            //TODO Rendering home page
-            res.render('index', {
-                articles_title: "Articles",
-                articles: article,
-                athletes_title: "Athletes",
-                athletes: athlete
-            });
-        }
-    });
-  });
+  res.render('home');
 });
 
 // Route Files
 //TODO Direct the routes
-let articles = require('./routes/articles');
-let users = require('./routes/users');
-let athletes = require('./routes/athletes');
-
-app.use('/produce', product);
-app.use('/promotion', promotion);
-app.use('/user', user);
-app.use('/transaction', transaction);
+// let product = require('./routes/product');
+// let promotion = require('./routes/promotion');
+// let user = require('./routes/user');
+// let transaction = require('./routes/transaction');
+// app.use('/product', product);
+// app.use('/promotion', promotion);
+// app.use('/user', user);
+// app.use('/transaction', transaction);
 
 //set public folder.
 app.use(express.static(path.join(__dirname, 'public')));
