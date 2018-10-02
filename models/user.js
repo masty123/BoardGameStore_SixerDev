@@ -25,6 +25,10 @@ let UserSchema = mongoose.Schema({
         type: [String],
         require: true
     }
+    isAdmin: {
+        type: Boolean,
+        require: true
+    }
 });
 
 let User = module.exports = mongoose.model('User', UserSchema);

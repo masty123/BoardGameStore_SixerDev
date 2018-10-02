@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-let itemSchema = mongoose.Schema({
+let productSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -25,6 +25,10 @@ let itemSchema = mongoose.Schema({
       type: Number,
       require: true;
     }
+    category: {
+      type: String,
+      require: true;
+    }
 });
 
-let Item = module.exports = mongoose.model('Item', itemSchema);
+let Product = module.exports = mongoose.model('Product', productSchema);
