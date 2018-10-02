@@ -25,6 +25,10 @@ let productSchema = mongoose.Schema({
       type: Number,
       require: true;
     }
+    category: {
+      type: String,
+      require: true;
+    }
 });
 
 let Product = module.exports = mongoose.model('Product', productSchema);
