@@ -81,6 +81,7 @@ app.get('/', function (req, res) {
         if (err) {
             console.log(err);
         } else {
+            //TODO Rendering home page
             res.render('index', {
                 articles_title: "Articles",
                 articles: article,
@@ -93,20 +94,15 @@ app.get('/', function (req, res) {
 });
 
 // Route Files
+//TODO Direct the routes
 let articles = require('./routes/articles');
 let users = require('./routes/users');
 let athletes = require('./routes/athletes');
 
-app.use('/articles', articles);
-app.use('/athletes', athletes);
-app.use('/users', users);
-
-
-
-//Post Request
-app.post('/', function (req, res) {
-  res.send('you sent a post request.')
-})
+app.use('/produce', product);
+app.use('/promotion', promotion);
+app.use('/user', user);
+app.use('/transaction', transaction);
 
 //set public folder.
 app.use(express.static(path.join(__dirname, 'public')));
