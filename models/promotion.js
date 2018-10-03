@@ -31,6 +31,10 @@ let promotionSchema = mongoose.Schema({
     discountValue: {
         type: Number,
         required: true
+    },
+    isActive: {
+        type: Boolean,
+        required: true
     }
 });
 
