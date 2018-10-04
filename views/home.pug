@@ -1,1662 +1,1451 @@
-doctype html
-html.no-js(lang='zxx')
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='x-ua-compatible', content='ie=edge')
-    title SixerDev - Board Game Shop 0.1
-    // fevicon
-    link(rel='shortcut icon', href='img/fa.png')
-    meta(name='description', content='')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    //
-      Favicon
-      ============================================
-    link(rel='shortcut icon', type='image/x-icon', href='img/favicon.png')
-    // CSS
-    //
-      Fonts CSS
-      ============================================
-    link(href='https://fonts.googleapis.com/css?family=Raleway:400,300,700,600', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Lato:400,700,300', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,700', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Roboto:500', rel='stylesheet', type='text/css')
-    //
-      Bootstrap CSS
-      ============================================
-    link(rel='stylesheet', href='css/bootstrap.min.css')
-    //
-      Nivo slider CSS
-      ============================================
-    link(rel='stylesheet', href='lib/custom-slider/css/nivo-slider.css', media='screen')
-    link(rel='stylesheet', href='lib/custom-slider/css/preview.css', media='screen')
-    //
-      owl.carousel CSS
-      ============================================
-    link(rel='stylesheet', href='css/owl.carousel.css')
-    //
-      owl.theme CSS
-      ============================================
-    link(rel='stylesheet', href='css/owl.theme.css')
-    //
-      owl.transitions CSS
-      ============================================
-    link(rel='stylesheet', href='css/owl.transitions.css')
-    // lightbox CSS
-    link(href='css/lightbox.css', rel='stylesheet')
-    // Jquery Ui CSS
-    link(href='css/jquery-ui.css', rel='stylesheet')
-    // Simple Icon CSS
-    link(href='css/simple-line-icons.css', rel='stylesheet')
-    //
-      bar filler CSS
-      ============================================
-    link(rel='stylesheet', href='css/barfiller.css')
-    //
-      Meanmenu CSS
-      ============================================
-    link(rel='stylesheet', href='css/meanmenu.min.css')
-    //
-      font-awesome.min CSS
-      ============================================
-    link(rel='stylesheet', href='css/font-awesome.min.css')
-    //
-      animate CSS
-      ============================================
-    link(rel='stylesheet', href='css/animate.css')
-    //
-      normalize CSS
-      ============================================
-    link(rel='stylesheet', href='css/normalize.css')
-    //
-      main CSS
-      ============================================
-    link(rel='stylesheet', href='css/main.css')
-    //
-      style CSS
-      ============================================
-    link(rel='stylesheet', href='style.css')
-    //
-      responsive CSS
-      ============================================
-    link(rel='stylesheet', href='css/responsive.css')
-    script(src='js/vendor/modernizr-2.8.3.min.js')
-  body.home_one
-    //if lt IE 8
-      p.browserupgrade
-        | You are using an 
-        strong outdated
-        |  browser. Please 
-        a(href='http://browsehappy.com/') upgrade your browser
-        |  to improve your experience.
-    // Add your site or application content here
-    // header start
-    header.header
-    // header end
-    // slider start
-    .slider-wrap
-      .bend.niceties.preview-1
-        #nivoslider.slides
-          img(src='img/slider/slider-1_temp.png', alt='', title='#slider-direction-1')
-          img(src='img/slider/slider-2_temp.png', alt='', title='#slider-direction-2')
-        // direction 1
-        #slider-direction-1.t-cn.slider-direction
-          .slider-content.slider-text-1
-            .wow.bounceInDown(data-wow-duration='3s', data-wow-delay='0.3s')
-              h1.title1 new arrivals
-          .slider-content.slider-text-2
-            .wow.bounceInLeft(data-wow-duration='3s', data-wow-delay='1s')
-              p discover our newest games
-          .slider-content.slider-text-3
-            .wow.bounceInUp(data-wow-duration='3s', data-wow-delay='1s')
-              a.slider_button(href='') Shop Now 
-        // direction 2
-        #slider-direction-2.slider-direction
-          .slider-content.slider-text-1
-            .wow.bounceInDown(data-wow-duration='2s', data-wow-delay='0.3s')
-              h1.title1 new arrivals
-          .slider-content.slider-text-2
-            .wow.bounceInRight(data-wow-duration='3s', data-wow-delay='1s')
-              p discover our newest games
-          .slider-content.slider-text-3
-            .wow.bounceInUp(data-wow-duration='3s', data-wow-delay='1s')
-              a.slider_button(href='#') Shop Now 
-    // slider end
-    // slider bottom start
-    .slider_bottom_area
-      .container
-        .row
-          .col-lg-4.col-md-4.col-sm-12
-            .single_slider_bottom
+extends layout
+
+block content
+  // slider start
+  .slider-wrap
+    .bend.niceties.preview-1
+      #nivoslider.slides
+        img(src='img/slider/slider-1_temp.png', alt='', title='#slider-direction-1')
+        img(src='img/slider/slider-2_temp.png', alt='', title='#slider-direction-2')
+      // direction 1
+      #slider-direction-1.t-cn.slider-direction
+        .slider-content.slider-text-1
+          .wow.bounceInDown(data-wow-duration='3s', data-wow-delay='0.3s')
+            h1.title1 new arrivals
+        .slider-content.slider-text-2
+          .wow.bounceInLeft(data-wow-duration='3s', data-wow-delay='1s')
+            p discover our newest games
+        .slider-content.slider-text-3
+          .wow.bounceInUp(data-wow-duration='3s', data-wow-delay='1s')
+            a.slider_button(href='') Shop Now 
+      // direction 2
+      #slider-direction-2.slider-direction
+        .slider-content.slider-text-1
+          .wow.bounceInDown(data-wow-duration='2s', data-wow-delay='0.3s')
+            h1.title1 new arrivals
+        .slider-content.slider-text-2
+          .wow.bounceInRight(data-wow-duration='3s', data-wow-delay='1s')
+            p discover our newest games
+        .slider-content.slider-text-3
+          .wow.bounceInUp(data-wow-duration='3s', data-wow-delay='1s')
+            a.slider_button(href='#') Shop Now 
+  // slider end
+  // slider bottom start
+  .slider_bottom_area
+    .container
+      .row
+        .col-lg-4.col-md-4.col-sm-12
+          .single_slider_bottom
+            a(href='')
+              img(src='img/slider_bottom/image-2018-09-17 (4).jpg', alt='')
+            .slider_bottom_text
               a(href='')
-                img(src='img/slider_bottom/image-2018-09-17 (4).jpg', alt='')
-              .slider_bottom_text
-                a(href='')
-                  h3 BOARD GAMES
-          .col-lg-4.col-md-4.col-sm-12
-            .single_slider_bottom
+                h3 BOARD GAMES
+        .col-lg-4.col-md-4.col-sm-12
+          .single_slider_bottom
+            a(href='')
+              img(src='img/slider_bottom/slider_bottom_2_temp.jpg', alt='')
+            .slider_bottom_text
               a(href='')
-                img(src='img/slider_bottom/slider_bottom_2_temp.jpg', alt='')
-              .slider_bottom_text
-                a(href='')
-                  h3 CARD GAMES
-          .col-lg-4.col-md-4.col-sm-12
-            .single_slider_bottom
+                h3 CARD GAMES
+        .col-lg-4.col-md-4.col-sm-12
+          .single_slider_bottom
+            a(href='')
+              img(src='img/slider_bottom/slider_bottom_3_temp.jpg', alt='')
+            .slider_bottom_text
               a(href='')
-                img(src='img/slider_bottom/slider_bottom_3_temp.jpg', alt='')
-              .slider_bottom_text
-                a(href='')
-                  h3 GAME ACCESS
-    // bottom end
-    // trending start
-    section.trending
-      .container
+                h3 GAME ACCESS
+  // bottom end
+  // trending start
+  section.trending
+    .container
+      .row
+        .col
+          .section_title.text-center
+            h2 Trending Games
+            img(src='img/section_title.png', alt='')
+      .trend_tab
         .row
           .col
-            .section_title.text-center
-              h2 Trending Games
-              img(src='img/section_title.png', alt='')
-        .trend_tab
-          .row
-            .col
-              .trend_menu.text-center
-                ul.nav.justify-content-center(role='tablist')
-                  li.active(role='presentation')
-                    a.active(href='#arrival', aria-controls='arrival', role='tab', data-toggle='tab') strategy
-                  li(role='presentation')
-                    a(href='#men', aria-controls='men', role='tab', data-toggle='tab') party
-                  li(role='presentation')
-                    a(href='#women', aria-controls='women', role='tab', data-toggle='tab') thematic
-                  li(role='presentation')
-                    a(href='#accessories', aria-controls='accessories', role='tab', data-toggle='tab') family
-                  li(role='presentation')
-                    a(href='#bag', aria-controls='bag', role='tab', data-toggle='tab') children
-          .trend_content.tab-content
-            #arrival.tab-pane.active.trend_item(role='tabpanel')
-              .row
-                .trend_item_slider
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='')
-                            img.primary_image(src='img/trend/trend_stra1.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_stra1.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Century: Golem Edition
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_stra2.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_stra2.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Anachrony
-                          h4 ฿120.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_stra3.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_stra3.jpg', alt='')
-                            span.purple HOT
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Rising Sun
-                          h4 ฿190.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_stra4.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_stra4.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Spirit Island
-                          h4 ฿310.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_stra5.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_stra5.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Unearth
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_stra6.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_stra6.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Abyss
-                          h4 ฿120.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_stra7.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_stra7.jpg', alt='')
-                            span.purple HOT
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Mechs vs. Minions
-                          h4 ฿190.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_stra8.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_stra8.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Too Many Bones
-                          h4 ฿310.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-            #men.tab-pane.trend_item(role='tabpanel')
-              .row
-                .trend_item_slider
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_par1.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_par1.jpg', alt='')
-                            span.purple HOT
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Codenames
-                          h4 ฿190.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_par2.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_par2.jpg', alt='')
-                            span.purple HOT
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Ultimate Werewolf: Deluxe Edition
-                          h4 ฿190.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_par3.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_par3.jpg', alt='')
-                            span.purple HOT
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 The Mind
-                          h4 ฿190.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_par4.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_par4.jpg', alt='')
-                            span.purple HOT
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 CS Files แฟ้มคดีปริศนา
-                          h4 ฿190.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_par5.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_par5.jpg', alt='')
-                            span.purple HOT
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Two Rooms and a Boom
-                          h4 ฿190.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_par6.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_par6.jpg', alt='')
-                            span.purple HOT
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Exploding Kittens
-                          h4 ฿190.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_par7.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_par7.jpg', alt='')
-                            span.purple HOT
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Spyfall 2
-                          h4 ฿190.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_par8.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_par8.jpg', alt='')
-                            span.purple HOT
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 When I dream นักท่องฝัน
-                          h4 ฿190.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-            #women.tab-pane.trend_item(role='tabpanel')
-              .row
-                .trend_item_slider
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_the1.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_the1.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 The 7th Continent
-                          h4 ฿310.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_the2.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_the2.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Gloomhaven
-                          h4 ฿310.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_the3.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_the3.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 This War Of Mine: The Board Game
-                          h4 ฿310.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_the4.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_the4.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Near and Far
-                          h4 ฿310.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_the5.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_the5.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Stuffed Fables
-                          h4 ฿310.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compage')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_the6.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_the6.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Zombicide: Black Plague
-                          h4 ฿310.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_the7.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_the7.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 T.I.M.E Stories
-                          h4 ฿310.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_the8.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_the8.jpg', alt='')
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Once Upon A Time
-                          h4 ฿310.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-            #accessories.tab-pane.trend_item(role='tabpanel')
-              .row
-                .trend_item_slider
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_fam1.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_fam1.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Santorini
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_fam2.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_fam2.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Grimm Forest
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_fam3.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_fam3.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Dice Forge
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_fam4.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_fam4.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Machi Koro
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_fam5.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_fam5.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Tokaido
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_fam6.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_fam6.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Potion Explosion
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_fam7.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_fam7.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Bunny Kingdom
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_fam8.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_fam8.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Photosynthesis
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-            #bag.tab-pane.trend_item(role='tabpanel')
-              .row
-                .trend_item_slider
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_chi1.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_chi1.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Croak!
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_chi2.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_chi2.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Gangsi โปเย โปโลเย
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_chi3.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_chi3.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Gloobz
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_chi4.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_chi4.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 My Little Scythe
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_chi5.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_chi5.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Spooky Stairs
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_chi6.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_chi6.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 ICECOOL
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_chi7.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_chi7.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Outfoxed!
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_chi8.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_chi8.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Leo
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-                  .col-12
-                    .single_trend
-                      .single_trend_item
-                        .single_trend_img
-                          a(href='#')
-                            img.primary_image(src='img/trend/trend_chi9.jpg', alt='')
-                            img.secondary_image(src='img/trend/trend_chi9.jpg', alt='')
-                            span.blue -15%
-                        .single_trend_label.text-center
-                          a(href='#')
-                            h3 Schüttel's
-                          h4
-                            | ฿190.00 
-                            del ฿260.00
-                        .wish_icon_hover.text-center
-                          ul
-                            li.active
-                              a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                img(src='img/trend/shopping_cart.png', alt='cart')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Like it!')
-                                img(src='img/trend/heart.png', alt='')
-                            li
-                              a(href='#', data-toggle='tooltip', title='Compare')
-                                i.fa.fa-bar-chart
-                            li
-                              a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                img(src='img/trend/eye.png', alt='')
-    // trending end
-    // featured start
-    section.featured_area
-      .container
-        .row
+            .trend_menu.text-center
+              ul.nav.justify-content-center(role='tablist')
+                li.active(role='presentation')
+                  a.active(href='#arrival', aria-controls='arrival', role='tab', data-toggle='tab') strategy
+                li(role='presentation')
+                  a(href='#men', aria-controls='men', role='tab', data-toggle='tab') party
+                li(role='presentation')
+                  a(href='#women', aria-controls='women', role='tab', data-toggle='tab') thematic
+                li(role='presentation')
+                  a(href='#accessories', aria-controls='accessories', role='tab', data-toggle='tab') family
+                li(role='presentation')
+                  a(href='#bag', aria-controls='bag', role='tab', data-toggle='tab') children
+        .trend_content.tab-content
+          #arrival.tab-pane.active.trend_item(role='tabpanel')
+            .row
+              .trend_item_slider
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='')
+                          img.primary_image(src='img/trend/trend_stra1.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_stra1.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Century: Golem Edition
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_stra2.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_stra2.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Anachrony
+                        h4 ฿120.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_stra3.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_stra3.jpg', alt='')
+                          span.purple HOT
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Rising Sun
+                        h4 ฿190.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_stra4.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_stra4.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Spirit Island
+                        h4 ฿310.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_stra5.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_stra5.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Unearth
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_stra6.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_stra6.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Abyss
+                        h4 ฿120.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_stra7.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_stra7.jpg', alt='')
+                          span.purple HOT
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Mechs vs. Minions
+                        h4 ฿190.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_stra8.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_stra8.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Too Many Bones
+                        h4 ฿310.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+          #men.tab-pane.trend_item(role='tabpanel')
+            .row
+              .trend_item_slider
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_par1.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_par1.jpg', alt='')
+                          span.purple HOT
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Codenames
+                        h4 ฿190.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_par2.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_par2.jpg', alt='')
+                          span.purple HOT
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Ultimate Werewolf: Deluxe Edition
+                        h4 ฿190.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_par3.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_par3.jpg', alt='')
+                          span.purple HOT
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 The Mind
+                        h4 ฿190.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_par4.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_par4.jpg', alt='')
+                          span.purple HOT
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 CS Files แฟ้มคดีปริศนา
+                        h4 ฿190.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_par5.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_par5.jpg', alt='')
+                          span.purple HOT
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Two Rooms and a Boom
+                        h4 ฿190.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_par6.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_par6.jpg', alt='')
+                          span.purple HOT
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Exploding Kittens
+                        h4 ฿190.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_par7.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_par7.jpg', alt='')
+                          span.purple HOT
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Spyfall 2
+                        h4 ฿190.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_par8.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_par8.jpg', alt='')
+                          span.purple HOT
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 When I dream นักท่องฝัน
+                        h4 ฿190.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+          #women.tab-pane.trend_item(role='tabpanel')
+            .row
+              .trend_item_slider
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_the1.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_the1.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 The 7th Continent
+                        h4 ฿310.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_the2.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_the2.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Gloomhaven
+                        h4 ฿310.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_the3.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_the3.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 This War Of Mine: The Board Game
+                        h4 ฿310.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_the4.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_the4.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Near and Far
+                        h4 ฿310.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_the5.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_the5.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Stuffed Fables
+                        h4 ฿310.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_the6.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_the6.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Zombicide: Black Plague
+                        h4 ฿310.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_the7.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_the7.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 T.I.M.E Stories
+                        h4 ฿310.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_the8.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_the8.jpg', alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Once Upon A Time
+                        h4 ฿310.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+          #accessories.tab-pane.trend_item(role='tabpanel')
+            .row
+              .trend_item_slider
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_fam1.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_fam1.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Santorini
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_fam2.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_fam2.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Grimm Forest
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_fam3.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_fam3.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Dice Forge
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_fam4.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_fam4.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Machi Koro
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_fam5.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_fam5.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Tokaido
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_fam6.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_fam6.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Potion Explosion
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_fam7.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_fam7.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Bunny Kingdom
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_fam8.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_fam8.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Photosynthesis
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+          #bag.tab-pane.trend_item(role='tabpanel')
+            .row
+              .trend_item_slider
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_chi1.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_chi1.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Croak!
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_chi2.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_chi2.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Gangsi โปเย โปโลเย
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_chi3.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_chi3.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Gloobz
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_chi4.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_chi4.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 My Little Scythe
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_chi5.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_chi5.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Spooky Stairs
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_chi6.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_chi6.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 ICECOOL
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_chi7.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_chi7.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Outfoxed!
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_chi8.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_chi8.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Leo
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='#')
+                          img.primary_image(src='img/trend/trend_chi9.jpg', alt='')
+                          img.secondary_image(src='img/trend/trend_chi9.jpg', alt='')
+                          span.blue -15%
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 Schüttel's
+                        h4
+                          | ฿190.00 
+                          del ฿260.00
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compare')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='img/trend/eye.png', alt='')
+  // trending end
+  // featured start
+  section.featured_area
+    .container
+      .row
+        .col-12
+          .section_title.text-center
+            h2 FEATURED GAMES
+            img(src='img/section_title.png', alt='')
+      .row
+        .featured_owl_wrapper
           .col-12
-            .section_title.text-center
-              h2 FEATURED GAMES
-              img(src='img/section_title.png', alt='')
-        .row
-          .featured_owl_wrapper
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='#')
-                      img.primary_image(src='img/trend/trend_stra1.jpg', alt='')
-                      img.secondary_image(src='img/trend/trend_stra1.jpg', alt='')
-                  .single_trend_label.text-center
-                    a(href='#')
-                      h3 1
-                    h4 ฿190.00
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                          img(src='img/trend/shopping_cart.png', alt='cart')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='img/trend/heart.png', alt='')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Compare')
-                          i.fa.fa-bar-chart
-                      li
-                        a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                          img(src='img/trend/eye.png', alt='')
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='#')
-                      img.primary_image(src='img/trend/trend_stra3.jpg', alt='')
-                      img.secondary_image(src='img/trend/trend_stra3.jpg', alt='')
-                  .single_trend_label.text-center
-                    a(href='#')
-                      h3 2
-                    h4 ฿190.00
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                          img(src='img/trend/shopping_cart.png', alt='cart')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='img/trend/heart.png', alt='')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Compare')
-                          i.fa.fa-bar-chart
-                      li
-                        a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                          img(src='img/trend/eye.png', alt='')
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='#')
-                      img.primary_image(src='img/trend/trend_stra5.jpg', alt='')
-                      img.secondary_image(src='img/trend/trend_stra5.jpg', alt='')
-                  .single_trend_label.text-center
-                    a(href='#')
-                      h3 3
-                    h4 ฿190.00
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                          img(src='img/trend/shopping_cart.png', alt='cart')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='img/trend/heart.png', alt='')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Compare')
-                          i.fa.fa-bar-chart
-                      li
-                        a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                          img(src='img/trend/eye.png', alt='')
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='#')
-                      img.primary_image(src='img/trend/trend_par6.jpg', alt='')
-                      img.secondary_image(src='img/trend/trend_par6.jpg', alt='')
-                  .single_trend_label.text-center
-                    a(href='#')
-                      h3 4
-                    h4 ฿190.00
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                          img(src='img/trend/shopping_cart.png', alt='cart')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='img/trend/heart.png', alt='')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Compare')
-                          i.fa.fa-bar-chart
-                      li
-                        a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                          img(src='img/trend/eye.png', alt='')
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='#')
-                      img.primary_image(src='img/trend/trend_par8.jpg', alt='')
-                      img.secondary_image(src='img/trend/trend_par8.jpg', alt='')
-                  .single_trend_label.text-center
-                    a(href='#')
-                      h3 5
-                    h4 ฿190.00
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                          img(src='img/trend/shopping_cart.png', alt='cart')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='img/trend/heart.png', alt='')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Compare')
-                          i.fa.fa-bar-chart
-                      li
-                        a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                          img(src='img/trend/eye.png', alt='')
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='#')
-                      img.primary_image(src='img/trend/trend_the2.jpg', alt='')
-                      img.secondary_image(src='img/trend/trend_the2.jpg', alt='')
-                  .single_trend_label.text-center
-                    a(href='#')
-                      h3 6
-                    h4 ฿190.00
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                          img(src='img/trend/shopping_cart.png', alt='cart')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='img/trend/heart.png', alt='')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Compare')
-                          i.fa.fa-bar-chart
-                      li
-                        a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                          img(src='img/trend/eye.png', alt='')
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='#')
-                      img.primary_image(src='img/trend/trend_the7.jpg', alt='')
-                      img.secondary_image(src='img/trend/trend_the7.jpg', alt='')
-                  .single_trend_label.text-center
-                    a(href='#')
-                      h3 7
-                    h4 ฿190.00
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                          img(src='img/trend/shopping_cart.png', alt='cart')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='img/trend/heart.png', alt='')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Compare')
-                          i.fa.fa-bar-chart
-                      li
-                        a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                          img(src='img/trend/eye.png', alt='')
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='#')
-                      img.primary_image(src='img/trend/trend_fam4.jpg', alt='')
-                      img.secondary_image(src='img/trend/trend_fam4.jpg', alt='')
-                  .single_trend_label.text-center
-                    a(href='#')
-                      h3 8
-                    h4 ฿190.00
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                          img(src='img/trend/shopping_cart.png', alt='cart')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='img/trend/heart.png', alt='')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Compare')
-                          i.fa.fa-bar-chart
-                      li
-                        a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                          img(src='img/trend/eye.png', alt='')
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='#')
-                      img.primary_image(src='img/trend/trend_fam5.jpg', alt='')
-                      img.secondary_image(src='img/trend/trend_fam5.jpg', alt='')
-                  .single_trend_label.text-center
-                    a(href='#')
-                      h3 9
-                    h4 ฿190.00
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                          img(src='img/trend/shopping_cart.png', alt='cart')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='img/trend/heart.png', alt='')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Compare')
-                          i.fa.fa-bar-chart
-                      li
-                        a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                          img(src='img/trend/eye.png', alt='')
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='#')
-                      img.primary_image(src='img/trend/trend_chi9.jpg', alt='')
-                      img.secondary_image(src='img/trend/trend_chi9.jpg', alt='')
-                  .single_trend_label.text-center
-                    a(href='#')
-                      h3 10
-                    h4 ฿190.00
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                          img(src='img/trend/shopping_cart.png', alt='cart')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='img/trend/heart.png', alt='')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Compare')
-                          i.fa.fa-bar-chart
-                      li
-                        a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                          img(src='img/trend/eye.png', alt='')
-    // featured end
-    // footer start
-    footer.footer_area
-    // footer end
-    // QUICKVIEW PRODUCT
-    #quickview-wrapper
-      // Modal
-      #productModal.modal.fade(tabindex='-1', role='dialog')
-        .modal-dialog(role='document')
-          .modal-content
-            .modal-header
-              button.close(type='button', data-dismiss='modal', aria-label='Close')
-                span(aria-hidden='true') ×
-            .modal-body
-              .modal-product
-                .product-images
-                  .main-image.images
-                    img(alt='', src='img/13.jpg')
-                // .product-images
-                .product-info
-                  h1 Testtesttest
-                  .price-box
-                    p.price
-                      span.special-price
-                        span.amount ฿132.00
-                  a.see-all(href='') See all features
-                  .quick-add-to-cart
-                    form.cart(method='post')
-                      .numbers-row
-                        input#french-hens(type='number', value='3')
-                      button.single_add_to_cart_button(type='submit') Add to cart
-                  .quick-desc
-                    | kkkkkkk kkkkk, sggfdgsbdbxhdhhhdz.
-                  .social-sharing
-                    .widget.widget_socialsharing_widget
-                      h3.widget-title-modal Share this product
-                      ul.social-icons
-                        li
-                          a.facebook.social-icon(target='_blank', title='Facebook', href='#')
-                            i.fa.fa-facebook
-                        li
-                          a.twitter.social-icon(target='_blank', title='Twitter', href='#')
-                            i.fa.fa-twitter
-                        li
-                          a.pinterest.social-icon(target='_blank', title='Pinterest', href='#')
-                            i.fa.fa-pinterest
-                        li
-                          a.gplus.social-icon(target='_blank', title='Google +', href='#')
-                            i.fa.fa-google-plus
-                        li
-                          a.linkedin.social-icon(target='_blank', title='LinkedIn', href='#')
-                            i.fa.fa-linkedin
-                // .product-info
-                // .modal-product
-                // .modal-body
-                // .modal-content
-                // .modal-dialog
-                // END Modal
-                // END QUICKVIEW PRODUCT
-                // JS
-                //
-                  jquery-1.11.3.min js
-                  ============================================
-                script(src='js/vendor/jquery-1.12.4.min.js')
-                //
-                  bootstrap js
-                  ============================================
-                script(src='js/popper.min.js')
-                script(src='js/bootstrap.min.js')
-                //
-                  owl.carousel.min js
-                  ============================================
-                script(src='js/owl.carousel.min.js')
-                //
-                  lightbox js
-                  ============================================
-                script(src='js/lightbox.js')
-                //
-                  mixitup js
-                  ============================================
-                script(src='js/jquery.mixitup.js')
-                // Price Slider JS
-                script(src='js/price-slider.js')
-                //
-                  bar filler js
-                  ============================================
-                script(src='js/jquery.barfiller.js')
-                //
-                  Scroll Up js
-                  ============================================
-                script(src='js/jquery.scrollUp.min.js')
-                //
-                  Elevate Zoom js
-                  ============================================
-                script(src='js/jquery.elevatezoom.js')
-                //
-                  Meanmenu js
-                  ============================================
-                script(src='js/meanmenu.js')
-                //
-                  wow js
-                  ============================================
-                script(src='js/wow.js')
-                //
-                  plugins js
-                  ============================================
-                script(src='js/plugins.js')
-                //
-                  Nevo Slider js
-                  ============================================
-                script(src='lib/custom-slider/js/jquery.nivo.slider.js')
-                script(src='lib/custom-slider/home.js')
-                //
-                  main js
-                  ============================================
-                script(src='js/main.js')
-                //
-                  header footer js
-                  ============================================
-                script(src='js/addHeader.js')
-                script(src='js/addFooter.js')
+            .single_trend
+              .single_trend_item
+                .single_trend_img
+                  a(href='#')
+                    img.primary_image(src='img/trend/trend_stra1.jpg', alt='')
+                    img.secondary_image(src='img/trend/trend_stra1.jpg', alt='')
+                .single_trend_label.text-center
+                  a(href='#')
+                    h3 1
+                  h4 ฿190.00
+                .wish_icon_hover.text-center
+                  ul
+                    li.active
+                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                        img(src='img/trend/shopping_cart.png', alt='cart')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Like it!')
+                        img(src='img/trend/heart.png', alt='')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Compare')
+                        i.fa.fa-bar-chart
+                    li
+                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        img(src='img/trend/eye.png', alt='')
+          .col-12
+            .single_trend
+              .single_trend_item
+                .single_trend_img
+                  a(href='#')
+                    img.primary_image(src='img/trend/trend_stra3.jpg', alt='')
+                    img.secondary_image(src='img/trend/trend_stra3.jpg', alt='')
+                .single_trend_label.text-center
+                  a(href='#')
+                    h3 2
+                  h4 ฿190.00
+                .wish_icon_hover.text-center
+                  ul
+                    li.active
+                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                        img(src='img/trend/shopping_cart.png', alt='cart')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Like it!')
+                        img(src='img/trend/heart.png', alt='')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Compare')
+                        i.fa.fa-bar-chart
+                    li
+                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        img(src='img/trend/eye.png', alt='')
+          .col-12
+            .single_trend
+              .single_trend_item
+                .single_trend_img
+                  a(href='#')
+                    img.primary_image(src='img/trend/trend_stra5.jpg', alt='')
+                    img.secondary_image(src='img/trend/trend_stra5.jpg', alt='')
+                .single_trend_label.text-center
+                  a(href='#')
+                    h3 3
+                  h4 ฿190.00
+                .wish_icon_hover.text-center
+                  ul
+                    li.active
+                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                        img(src='img/trend/shopping_cart.png', alt='cart')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Like it!')
+                        img(src='img/trend/heart.png', alt='')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Compare')
+                        i.fa.fa-bar-chart
+                    li
+                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        img(src='img/trend/eye.png', alt='')
+          .col-12
+            .single_trend
+              .single_trend_item
+                .single_trend_img
+                  a(href='#')
+                    img.primary_image(src='img/trend/trend_par6.jpg', alt='')
+                    img.secondary_image(src='img/trend/trend_par6.jpg', alt='')
+                .single_trend_label.text-center
+                  a(href='#')
+                    h3 4
+                  h4 ฿190.00
+                .wish_icon_hover.text-center
+                  ul
+                    li.active
+                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                        img(src='img/trend/shopping_cart.png', alt='cart')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Like it!')
+                        img(src='img/trend/heart.png', alt='')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Compare')
+                        i.fa.fa-bar-chart
+                    li
+                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        img(src='img/trend/eye.png', alt='')
+          .col-12
+            .single_trend
+              .single_trend_item
+                .single_trend_img
+                  a(href='#')
+                    img.primary_image(src='img/trend/trend_par8.jpg', alt='')
+                    img.secondary_image(src='img/trend/trend_par8.jpg', alt='')
+                .single_trend_label.text-center
+                  a(href='#')
+                    h3 5
+                  h4 ฿190.00
+                .wish_icon_hover.text-center
+                  ul
+                    li.active
+                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                        img(src='img/trend/shopping_cart.png', alt='cart')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Like it!')
+                        img(src='img/trend/heart.png', alt='')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Compare')
+                        i.fa.fa-bar-chart
+                    li
+                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        img(src='img/trend/eye.png', alt='')
+          .col-12
+            .single_trend
+              .single_trend_item
+                .single_trend_img
+                  a(href='#')
+                    img.primary_image(src='img/trend/trend_the2.jpg', alt='')
+                    img.secondary_image(src='img/trend/trend_the2.jpg', alt='')
+                .single_trend_label.text-center
+                  a(href='#')
+                    h3 6
+                  h4 ฿190.00
+                .wish_icon_hover.text-center
+                  ul
+                    li.active
+                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                        img(src='img/trend/shopping_cart.png', alt='cart')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Like it!')
+                        img(src='img/trend/heart.png', alt='')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Compare')
+                        i.fa.fa-bar-chart
+                    li
+                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        img(src='img/trend/eye.png', alt='')
+          .col-12
+            .single_trend
+              .single_trend_item
+                .single_trend_img
+                  a(href='#')
+                    img.primary_image(src='img/trend/trend_the7.jpg', alt='')
+                    img.secondary_image(src='img/trend/trend_the7.jpg', alt='')
+                .single_trend_label.text-center
+                  a(href='#')
+                    h3 7
+                  h4 ฿190.00
+                .wish_icon_hover.text-center
+                  ul
+                    li.active
+                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                        img(src='img/trend/shopping_cart.png', alt='cart')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Like it!')
+                        img(src='img/trend/heart.png', alt='')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Compare')
+                        i.fa.fa-bar-chart
+                    li
+                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        img(src='img/trend/eye.png', alt='')
+          .col-12
+            .single_trend
+              .single_trend_item
+                .single_trend_img
+                  a(href='#')
+                    img.primary_image(src='img/trend/trend_fam4.jpg', alt='')
+                    img.secondary_image(src='img/trend/trend_fam4.jpg', alt='')
+                .single_trend_label.text-center
+                  a(href='#')
+                    h3 8
+                  h4 ฿190.00
+                .wish_icon_hover.text-center
+                  ul
+                    li.active
+                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                        img(src='img/trend/shopping_cart.png', alt='cart')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Like it!')
+                        img(src='img/trend/heart.png', alt='')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Compare')
+                        i.fa.fa-bar-chart
+                    li
+                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        img(src='img/trend/eye.png', alt='')
+          .col-12
+            .single_trend
+              .single_trend_item
+                .single_trend_img
+                  a(href='#')
+                    img.primary_image(src='img/trend/trend_fam5.jpg', alt='')
+                    img.secondary_image(src='img/trend/trend_fam5.jpg', alt='')
+                .single_trend_label.text-center
+                  a(href='#')
+                    h3 9
+                  h4 ฿190.00
+                .wish_icon_hover.text-center
+                  ul
+                    li.active
+                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                        img(src='img/trend/shopping_cart.png', alt='cart')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Like it!')
+                        img(src='img/trend/heart.png', alt='')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Compare')
+                        i.fa.fa-bar-chart
+                    li
+                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        img(src='img/trend/eye.png', alt='')
+          .col-12
+            .single_trend
+              .single_trend_item
+                .single_trend_img
+                  a(href='#')
+                    img.primary_image(src='img/trend/trend_chi9.jpg', alt='')
+                    img.secondary_image(src='img/trend/trend_chi9.jpg', alt='')
+                .single_trend_label.text-center
+                  a(href='#')
+                    h3 10
+                  h4 ฿190.00
+                .wish_icon_hover.text-center
+                  ul
+                    li.active
+                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                        img(src='img/trend/shopping_cart.png', alt='cart')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Like it!')
+                        img(src='img/trend/heart.png', alt='')
+                    li
+                      a(href='#', data-toggle='tooltip', title='Compare')
+                        i.fa.fa-bar-chart
+                    li
+                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        img(src='img/trend/eye.png', alt='')
+  // featured end
