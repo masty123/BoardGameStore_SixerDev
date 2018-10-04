@@ -1,20 +1,14 @@
 # BoardGameStore - BackEnd
 
 ## Members
-###### CEO/Leader
-Kaninpat  Tangittisak
+Kaninpat  Tangittisak - CEO/Leader
 
-###### CEO/Leader
-Napong  Dungduangsasitorn
+Napong  Dungduangsasitorn - CEO/Leader
 
-###### Project Manager/Scrum Master
-Poorin  Pichayamongkol 		
+Poorin  Pichayamongkol - Project Manager/Scrum Master
 
-###### Business Owner/Tester
-Phanuwatch  Luangpradit
+Phanuwatch  Luangpradit - Business Owner/Tester
 
-###### Quality Assurance
-Theeruth  Borisuth
+Theeruth  Borisuth - Quality Assurance
 
-###### Developer Leader
-Pappim  Pipatkasira
+Pappim  Pipatkasira - Developer Leader
