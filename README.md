@@ -42,6 +42,7 @@ We wanted to build the high quality website that sells board game that suits cus
 
 ## External links
 - [Front-end Repository](https://github.com/b5710546186/BoardGame_Front)
+- [Back-end Repository](https://github.com/masty123/BoardGameStore_SixerDev)
 - [Software Requirement Specification V0.5](https://docs.google.com/document/d/15uORpSMQMOLxheeGO_BeRdf0TDzQSS8B6L5gH_dw_Pc)
 - [Software Design Specification V0.1](https://docs.google.com/document/d/1MH8gPErxV4UrqGOHIuuLxP7zepIbgInxqoi1_miJjnI)
 - [Iteration 1 presentation slide](https://docs.google.com/presentation/u/2/d/1hqaxZA4v0GSOJgcaLdR1DXWyj6Q9ev2ldwfyTTCyllw)
