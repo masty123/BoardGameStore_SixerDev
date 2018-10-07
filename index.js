@@ -90,6 +90,8 @@ app.get('/', function (req, res) {
 // app.use('/promotion', promotion);
 // app.use('/user', user);
 // app.use('/transaction', transaction);
+let account = require('./routes/account');
+app.use('/account', account);
 
 //set public folder.
 app.use(express.static(path.join(__dirname, 'public')));
