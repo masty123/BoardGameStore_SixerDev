@@ -1,0 +1,76 @@
+extends layout
+
+block content
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 MY WISHLIST
+  // banner end
+  // cart start
+  .cart_area
+    .container
+      .row
+        .col-lg-12.col-md-12.col-sm-12
+          .cart_list.table-responsive
+            table.table_cart.table-bordered
+              thead
+                tr
+                  th.product Item
+                  th.description Description
+                  th.unit_price Unit Price
+                  th.quantity Quantity
+                  th.value Subtotal
+                  th.cart Add to cart
+              tbody
+                tr
+                  td.product_img.single_slider_bottom
+                    a(href='#')
+                      img(src='img/wish1.jpg', alt='cart')
+                  td.product_des
+                    h3 test1
+                  td.u_price ฿135.99
+                  td.p_quantity
+                    .pp_quantity
+                      span  03
+                  td.p_value ฿135.99
+                  td.p_cart
+                    a.add(href='#') Add To Cart
+                    a(href='#')
+                      p EDIT
+                    i.fa.fa-times
+                tr
+                  td.product_img.single_slider_bottom
+                    a(href='#')
+                      img(src='img/wish2.jpg', alt='cart')
+                  td.product_des
+                    h3 test2
+                  td.u_price ฿65.25
+                  td.p_quantity
+                    .pp_quantity
+                      span  01
+                  td.p_value ฿65.25
+                  td.p_cart
+                    a.add(href='#') Add To Cart
+                    a(href='#')
+                      p EDIT
+                    i.fa.fa-times
+                tr
+                  td.product_img.single_slider_bottom
+                    a(href='#')
+                      img(src='img/wish3.png', alt='cart')
+                  td.product_des
+                    h3 test3
+                  td.u_price ฿85.00
+                  td.p_quantity
+                    .pp_quantity
+                      span  01
+                  td.p_value ฿85.00
+                  td.p_cart
+                    a.add(href='#') Add To Cart
+                    a(href='#')
+                      p EDIT
+                    i.fa.fa-times
+  // cart area end
