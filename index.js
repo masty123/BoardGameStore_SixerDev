@@ -81,17 +81,14 @@ app.get('/', function (req, res) {
 });
 
 // Route Files
-//TODO Direct the routes
-// let product = require('./routes/product');
-// let promotion = require('./routes/promotion');
-// let user = require('./routes/user');
-// let transaction = require('./routes/transaction');
-// app.use('/product', product);
-// app.use('/promotion', promotion);
-// app.use('/user', user);
-// app.use('/transaction', transaction);
 let account = require('./routes/account');
 app.use('/account', account);
+let cart = require('./routes/cart');
+app.use('/cart', cart);
+let checkout = require('./routes/checkout');
+app.use('/checkout', checkout);
+let wishlist = require('./routes/wishlist');
+app.use('/wishlist', wishlist);
 
 //set public folder.
 app.use(express.static(path.join(__dirname, 'public')));
