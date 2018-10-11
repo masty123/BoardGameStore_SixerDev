@@ -13,11 +13,13 @@ router.get('/register', function(req, res){
 
 //Register Process
 router.post('/register', function(req,res){
-  const name = req.body.name;
-  const email = req.body.email;
-  const username = req.body.username;
-  const password = req.body.password;
+  const name      = req.body.name;
+  const email     = req.body.email;
+  const username  = req.body.username;
+  const password  = req.body.password;
   const password2 = req.body.password2;
+  const address   = req.body.address;
+  const isAdmin   = false;
 
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
@@ -25,6 +27,8 @@ router.post('/register', function(req,res){
   req.checkBody('username', 'Username is required').notEmpty();
   req.checkBody('password', 'Password is required').notEmpty();
   req.checkBody('password2', 'Confirm Password is not match').equals(password);
+  req.checkBody('address', 'Address is required').notEmpty();
+
   let errors = req.validationErrors();
   if(errors){
     res.render('register',{
@@ -36,7 +40,9 @@ router.post('/register', function(req,res){
       name:     name,
       email:    email,
       username: username,
-      password: password
+      password: password,
+      address:  address,
+      isAdmin:  isAdmin
     });
     bcrypt.genSalt(10, function(err,salt){
       bcrypt.hash(newUser.password, salt, function(err, hash){
