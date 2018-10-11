@@ -21,50 +21,51 @@ block content
               a.facebook(href='#')
                 i.fa.fa-facebook
                 | Sign in with Facebook
-            form(action='#')
+            form(method='POST', action='/account/login')
               p
                 | Email Address
                 span  * 
                 br
-                input(type='text')
+                input(name='email', type='text')
               p
                 | Password
                 span  * 
                 br
-                input(type='text')
-              //
-                <div class="row">
-                <p class="col-sm-6 col-xs-12">
-                <input type="checkbox">Remember Me
-                </p>
-                <p class="col-sm-6 col-xs-12">
-                <a href="#">Forgot your Password?</a>
-                </p>
-                </div>
+                input(name='password', type='password')
+              
+                //- <div class="row">
+                //- <p class="col-sm-6 col-xs-12">
+                //- <input type="checkbox">Remember Me
+                //- </p>
+                //- <p class="col-sm-6 col-xs-12">
+                //- <a href="#">Forgot your Password?</a>
+                //- </p>
+                //- </div>
+                
               input(type='submit', value='LOGIN')
         .col-md-6.col-sm-12
           .register_customer
             h2.register_heading Creat a new account
-            form(action='#')
+            form(method='POST', action='/account/login')
               p
                 | Username
                 span  * 
                 br
-                input(type='text')
+                input(name='username', type='text')
               p
                 | Email
                 span  * 
                 br
-                input(type='text')
+                input(name='email', type='text')
               p
                 | Password
                 span  * 
                 br
-                input(type='text')
+                input(name='password', type='password')
               p
                 | Re-Password
                 span  * 
                 br
-                input(type='text')
+                input(name='password2', type='password')
               input(type='submit', value='REGISTER')
   // register end
