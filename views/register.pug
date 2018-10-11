@@ -20,6 +20,11 @@ block content
             h2.register_heading Creat a new account
             form(method='POST', action='/account/register')
               p
+                | Name
+                span  * 
+                br
+                input(name='name', type='text')
+              p
                 | Username
                 span  * 
                 br

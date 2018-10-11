@@ -143,20 +143,21 @@ html.no-js(lang='zxx')
                     a(href='#')
                       i.fa.fa-bars
                     ul.sub-menu
-                      li
-                        a(href='') Contact
-                      //- li
-                      //-   a(href='/account/login') My Account
-                      li
-                        a(href='/account/login') Login
-                      li
-                        a(href='/account/register') Register
-                      li
-                        a(href='/wishlist') Wishlist
-                      li
-                        a(href='/cart') Shopping Cart
-                      li
-                        a(href='/checkout') Checkout
+                      if user
+                        li
+                          a #{user.name}
+                        li
+                          a(href='/wishlist') Wishlist
+                        li
+                          a(href='/cart') Shopping Cart
+                        li
+                          a(href='/account/logout') Logout
+                      else
+                        
+                        li
+                          a(href='/account/login') Login
+                        li
+                          a(href='/account/register') Register
                   li.header_cart
                     .cart-total
                       ul
@@ -212,6 +213,9 @@ html.no-js(lang='zxx')
                   form#search-form(action='#')
                     input(type='search', placeholder='Search product...', name='s')
                     input.fa.fa-search(type='submit', value='')
+
+
+                  
         // Mobile Menu Area start
         .mobile-menu-area
           .container
