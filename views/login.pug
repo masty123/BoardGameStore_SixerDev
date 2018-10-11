@@ -7,21 +7,17 @@ block content
       .row
         .col-12
           .page_title
-            h2 Login/Register
+            h2 Login
   // banner end
   
   // login start
   .register_area
     .container
       .row
+        .col-md-3.col-sm-12
         .col-md-6.col-sm-12
           .register_customer
             h2.register_heading Registered Customer
-            p You can login with social networks
-            .social_login.clearfix
-              a.facebook(href='#')
-                i.fa.fa-facebook
-                | Sign in with Facebook
             form(method='POST', action='/account/login')
               p
                 | Email Address
