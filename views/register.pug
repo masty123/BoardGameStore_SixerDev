@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 Register
+  // banner end
+  
+  // register start
+  .register_area
+    .container
+      .row
+        .col-md-3.col-sm-12
+        .col-md-6.col-sm-12
+          .register_customer
+            h2.register_heading Creat a new account
+            form(method='POST', action='/account/register')
+              p
+                | Username
+                span  * 
+                br
+                input(name='username', type='text')
+              p
+                | Email
+                span  * 
+                br
+                input(name='email', type='text')
+              p
+                | Password
+                span  * 
+                br
+                input(name='password', type='password')
+              p
+                | Re-Password
+                span  * 
+                br
+                input(name='password2', type='password')
+              input(type='submit', value='REGISTER')
+  // register end

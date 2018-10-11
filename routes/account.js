@@ -6,6 +6,11 @@ const passport = require('passport');
 //Bring in User model
 let User = require('../models/user');
 
+//Register form
+router.get('/register', function(req, res){
+  res.render('register');
+});
+
 //Register Process
 router.post('/register', function(req,res){
   const name = req.body.name;
@@ -13,6 +18,7 @@ router.post('/register', function(req,res){
   const username = req.body.username;
   const password = req.body.password;
   const password2 = req.body.password2;
+
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
@@ -27,8 +33,8 @@ router.post('/register', function(req,res){
   }
   else{
     let newUser = new User({
-      name: name,
-      email: email,
+      name:     name,
+      email:    email,
       username: username,
       password: password
     });
