@@ -23,7 +23,7 @@ let UserSchema = mongoose.Schema({
     },
     history: {
         type: [String],
-        require: true
+        require: false
     },
     isAdmin: {
         type: Boolean,
