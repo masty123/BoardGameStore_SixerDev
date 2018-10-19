@@ -89,6 +89,8 @@ let checkout = require('./routes/checkout');
 app.use('/checkout', checkout);
 let wishlist = require('./routes/wishlist');
 app.use('/wishlist', wishlist);
+let product = require('./routes/product');
+app.use('/product', product)
 
 //set public folder.
 app.use(express.static(path.join(__dirname, 'public')));
