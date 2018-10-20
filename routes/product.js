@@ -5,7 +5,7 @@ const passport = require('passport');
 
 let Product = require('../models/product');
 
-//Login Form
+//Add Product Form
 router.get('/add', function(req, res){
   res.render('admin');
 });
@@ -58,14 +58,14 @@ function ensureAuthenticated(req, res, next){
     if(req.user.isAdmin){
       return next();
     }else{
-      req.flash('danger', 'Please login as admin');
+      req.flash('danger', 'Please login as admin account');
       res.redirect('/account/login');
     }
   }
-    else{
-      req.flash('danger', 'Please login');
-      res.redirect('/account/login');
-    }
+  else{
+    req.flash('danger', 'Please login');
+    res.redirect('/account/login');
+  }
 }
 
 module.exports = router;
