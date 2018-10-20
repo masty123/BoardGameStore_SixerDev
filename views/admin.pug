@@ -17,38 +17,43 @@ block content
         .col-md-3.col-sm-12
         .col-md-6.col-sm-12
           .register_customer
-            h2.register_heading Create a new account
-            form(method='POST', action='/account/register')
+            h2.register_heading Admin Area
+            form(method='POST', action='/product/add')
               p
                 | Name
                 span  * 
                 br
                 input(name='name', type='text')
               p
-                | Username
+                | Description
                 span  * 
                 br
-                input(name='username', type='text')
+                input(name='description', type='text')
               p
-                | Email
+                | Player
                 span  * 
                 br
-                input(name='email', type='email')
+                input(name='player', type='number')
                 
               p
-                | Password
+                | Picture
                 span  * 
                 br
-                input(name='password', type='password')
+                input(name='picture', type='text')
               p
-                | Re-Password
+                | Stock
                 span  * 
                 br
-                input(name='password2', type='password')
+                input(name='stock', type='number')
               p
-                | Address
+                | Price
                 span  * 
                 br
-                input(name='address', type='text')
-              input(type='submit', value='REGISTER')
+                input(name='price', type='number')
+              P
+                | Category
+                span  * 
+                br
+                input(name='category', type='text')
+              input(type='submit', value='ADD PRODUCT')
   // register end
