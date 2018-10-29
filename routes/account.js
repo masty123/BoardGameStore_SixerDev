@@ -20,7 +20,7 @@ router.get('/register', function(req, res){
 router.post('/register/secretAdmin3103', function(req,res){
   const name      = req.body.name;
   const email     = req.body.email;
-  const username  = req.body.username;
+  const username  = req.body.username.toLowerCase();
   const password  = req.body.password;
   const password2 = req.body.password2;
   const address   = req.body.address;
@@ -76,7 +76,7 @@ router.post('/register/secretAdmin3103', function(req,res){
 router.post('/register', function(req,res){
   const name      = req.body.name;
   const email     = req.body.email;
-  const username  = req.body.username;
+  const username  = req.body.username.toLowerCase();
   const password  = req.body.password;
   const password2 = req.body.password2;
   const address   = req.body.address;
