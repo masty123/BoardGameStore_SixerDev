@@ -29,7 +29,7 @@ router.post('/add', ensureAuthenticated, function (req, res) {
   req.checkBody('category','Category is required').notEmpty();
   let errors = req.validationErrors();
   if(errors){
-    res.render('add_news')
+    res.render('/')
   }
   else{
     let product = new Product({

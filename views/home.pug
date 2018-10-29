@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
   // slider start
   .slider-wrap
     .bend.niceties.preview-1
