@@ -1,6 +1,5 @@
 # BoardGameStore - BackEnd
-###### Done iteration 1
-###### Currently at iteration 2
+###### Done iteration 1 > Currently at iteration 2
 
 ## Members
 **Kaninpat  Tangittisak** - CEO/Leader
