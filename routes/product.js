@@ -18,6 +18,7 @@ router.post('/add', ensureAuthenticated, function (req, res) {
   const stock       = req.body.stock;
   const price       = req.body.price;
   const category    = req.body.category;
+  const admin       = req.user._id;
 
   req.checkBody('name','Name is required').notEmpty();
   req.checkBody('description','Description is required').notEmpty();
@@ -32,13 +33,14 @@ router.post('/add', ensureAuthenticated, function (req, res) {
   }
   else{
     let product = new Product({
-      name:     name,
-      description:    description,
-      player: player,
-      picture: picture,
-      stock:  stock,
-      price:  price,
-      category: category
+      name:         name,
+      description:  description,
+      player:       player,
+      picture:      picture,
+      stock:        stock,
+      price:        price,
+      category:     category,
+      admin:        admin
     });
     product.save(function(err){
       if(err){

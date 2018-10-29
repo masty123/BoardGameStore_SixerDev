@@ -28,6 +28,10 @@ let productSchema = mongoose.Schema({
     category: {
       type: String,
       require: true
+    },
+    admin: {
+        type: String,
+        required: true
     }
 });
 

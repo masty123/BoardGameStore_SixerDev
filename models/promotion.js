@@ -35,6 +35,10 @@ let promotionSchema = mongoose.Schema({
     isActive: {
         type: Boolean,
         required: true
+    },
+    admin: {
+        type: String,
+        required: true
     }
 });
 
