@@ -11,13 +11,13 @@ router.get('/add', function(req, res){
 });
 
 router.post('/add', ensureAuthenticated, function (req, res) {
-  const name      = req.body.name;
-  const description     = req.body.description;
-  const player  = req.body.player;
-  const picture  = req.body.picture;
-  const stock = req.body.stock;
-  const price   = req.body.price;
-  const category   = req.body.category;
+  const name        = req.body.name;
+  const description = req.body.description;
+  const player      = req.body.player;
+  const picture     = req.body.picture;
+  const stock       = req.body.stock;
+  const price       = req.body.price;
+  const category    = req.body.category;
 
   req.checkBody('name','Name is required').notEmpty();
   req.checkBody('description','Description is required').notEmpty();
