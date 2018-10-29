@@ -82,167 +82,177 @@ block content
         .trend_content.tab-content
           #arrival.tab-pane.active.trend_item(role='tabpanel')
             .row
-              .trend_item_slider
-                ul.list-group
-                  each products, i in product
-                    li.list-group-item
-                      if products.category='strategy'
-                        .col-12
-                          .single_trend
-                            .single_trend_item
-                              .single_trend_img
-                                a(href='')
-                                  img.primary_image(src='/img/trend/'+ products._id, alt='products.title')
-                                  img.secondary_image(src='/img/trend/'+ products._id, alt='products.title')
-                                  //- span.blue -15%
-                              .single_trend_label.text-center
-                                a(href='#')
-                                  h3 #{products.name}
-                                h4 #{products.price} 
-                                  //- del #{product.price}
-                              .wish_icon_hover.text-center
-                                ul
-                                  li.active
-                                    a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                      img(src='/img/trend/shopping_cart.png', alt='cart')
-                                  li
-                                    a(href='#', data-toggle='tooltip', title='Like it!')
-                                      img(src='/img/trend/heart.png', alt='')
-                                  li
-                                    a(href='#', data-toggle='tooltip', title='Compage')
-                                      i.fa.fa-bar-chart
-                                  li
-                                    a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                      img(src='/img/trend/eye.png', alt='')
+              .trend_item_slider.owl-carousel.owl-theme
+                .owl-wrapper-outer
+                  .owl-wrapper
+                    each product in products
+                      .owl-item              
+                        if product.category.toLowerCase()
+                          = strategy
+                          .col-12
+                            .single_trend
+                              .single_trend_item
+                                .single_trend_img
+                                  a(href='')
+                                    img.primary_image(src='/img/trend/'+ product.picture, alt='products.title')
+                                    img.secondary_image(src='/img/trend/'+ product.picture, alt='products.title')
+                                    //- span.blue -15%
+                                .single_trend_label.text-center
+                                  a(href='#')
+                                    h3 #{product.name}
+                                  h4 #{product.price} 
+                                    //- del #{product.price}
+                                .wish_icon_hover.text-center
+                                  ul
+                                    li.active
+                                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                                        img(src='/img/trend/shopping_cart.png', alt='cart')
+                                    li
+                                      a(href='#', data-toggle='tooltip', title='Like it!')
+                                        img(src='/img/trend/heart.png', alt='')
+                                    li
+                                      a(href='#', data-toggle='tooltip', title='Compage')
+                                        i.fa.fa-bar-chart
+                                    li
+                                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                                        img(src='/img/trend/eye.png', alt='')
           #men.tab-pane.trend_item(role='tabpanel')
             .row
-              .trend_item_slider
-                ul.list-group
-                  each product, i in products 
-                    li.list-group-item
-                      if product.category='party'
-                        .col-12
-                          .single_trend
-                            .single_trend_item
-                              .single_trend_img
-                                a(href='#')
-                                  img.primary_image(src='/img/trend/'+product._id, alt='')
-                                  img.secondary_image(src='/img/trend/'+product._id, alt='')
-                                  span.purple HOT
-                              .single_trend_label.text-center
-                                a(href='#')
-                                  h3 #{product.name}
-                                h4 #{product.price}
-                              .wish_icon_hover.text-center
-                                ul
-                                  li.active
-                                    a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                      img(src='/img/trend/shopping_cart.png', alt='cart')
-                                  li
-                                    a(href='#', data-toggle='tooltip', title='Like it!')
-                                      img(src='/img/trend/heart.png', alt='')
-                                  li
-                                    a(href='#', data-toggle='tooltip', title='Compage')
-                                      i.fa.fa-bar-chart
-                                  li
-                                    a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                      img(src='/img/trend/eye.png', alt='')
+              .trend_item_slider.owl-carousel.owl-theme
+                .owl-wrapper-outer
+                  .owl-wrapper
+                    each product in products
+                      .owl-item              
+                        if product.category.toLowerCase()
+                          = party
+                          .col-12
+                            .single_trend
+                              .single_trend_item
+                                .single_trend_img
+                                  a(href='#')
+                                    img.primary_image(src='/img/trend/'+product.picture, alt='')
+                                    img.secondary_image(src='/img/trend/'+product.picture, alt='')
+                                    span.purple HOT
+                                .single_trend_label.text-center
+                                  a(href='#')
+                                    h3 #{product.name}
+                                  h4 #{product.price}
+                                .wish_icon_hover.text-center
+                                  ul
+                                    li.active
+                                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                                        img(src='/img/trend/shopping_cart.png', alt='cart')
+                                    li
+                                      a(href='#', data-toggle='tooltip', title='Like it!')
+                                        img(src='/img/trend/heart.png', alt='')
+                                    li
+                                      a(href='#', data-toggle='tooltip', title='Compage')
+                                        i.fa.fa-bar-chart
+                                    li
+                                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                                        img(src='/img/trend/eye.png', alt='')
           #women.tab-pane.trend_item(role='tabpanel')
             .row
-              .trend_item_slider
-                ul.list-group
-                  each product, i in products 
-                    li.list-group-item
-                      if product.category='thematic'
-                        .col-12
-                          .single_trend
-                            .single_trend_item
-                              .single_trend_img
-                                a(href='')
-                                  img.primary_image(src='/img/trend/'+ product._id, alt='')
-                                  img.secondary_image(src='/img/trend/'+ product._id, alt='')
-                              .single_trend_label.text-center
-                                a(href='#')
-                                  h3 #{product.name}
-                                h4 #{product.price} 
-                              .wish_icon_hover.text-center
-                                ul
-                                  li.active
-                                    a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                      img(src='/img/trend/shopping_cart.png', alt='cart')
-                                  li
-                                    a(href='#', data-toggle='tooltip', title='Like it!')
-                                      img(src='/img/trend/heart.png', alt='')
-                                  li
-                                    a(href='#', data-toggle='tooltip', title='Compage')
-                                      i.fa.fa-bar-chart
-                                  li
-                                    a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                      img(src='/img/trend/eye.png', alt='')
+              .trend_item_slider.owl-carousel.owl-theme
+                .owl-wrapper-outer
+                  .owl-wrapper
+                    each product in products
+                      .owl-item              
+                        if product.category.toLowerCase()
+                          =thematic
+                          .col-12
+                            .single_trend
+                              .single_trend_item
+                                .single_trend_img
+                                  a(href='')
+                                    img.primary_image(src='/img/trend/'+ product.picture, alt='')
+                                    img.secondary_image(src='/img/trend/'+ product.picture, alt='')
+                                .single_trend_label.text-center
+                                  a(href='#')
+                                    h3 #{product.name}
+                                  h4 #{product.price} 
+                                .wish_icon_hover.text-center
+                                  ul
+                                    li.active
+                                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                                        img(src='/img/trend/shopping_cart.png', alt='cart')
+                                    li
+                                      a(href='#', data-toggle='tooltip', title='Like it!')
+                                        img(src='/img/trend/heart.png', alt='')
+                                    li
+                                      a(href='#', data-toggle='tooltip', title='Compage')
+                                        i.fa.fa-bar-chart
+                                    li
+                                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                                        img(src='/img/trend/eye.png', alt='')
           #accessories.tab-pane.trend_item(role='tabpanel')
             .row
-              .trend_item_slider
-                ul.list-group
-                  each product, i in products 
-                    li.list-group-item
-                      if product.category='family'
-                        .col-12
-                          .single_trend
-                            .single_trend_item
-                              .single_trend_img
-                                a(href='')
-                                  img.primary_image(src='/img/trend/'+ product._id, alt='')
-                                  img.secondary_image(src='/img/trend/'+ product._id, alt='')
-                              .single_trend_label.text-center
-                                a(href='#')
-                                  h3 #{product.name}
-                                h4 #{product.price} 
-                              .wish_icon_hover.text-center
-                                ul
-                                  li.active
-                                    a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                      img(src='/img/trend/shopping_cart.png', alt='cart')
-                                  li
-                                    a(href='#', data-toggle='tooltip', title='Like it!')
-                                      img(src='/img/trend/heart.png', alt='')
-                                  li
-                                    a(href='#', data-toggle='tooltip', title='Compage')
-                                      i.fa.fa-bar-chart
-                                  li
-                                    a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                      img(src='/img/trend/eye.png', alt='')
+              .trend_item_slider.owl-carousel.owl-theme
+                .owl-wrapper-outer
+                  .owl-wrapper
+                    each product in products
+                      .owl-item              
+                        if product.category.toLowerCase()
+                          =family
+                          .col-12
+                            .single_trend
+                              .single_trend_item
+                                .single_trend_img
+                                  a(href='')
+                                    img.primary_image(src='/img/trend/'+ product.picture, alt='')
+                                    img.secondary_image(src='/img/trend/'+ product.picture, alt='')
+                                .single_trend_label.text-center
+                                  a(href='#')
+                                    h3 #{product.name}
+                                  h4 #{product.price} 
+                                .wish_icon_hover.text-center
+                                  ul
+                                    li.active
+                                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                                        img(src='/img/trend/shopping_cart.png', alt='cart')
+                                    li
+                                      a(href='#', data-toggle='tooltip', title='Like it!')
+                                        img(src='/img/trend/heart.png', alt='')
+                                    li
+                                      a(href='#', data-toggle='tooltip', title='Compage')
+                                        i.fa.fa-bar-chart
+                                    li
+                                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                                        img(src='/img/trend/eye.png', alt='')
           #bag.tab-pane.trend_item(role='tabpanel')
             .row
-              .trend_item_slider
-                ul.list-group
-                  each product, i in products 
-                    li.list-group-item
-                      if product.category='children'
-                        .col-12
-                          .single_trend
-                            .single_trend_item
-                              .single_trend_img
-                                a(href='')
-                                  img.primary_image(src='/img/trend/'+ product._id, alt='')
-                                  img.secondary_image(src='/img/trend/'+ product._id, alt='')
-                              .single_trend_label.text-center
-                                a(href='#')
-                                  h3 #{product.name}
-                                h4 #{product.price} 
-                              .wish_icon_hover.text-center
-                                ul
-                                  li.active
-                                    a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                      img(src='/img/trend/shopping_cart.png', alt='cart')
-                                  li
-                                    a(href='#', data-toggle='tooltip', title='Like it!')
-                                      img(src='/img/trend/heart.png', alt='')
-                                  li
-                                    a(href='#', data-toggle='tooltip', title='Compage')
-                                      i.fa.fa-bar-chart
-                                  li
-                                    a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                      img(src='/img/trend/eye.png', alt='')
+              .trend_item_slider.owl-carousel.owl-theme
+                .owl-wrapper-outer
+                  .owl-wrapper
+                    each product in products
+                      .owl-item              
+                        if product.category.toLowerCase()
+                          =children
+                          .col-12
+                            .single_trend
+                              .single_trend_item
+                                .single_trend_img
+                                  a(href='')
+                                    img.primary_image(src='/img/trend/'+ product.picture, alt='')
+                                    img.secondary_image(src='/img/trend/'+ product.picture, alt='')
+                                .single_trend_label.text-center
+                                  a(href='#')
+                                    h3 #{product.name}
+                                  h4 #{product.price} 
+                                .wish_icon_hover.text-center
+                                  ul
+                                    li.active
+                                      a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                                        img(src='/img/trend/shopping_cart.png', alt='cart')
+                                    li
+                                      a(href='#', data-toggle='tooltip', title='Like it!')
+                                        img(src='/img/trend/heart.png', alt='')
+                                    li
+                                      a(href='#', data-toggle='tooltip', title='Compage')
+                                        i.fa.fa-bar-chart
+                                    li
+                                      a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                                        img(src='/img/trend/eye.png', alt='')
   // trending end
   // featured start
   section.featured_area
@@ -254,137 +264,140 @@ block content
             img(src='/img/section_title.png', alt='')
       .row
         .featured_owl_wrapper
-            ul.list-group
-              each product, i in products 
-                li.list-group-item
-                  if product.category='strategy'
-                    .col-12
-                      .single_trend
-                        .single_trend_item
-                          .single_trend_img
-                            a(href='')
-                              img.primary_image(src='/img/trend/'+ product._id, alt='')
-                              img.secondary_image(src='/img/trend/'+ product._id, alt='')
-                          .single_trend_label.text-center
-                            a(href='#')
-                              h3 #{product.name}
-                            h4 #{product.price} 
-                          .wish_icon_hover.text-center
-                            ul
-                              li.active
-                                a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                  img(src='/img/trend/shopping_cart.png', alt='cart')
-                              li
-                                a(href='#', data-toggle='tooltip', title='Like it!')
-                                  img(src='/img/trend/heart.png', alt='')
-                              li
-                                a(href='#', data-toggle='tooltip', title='Compage')
-                                  i.fa.fa-bar-chart
-                              li
-                                a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                  img(src='/img/trend/eye.png', alt='')
-                  else if product.category='party'
-                    .col-12
-                      .single_trend
-                        .single_trend_item
-                          .single_trend_img
-                            a(href='')
-                              img.primary_image(src='/img/trend/'+ product._id, alt='')
-                              img.secondary_image(src='/img/trend/'+ product._id, alt='')
-                          .single_trend_label.text-center
-                            a(href='#')
-                              h3 #{product.name}
-                            h4 #{product.price} 
-                          .wish_icon_hover.text-center
-                            ul
-                              li.active
-                                a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                  img(src='/img/trend/shopping_cart.png', alt='cart')
-                              li
-                                a(href='#', data-toggle='tooltip', title='Like it!')
-                                  img(src='/img/trend/heart.png', alt='')
-                              li
-                                a(href='#', data-toggle='tooltip', title='Compage')
-                                  i.fa.fa-bar-chart
-                              li
-                                a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                  img(src='/img/trend/eye.png', alt='')
-                  else if product.category='thematic'
-                    .col-12
-                      .single_trend
-                        .single_trend_item
-                          .single_trend_img
-                            a(href='')
-                              img.primary_image(src='/img/trend/'+ product._id, alt='')
-                              img.secondary_image(src='/img/trend/'+ product._id, alt='')
-                          .single_trend_label.text-center
-                            a(href='#')
-                              h3 #{product.name}
-                            h4 #{product.price} 
-                          .wish_icon_hover.text-center
-                            ul
-                              li.active
-                                a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                  img(src='/img/trend/shopping_cart.png', alt='cart')
-                              li
-                                a(href='#', data-toggle='tooltip', title='Like it!')
-                                  img(src='/img/trend/heart.png', alt='')
-                              li
-                                a(href='#', data-toggle='tooltip', title='Compage')
-                                  i.fa.fa-bar-chart
-                              li
-                                a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                  img(src='/img/trend/eye.png', alt='')
-                  else if product.category='family'
-                    .col-12
-                      .single_trend
-                        .single_trend_item
-                          .single_trend_img
-                            a(href='')
-                              img.primary_image(src='/img/trend/'+ product._id, alt='')
-                              img.secondary_image(src='/img/trend/'+ product._id, alt='')
-                          .single_trend_label.text-center
-                            a(href='#')
-                              h3 #{product.name}
-                            h4 #{product.price} 
-                          .wish_icon_hover.text-center
-                            ul
-                              li.active
-                                a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                  img(src='/img/trend/shopping_cart.png', alt='cart')
-                              li
-                                a(href='#', data-toggle='tooltip', title='Like it!')
-                                  img(src='/img/trend/heart.png', alt='')
-                              li
-                                a(href='#', data-toggle='tooltip', title='Compage')
-                                  i.fa.fa-bar-chart
-                              li
-                                a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                  img(src='/img/trend/eye.png', alt='')
-                  else if product.category='children'
-                    .col-12
-                      .single_trend
-                        .single_trend_item
-                          .single_trend_img
-                            a(href='')
-                              img.primary_image(src='/img/trend/'+ product._id, alt='')
-                              img.secondary_image(src='/img/trend/'+ product._id, alt='')
-                          .single_trend_label.text-center
-                            a(href='#')
-                              h3 #{product.name}
-                            h4 #{product.price} 
-                          .wish_icon_hover.text-center
-                            ul
-                              li.active
-                                a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                                  img(src='/img/trend/shopping_cart.png', alt='cart')
-                              li
-                                a(href='#', data-toggle='tooltip', title='Like it!')
-                                  img(src='/img/trend/heart.png', alt='')
-                              li
-                                a(href='#', data-toggle='tooltip', title='Compage')
-                                  i.fa.fa-bar-chart
-                              li
-                                a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                                  img(src='/img/trend/eye.png', alt='')
+          each product in products
+            if product.category.toLowerCase()
+              =strategy
+              .col-12
+                .single_trend
+                  .single_trend_item
+                    .single_trend_img
+                      a(href='')
+                        img.primary_image(src='/img/trend/'+ product.picture, alt='')
+                        img.secondary_image(src='/img/trend/'+ product.picture, alt='')
+                    .single_trend_label.text-center
+                      a(href='#')
+                        h3 #{product.name}
+                      h4 #{product.price} 
+                    .wish_icon_hover.text-center
+                      ul
+                        li.active
+                          a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                            img(src='/img/trend/shopping_cart.png', alt='cart')
+                        li
+                          a(href='#', data-toggle='tooltip', title='Like it!')
+                            img(src='/img/trend/heart.png', alt='')
+                        li
+                          a(href='#', data-toggle='tooltip', title='Compage')
+                            i.fa.fa-bar-chart
+                        li
+                          a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                            img(src='/img/trend/eye.png', alt='')
+            else if product.category.toLowerCase()
+                =party
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='')
+                          img.primary_image(src='/img/trend/'+ product.product, alt='')
+                          img.secondary_image(src='/img/trend/'+ product.product, alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 #{product.name}
+                        h4 #{product.price} 
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='/img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='/img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='/img/trend/eye.png', alt='')
+            else if product.category.toLowerCase()
+                =thematic
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='')
+                          img.primary_image(src='/img/trend/'+ product.picture, alt='')
+                          img.secondary_image(src='/img/trend/'+ product.picture, alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 #{product.name}
+                        h4 #{product.price} 
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='/img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='/img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='/img/trend/eye.png', alt='')
+            else if product.category.toLowerCase()
+                =family
+                .col-12
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='')
+                          img.primary_image(src='/img/trend/'+ product.picture, alt='')
+                          img.secondary_image(src='/img/trend/'+ product.picture, alt='')
+                      .single_trend_label.text-center
+                        a(href='#')
+                          h3 #{product.name}
+                        h4 #{product.price} 
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                              img(src='/img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='/img/trend/heart.png', alt='')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Compage')
+                              i.fa.fa-bar-chart
+                          li
+                            a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                              img(src='/img/trend/eye.png', alt='')
+            else if product.category.toLowerCase()
+              =children
+              .col-12
+                .single_trend
+                  .single_trend_item
+                    .single_trend_img
+                      a(href='')
+                        img.primary_image(src='/img/trend/'+ product.product, alt='')
+                        img.secondary_image(src='/img/trend/'+ product.product, alt='')
+                    .single_trend_label.text-center
+                      a(href='#')
+                        h3 #{product.name}
+                      h4 #{product.price} 
+                    .wish_icon_hover.text-center
+                      ul
+                        li.active
+                          a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                            img(src='/img/trend/shopping_cart.png', alt='cart')
+                        li
+                          a(href='#', data-toggle='tooltip', title='Like it!')
+                            img(src='/img/trend/heart.png', alt='')
+                        li
+                          a(href='#', data-toggle='tooltip', title='Compage')
+                            i.fa.fa-bar-chart
+                        li
+                          a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                            img(src='/img/trend/eye.png', alt='')
   // featured end
