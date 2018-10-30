@@ -9,6 +9,7 @@ block content
           .page_title
             h2 Login
   // banner end
+  != messages('message', locals)
   if errors
     div(class='alert alert-danger', style='text-align: center;')
       each error, i in errors

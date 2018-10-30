@@ -2,30 +2,31 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+//const flash = require('req-flash');
 
 //Bring in User model
 let User = require('../models/user');
 
 //Secret register form
-router.get('/register/secretAdmin3103', function(req, res){
+router.get('/register/secretAdmin3103', function(req, res) {
   res.render('register3103');
 });
 
 //Register form
-router.get('/register', function(req, res){
+router.get('/register', function(req, res) {
   res.render('register');
 });
 
 //Register as Admin Process
-router.post('/register/secretAdmin3103', function(req,res){
-  const name      = req.body.name;
-  const email     = req.body.email;
-  const username  = req.body.username.toLowerCase();
-  const password  = req.body.password;
+router.post('/register/secretAdmin3103', function(req, res) {
+  const name = req.body.name;
+  const email = req.body.email;
+  const username = req.body.username.toLowerCase();
+  const password = req.body.password;
   const password2 = req.body.password2;
-  const address   = req.body.address;
-  const secret   = req.body.secret;
-  const isAdmin   = true;
+  const address = req.body.address;
+  const secret = req.body.secret;
+  const isAdmin = true;
 
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
@@ -37,33 +38,31 @@ router.post('/register/secretAdmin3103', function(req,res){
   req.checkBody('secret', 'Secret is required').notEmpty();
 
   let errors = req.validationErrors();
-  if(errors || secret != "This is our admin secret"){
-    res.render('register3103',{
-      errors:errors
+  if (errors || secret != "This is our admin secret") {
+    res.render('register3103', {
+      errors: errors
     });
-  }
-  else{
+  } else {
     let newUser = new User({
-      name:     name,
-      email:    email,
+      name: name,
+      email: email,
       username: username,
       password: password,
-      address:  address,
-      isAdmin:  isAdmin
+      address: address,
+      isAdmin: isAdmin
     });
-    bcrypt.genSalt(10, function(err,salt){
-      bcrypt.hash(newUser.password, salt, function(err, hash){
-        if(err){
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(newUser.password, salt, function(err, hash) {
+        if (err) {
           console.log(err);
         }
         newUser.password = hash;
-        newUser.save(function(err){
-          if(err){
+        newUser.save(function(err) {
+          if (err) {
             console.log(error);
             return;
-          }
-          else{
-            req.flash('success','You are now registered and can be log in with account.');
+          } else {
+            req.flash('success', 'You are now registered and can be log in with account.');
             res.redirect('/account/login');
           }
         })
@@ -73,14 +72,14 @@ router.post('/register/secretAdmin3103', function(req,res){
 });
 
 //Register Process
-router.post('/register', function(req,res){
-  const name      = req.body.name;
-  const email     = req.body.email;
-  const username  = req.body.username.toLowerCase();
-  const password  = req.body.password;
+router.post('/register', function(req, res) {
+  const name = req.body.name;
+  const email = req.body.email;
+  const username = req.body.username.toLowerCase();
+  const password = req.body.password;
   const password2 = req.body.password2;
-  const address   = req.body.address;
-  const isAdmin   = false;
+  const address = req.body.address;
+  const isAdmin = false;
 
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
@@ -91,58 +90,79 @@ router.post('/register', function(req,res){
   req.checkBody('address', 'Address is required').notEmpty();
 
   let errors = req.validationErrors();
-  if(errors){
-    res.render('register',{
-      errors:errors
+  if (errors) {
+    res.render('register', {
+      errors: errors
     });
-  }
-  else{
-    let newUser = new User({
-      name:     name,
-      email:    email,
-      username: username,
-      password: password,
-      address:  address,
-      isAdmin:  isAdmin
-    });
-    bcrypt.genSalt(10, function(err,salt){
-      bcrypt.hash(newUser.password, salt, function(err, hash){
-        if(err){
-          console.log(err);
+  } else {
+    let query = {
+      username: username.toLowerCase()
+    };
+    User.findOne(query, function(err, user) {
+        if (err) throw err;
+        if (!user) {
+          let query2 = {
+            email: email
+          };
+          User.findOne(query2, function(err2, user2) {
+            if (err2) throw err2;
+            if (!user2) {
+              let newUser = new User({
+                name: name,
+                email: email,
+                username: username,
+                password: password,
+                address: address,
+                isAdmin: isAdmin
+              });
+              bcrypt.genSalt(10, function(err, salt) {
+                bcrypt.hash(newUser.password, salt, function(err, hash) {
+                  if (err) {
+                    console.log(err);
+                  }
+                  newUser.password = hash;
+                  newUser.save(function(err) {
+                    if (err) {
+                      console.log(err);
+                      return;
+                    } else {
+                      req.flash('success', 'You are now registered and can be log in with account.');
+                      res.redirect('/account/login');
+                    }
+                  })
+                });
+              });
+            } else {
+              req.flash('danger', 'Email already exist.');
+              res.redirect('/account/register');
+            }
+          })
+        } else {
+          req.flash('danger', 'Username already exist.');
+          res.redirect('/account/register');
         }
-        newUser.password = hash;
-        newUser.save(function(err){
-          if(err){
-            console.log(error);
-            return;
-          }
-          else{
-            req.flash('success','You are now registered and can be log in with account.');
-            res.redirect('/account/login');
-          }
-        })
-      });
     });
-  }
+}
 });
 
 //Login Form
-router.get('/login', function(req, res){
+router.get('/login', function(req, res) {
   res.render('login');
 });
 
 //Login Process
-router.post('/login', function(req, res, next){
+router.post('/login', function(req, res, next) {
   passport.authenticate('local', {
-    successRedirect:'/',
-    failureRedirect:'/account/login',
+    successRedirect: '/',
+    failureRedirect: '/account/login',
+    failureFlash: true
   })(req, res, next);
 });
 
 //Logout
-router.get('/logout', function(req, res){
+router.get('/logout', function(req, res) {
   req.logout();
-  req.flash('success','You are logged out');
+  req.flash('success', 'You are logged out');
   res.redirect('/account/login');
 });
 
