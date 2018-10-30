@@ -28,6 +28,7 @@ db.once('open', function(){console.log('connected to MongoDB.')});
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -79,7 +80,16 @@ app.get('*', function(req, res, next){
 
 //Home Route
 app.get('/', function (req, res) {
-  res.render('home');
+  Product.find({}, function(err, products){
+    if(err){
+      console.log(err);
+    } else {
+      res.render('home', {
+        title: 'Home',
+        products: products
+      });
+    }
+  });
 });
 
 // Route Files
