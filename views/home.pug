@@ -70,17 +70,17 @@ block content
             .trend_menu.text-center
               ul.nav.justify-content-center(role='tablist')
                 li.active(role='presentation')
-                  a.active(href='#arrival', aria-controls='arrival', role='tab', data-toggle='tab') strategy
+                  a.active(href='#strategy', aria-controls='arrival', role='tab', data-toggle='tab') strategy
                 li(role='presentation')
-                  a(href='#men', aria-controls='men', role='tab', data-toggle='tab') party
+                  a(href='#party', aria-controls='men', role='tab', data-toggle='tab') party
                 li(role='presentation')
-                  a(href='#women', aria-controls='women', role='tab', data-toggle='tab') thematic
+                  a(href='#thematic', aria-controls='women', role='tab', data-toggle='tab') thematic
                 li(role='presentation')
-                  a(href='#accessories', aria-controls='accessories', role='tab', data-toggle='tab') family
+                  a(href='#family', aria-controls='accessories', role='tab', data-toggle='tab') family
                 li(role='presentation')
-                  a(href='#bag', aria-controls='bag', role='tab', data-toggle='tab') children
+                  a(href='#children', aria-controls='bag', role='tab', data-toggle='tab') children
         .trend_content.tab-content
-          #arrival.tab-pane.active.trend_item(role='tabpanel')
+          #strategy.tab-pane.active.trend_item(role='tabpanel')
             .row
               .trend_item_slider
                 each product in products      
@@ -112,7 +112,7 @@ block content
                               li
                                 a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
                                   img(src='/img/trend/eye.png', alt='')
-          #men.tab-pane.trend_item(role='tabpanel')
+          #party.tab-pane.trend_item(role='tabpanel')
             .row
               .trend_item_slider
                 each product in products
@@ -143,7 +143,7 @@ block content
                               li
                                 a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
                                   img(src='/img/trend/eye.png', alt='')
-          #women.tab-pane.trend_item(role='tabpanel')
+          #thematic.tab-pane.trend_item(role='tabpanel')
             .row
               .trend_item_slider
                 each product in products              
@@ -173,7 +173,7 @@ block content
                               li
                                 a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
                                   img(src='/img/trend/eye.png', alt='')
-          #accessories.tab-pane.trend_item(role='tabpanel')
+          #family.tab-pane.trend_item(role='tabpanel')
             .row
               .trend_item_slider
                 each product in products
@@ -203,7 +203,7 @@ block content
                               li
                                 a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
                                   img(src='/img/trend/eye.png', alt='')
-          #bag.tab-pane.trend_item(role='tabpanel')
+          #children.tab-pane.trend_item(role='tabpanel')
             .row
               .trend_item_slider
                 each product in products
