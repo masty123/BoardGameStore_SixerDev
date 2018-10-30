@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 #{product.name}
+  // banner end
+  // Start Product Details area
+  section.product_detail_area
+    .container
+      .row
+        .col-lg-6.col-md-6.col-sm-12
+          .product_img_tab.clearfix
+            .product_main_img.tab-content
+              #one.p_tab_img.active(role='tabpanel')
+                a
+                  img.product_picture(src=product.picture, alt='')
+        .col-lg-6.col-md-6.col-sm-12
+          .product_detail
+            .product_title
+              h2 #{product.name}
+              br
+            p
+              i.fa.fa-check
+              |  IN STOCK #{product.stock}
+            p
+              | PRODUCT CODE: 
+              span #{product._id}
+            h4
+              | ฿#{product.price}
+            p.detail
+              | Players: #{product.player}
+              //- br
+              //- | Playtime: 30+ minutes
+              //- br
+              //- | Ages: 7+
+              //- br
+              //- | Designer: James Napong
+              br
+              | Category: #{product.category}
+            .wish_icon_hover.text-center
+              ul
+                li.active.cart
+                  a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                    img(src='/img/trend/shopping_cart.png', alt='cart')
+                    | ADD TO CART
+                li
+                  a(href='#', data-toggle='tooltip', title='Like it!')
+                    img(src='/img/trend/heart.png', alt='')
+      .row
+        .col-12
+          .product_description_tab
+            .description_tab_menu
+              ul.clearfix.nav(role='tablist')
+                li.active(role='presentation')
+                  a.active(href='#description', aria-controls='description', role='tab', data-toggle='tab') Product Description
+            .tab-content
+              #description.tab-pane.active(role='tabpanel')
+                p #{product.description}
+  // End Product Details area

@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 let Product = require('../models/product');
+let User = require('../models/user');
 
 //Add Product Form
 router.get('/add', function(req, res){
@@ -52,6 +53,18 @@ router.post('/add', ensureAuthenticated, function (req, res) {
       }
     })
   }
+});
+
+//Get product page
+router.get('/:id', function (req, res){
+  Product.findById(req.params.id, function(err, product){
+    User.findById(product.admin, function(err, admin){
+      res.render('product_detail', {
+        product:product,
+        admin:admin.name
+      });
+    });
+  });
 });
 
 //Access control
