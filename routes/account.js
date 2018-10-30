@@ -152,24 +152,6 @@ router.get('/login', function(req, res) {
 
 //Login Process
 router.post('/login', function(req, res, next) {
-  //   const username  = req.body.username.toLowerCase();
-  //   const password  = req.body.password;
-  //
-  //   req.checkBody('username', 'Username is required').notEmpty();
-  //   req.checkBody('password', 'Password is required').notEmpty();
-  //
-  //   let errors = req.validationErrors();
-  //   if(errors){
-  //     res.render('login',{
-  //       errors:errors
-  //     });
-  //     failureRedirect:'/account/login'
-  //   }
-  //   else{
-  //   passport.authenticate('local', {
-  //     successRedirect:'/'
-  //   })(req, res, next);
-  // }
   passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/account/login',
