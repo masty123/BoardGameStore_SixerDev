@@ -69,6 +69,8 @@ require('./config/passport')(passport);
 //Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
 
 app.get('*', function(req, res, next){
   res.locals.user = req.user || null;
@@ -82,14 +84,15 @@ app.get('/', function (req, res) {
 
 // Route Files
 let account = require('./routes/account');
-app.use('/account', account);
 let cart = require('./routes/cart');
-app.use('/cart', cart);
 let checkout = require('./routes/checkout');
-app.use('/checkout', checkout);
 let wishlist = require('./routes/wishlist');
-app.use('/wishlist', wishlist);
 let product = require('./routes/product');
+
+app.use('/account', account);
+app.use('/cart', cart);
+app.use('/checkout', checkout);
+app.use('/wishlist', wishlist);
 app.use('/product', product)
 
 //set public folder.
