@@ -8,12 +8,12 @@ const passport = require('passport');
 let User = require('../models/user');
 
 //Secret register form
-router.get('/register/secretAdmin3103', function(req, res) {
+router.get('/register/secretAdmin3103', ensureUnauthenticated, function(req, res) {
   res.render('register3103');
 });
 
 //Register form
-router.get('/register', function(req, res) {
+router.get('/register', ensureUnauthenticated, function(req, res) {
   res.render('register');
 });
 
@@ -168,7 +168,7 @@ router.post('/register', function(req, res) {
 });
 
 //Login Form
-router.get('/login', function(req, res) {
+router.get('/login', ensureUnauthenticated, function(req, res) {
   res.render('login');
 });
 
@@ -187,5 +187,32 @@ router.get('/logout', function(req, res) {
   req.flash('success', 'You are logged out');
   res.redirect('/account/login');
 });
+
+//Access control
+function ensureAuthenticated(req, res, next){
+  if(req.isAuthenticated()){
+    if(req.user.isAdmin){
+      return next();
+    }else{
+      req.flash('danger', 'Please login as admin account');
+      res.redirect('/account/login');
+    }
+  }
+  else{
+    req.flash('danger', 'Please login');
+    res.redirect('/account/login');
+  }
+}
+
+//Access control
+function ensureUnauthenticated(req, res, next){
+  if(!req.isAuthenticated()){
+    return next();
+  }
+  else{
+    req.flash('danger', 'You are already logged in');
+    res.redirect('/');
+  }
+}
 
 module.exports = router;

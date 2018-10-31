@@ -7,7 +7,7 @@ let Product = require('../models/product');
 let User = require('../models/user');
 
 //Add Product Form
-router.get('/add', function(req, res){
+router.get('/add', ensureAuthenticated, function(req, res){
   res.render('admin');
 });
 
