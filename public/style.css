@@ -1096,7 +1096,7 @@ a.slider_button:hover{
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
-    height: 100px;
+    height: 200px;
 }
 .single_trend_img a img.secondary_image {
     left: 0;
