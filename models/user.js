@@ -23,11 +23,19 @@ let UserSchema = mongoose.Schema({
     },
     history: {
         type: [String],
-        require: false
+        required: true
     },
     isAdmin: {
         type: Boolean,
-        require: true
+        required: true
+    },
+    shopping_cart: {
+        type: [String],
+        required: true
+    },
+    wishlist: {
+        type: [String],
+        required: true
     }
 });
 

@@ -27,6 +27,9 @@ router.post('/register/secretAdmin3103', function(req, res) {
   const address = req.body.address;
   const secret = req.body.secret;
   const isAdmin = true;
+  const history = [];
+  const shopping_cart = [];
+  const wishlist = [];
 
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
@@ -61,7 +64,10 @@ router.post('/register/secretAdmin3103', function(req, res) {
               username: username,
               password: password,
               address: address,
-              isAdmin: isAdmin
+              isAdmin: isAdmin,
+              history: history,
+              shopping_cart: shopping_cart,
+              wishlist: wishlist
             });
             bcrypt.genSalt(10, function(err, salt) {
               bcrypt.hash(newUser.password, salt, function(err, hash) {
@@ -102,6 +108,9 @@ router.post('/register', function(req, res) {
   const password2 = req.body.password2;
   const address = req.body.address;
   const isAdmin = false;
+  const history = [];
+  const shopping_cart = [];
+  const wishlist = [];
 
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
@@ -135,7 +144,10 @@ router.post('/register', function(req, res) {
               username: username,
               password: password,
               address: address,
-              isAdmin: isAdmin
+              isAdmin: isAdmin,
+              history: history,
+              shopping_cart: shopping_cart,
+              wishlist: wishlist
             });
             bcrypt.genSalt(10, function(err, salt) {
               bcrypt.hash(newUser.password, salt, function(err, hash) {
