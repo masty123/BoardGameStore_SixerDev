@@ -30,6 +30,11 @@ block content
           .wow.bounceInUp(data-wow-duration='3s', data-wow-delay='1s')
             a.slider_button(href='#') Shop Now 
   // slider end
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
   // slider bottom start
   .slider_bottom_area
     .container

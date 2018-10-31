@@ -35,38 +35,60 @@ router.post('/register/secretAdmin3103', function(req, res) {
   req.checkBody('password', 'Password is required').notEmpty();
   req.checkBody('password2', 'Confirm Password is not match').equals(password);
   req.checkBody('address', 'Address is required').notEmpty();
-  req.checkBody('secret', 'Secret is required').notEmpty();
+  req.checkBody('secret', 'Secret is not correct, register as admin failed').equals("This is our admin secret");
 
   let errors = req.validationErrors();
-  if (errors || secret != "This is our admin secret") {
-    res.render('register3103', {
+  if (errors) {
+    res.render('register', {
       errors: errors
     });
   } else {
-    let newUser = new User({
-      name: name,
-      email: email,
-      username: username,
-      password: password,
-      address: address,
-      isAdmin: isAdmin
-    });
-    bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(newUser.password, salt, function(err, hash) {
-        if (err) {
-          console.log(err);
-        }
-        newUser.password = hash;
-        newUser.save(function(err) {
-          if (err) {
-            console.log(error);
-            return;
+    let query = {
+      username: username.toLowerCase()
+    };
+    User.findOne(query, function(err, user) {
+      if (err) throw err;
+      if (!user) {
+        let query2 = {
+          email: email
+        };
+        User.findOne(query2, function(err2, user2) {
+          if (err2) throw err2;
+          if (!user2) {
+            let newUser = new User({
+              name: name,
+              email: email,
+              username: username,
+              password: password,
+              address: address,
+              isAdmin: isAdmin
+            });
+            bcrypt.genSalt(10, function(err, salt) {
+              bcrypt.hash(newUser.password, salt, function(err, hash) {
+                if (err) {
+                  console.log(err);
+                }
+                newUser.password = hash;
+                newUser.save(function(err) {
+                  if (err) {
+                    console.log(err);
+                    return;
+                  } else {
+                    req.flash('success', 'You are now registered and can be log in with account.');
+                    res.redirect('/account/login');
+                  }
+                })
+              });
+            });
           } else {
-            req.flash('success', 'You are now registered and can be log in with account.');
-            res.redirect('/account/login');
+            req.flash('danger', 'Email already exist.');
+            res.redirect('/account/register');
           }
         })
-      });
+      } else {
+        req.flash('danger', 'Username already exist.');
+        res.redirect('/account/register');
+      }
     });
   }
 });
@@ -99,50 +121,50 @@ router.post('/register', function(req, res) {
       username: username.toLowerCase()
     };
     User.findOne(query, function(err, user) {
-        if (err) throw err;
-        if (!user) {
-          let query2 = {
-            email: email
-          };
-          User.findOne(query2, function(err2, user2) {
-            if (err2) throw err2;
-            if (!user2) {
-              let newUser = new User({
-                name: name,
-                email: email,
-                username: username,
-                password: password,
-                address: address,
-                isAdmin: isAdmin
-              });
-              bcrypt.genSalt(10, function(err, salt) {
-                bcrypt.hash(newUser.password, salt, function(err, hash) {
+      if (err) throw err;
+      if (!user) {
+        let query2 = {
+          email: email
+        };
+        User.findOne(query2, function(err2, user2) {
+          if (err2) throw err2;
+          if (!user2) {
+            let newUser = new User({
+              name: name,
+              email: email,
+              username: username,
+              password: password,
+              address: address,
+              isAdmin: isAdmin
+            });
+            bcrypt.genSalt(10, function(err, salt) {
+              bcrypt.hash(newUser.password, salt, function(err, hash) {
+                if (err) {
+                  console.log(err);
+                }
+                newUser.password = hash;
+                newUser.save(function(err) {
                   if (err) {
                     console.log(err);
+                    return;
+                  } else {
+                    req.flash('success', 'You are now registered and can be log in with account.');
+                    res.redirect('/account/login');
                   }
-                  newUser.password = hash;
-                  newUser.save(function(err) {
-                    if (err) {
-                      console.log(err);
-                      return;
-                    } else {
-                      req.flash('success', 'You are now registered and can be log in with account.');
-                      res.redirect('/account/login');
-                    }
-                  })
-                });
+                })
               });
-            } else {
-              req.flash('danger', 'Email already exist.');
-              res.redirect('/account/register');
-            }
-          })
-        } else {
-          req.flash('danger', 'Username already exist.');
-          res.redirect('/account/register');
-        }
+            });
+          } else {
+            req.flash('danger', 'Email already exist.');
+            res.redirect('/account/register');
+          }
+        })
+      } else {
+        req.flash('danger', 'Username already exist.');
+        res.redirect('/account/register');
+      }
     });
-}
+  }
 });
 
 //Login Form
