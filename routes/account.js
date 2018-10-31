@@ -39,7 +39,7 @@ router.post('/register/secretAdmin3103', function(req, res) {
 
   let errors = req.validationErrors();
   if (errors) {
-    res.render('register', {
+    res.render('register3103', {
       errors: errors
     });
   } else {
