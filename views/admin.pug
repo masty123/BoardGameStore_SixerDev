@@ -8,49 +8,67 @@ block content
         .col-12
           .page_title
             h2 Admin Area
-  // banner end
-  .register_area
-    .container
-      .row
-        .col-md-3.col-sm-12
-        .col-md-6.col-sm-12
-          .register_customer
-            h2.register_heading Admin Area
-            form(method='POST', action='/product/add')
-              p
-                | Name
-                span  * 
-                br
-                input(name='name', type='text')
-              p
-                | Description
-                span  * 
-                br
-                input(name='description', type='text')
-              p
-                | Player
-                span  * 
-                br
-                input(name='player', type='number')
-                
-              p
-                | Picture
-                span  * 
-                br
-                input(name='picture', type='text')
-              p
-                | Stock
-                span  * 
-                br
-                input(name='stock', type='number')
-              p
-                | Price
-                span  * 
-                br
-                input(name='price', type='number')
-              P
-                | Category
-                span  * 
-                br
-                input(name='category', type='text')
-              input(type='submit', value='ADD PRODUCT')
+  if user
+    if user.isAdmin
+      // banner end
+      .register_area
+        .container
+          .row
+            .col-md-3.col-sm-12
+            .col-md-6.col-sm-12
+              .register_customer
+                h2.register_heading Admin Area
+                form(method='POST', action='/product/add')
+                  p
+                    | Name
+                    span  * 
+                    br
+                    input(name='name', type='text')
+                  p
+                    | Description
+                    span  * 
+                    br
+                    input(name='description', type='text')
+                  p
+                    | Player
+                    span  * 
+                    br
+                    input(name='player', type='number')
+                    
+                  p
+                    | Picture
+                    span  * 
+                    br
+                    input(name='picture', type='text')
+                  p
+                    | Stock
+                    span  * 
+                    br
+                    input(name='stock', type='number')
+                  p
+                    | Price
+                    span  * 
+                    br
+                    input(name='price', type='number')
+                  P
+                    | Category
+                    span  * 
+                    br
+                    input(name='category', type='text')
+                  input(type='submit', value='ADD PRODUCT')
+    else
+      .register_area
+        .container
+          .row
+            .col-md-3.col-sm-12
+            .col-md-6.col-sm-12
+              .register_customer
+                h2.register_heading Sorry! You are not supposed to be here.
+  else
+    .register_area
+      .container
+        .row
+          .col-md-3.col-sm-12
+          .col-md-6.col-sm-12
+            .register_customer
+              h2.register_heading Sorry! You are not supposed to be here.
