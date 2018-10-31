@@ -1097,6 +1097,7 @@ a.slider_button:hover{
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     height: 250px;
+    width: 200px;
     border-radius: 10px;
 }
 .single_trend_img a img.secondary_image {
