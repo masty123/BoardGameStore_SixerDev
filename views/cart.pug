@@ -9,6 +9,11 @@ block content
           .page_title
             h2 SHOPPING CART
   // banner end
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
   // banner bottom start
   .banner_bottom_area
     .container
@@ -60,7 +65,7 @@ block content
                     //-     span  03
                     //- td.p_value ฿333.00
                     td.p_action
-                      a(href='#')
+                      a(href='/cart/remove/'+product._id)
                         i.fa.fa-times
       .row
         .col-md-6.col-lg-6
