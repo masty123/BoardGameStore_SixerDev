@@ -89,7 +89,7 @@ block content
             .row
               .trend_item_slider
                 each product in products      
-                  if (product.category.toLowerCase() === 'strategy')
+                  if (product.category.toLowerCase() === 'strategy' && product.stock > 0)
                     .col-12
                       .single_trend
                         .single_trend_item
@@ -121,7 +121,7 @@ block content
             .row
               .trend_item_slider
                 each product in products
-                  if (product.category.toLowerCase() === 'party')
+                  if (product.category.toLowerCase() === 'party' && product.stock > 0)
                     .col-12
                       .single_trend
                         .single_trend_item
@@ -151,7 +151,7 @@ block content
             .row
               .trend_item_slider
                 each product in products              
-                  if (product.category.toLowerCase() === 'thematic')
+                  if (product.category.toLowerCase() === 'thematic' && product.stock > 0)
                     .col-12
                       .single_trend
                         .single_trend_item
@@ -181,7 +181,7 @@ block content
             .row
               .trend_item_slider
                 each product in products
-                  if (product.category.toLowerCase() === 'family')
+                  if (product.category.toLowerCase() === 'family' && product.stock > 0)
                     .col-12
                       .single_trend
                         .single_trend_item
@@ -211,7 +211,7 @@ block content
             .row
               .trend_item_slider
                 each product in products
-                  if (product.category.toLowerCase() === 'children')
+                  if (product.category.toLowerCase() === 'children' && product.stock > 0)
                     .col-12
                       .single_trend
                         .single_trend_item
@@ -249,31 +249,32 @@ block content
       .row
         .featured_owl_wrapper
           each product in products
-            .col-12
-              .single_trend
-                .single_trend_item
-                  .single_trend_img
-                    a(href='/product/'+product._id)
-                      img.primary_image(src=product.picture, alt='')
-                      img.secondary_image(src=product.picture, alt='')
-                  .single_trend_label.text-center
-                    a(href='/product/'+product._id)
-                      h3 #{product.name}
-                    h4 ฿#{product.price}  
-                  .wish_icon_hover.text-center
-                    ul
-                      li.active
-                        a(href='/cart/add/'+product._id, data-toggle='tooltip', title='Like it!')
-                          img(src='/img/trend/shopping_cart.png', alt='')
-                          //- form(method='POST', action='/cart/add/'+product._id)
-                          //-   input(type='submit', value=' ')
-                      li
-                        a(href='#', data-toggle='tooltip', title='Like it!')
-                          img(src='/img/trend/heart.png', alt='')
-                      //- li
-                      //-   a(href='#', data-toggle='tooltip', title='Compage')
-                      //-     i.fa.fa-bar-chart
-                      //- li
-                      //-   a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
-                      //-     img(src='/img/trend/eye.png', alt='')
+            if product.stock > 0
+              .col-12
+                .single_trend
+                  .single_trend_item
+                    .single_trend_img
+                      a(href='/product/'+product._id)
+                        img.primary_image(src=product.picture, alt='')
+                        img.secondary_image(src=product.picture, alt='')
+                    .single_trend_label.text-center
+                      a(href='/product/'+product._id)
+                        h3 #{product.name}
+                      h4 ฿#{product.price}  
+                    .wish_icon_hover.text-center
+                      ul
+                        li.active
+                          a(href='/cart/add/'+product._id, data-toggle='tooltip', title='Like it!')
+                            img(src='/img/trend/shopping_cart.png', alt='')
+                            //- form(method='POST', action='/cart/add/'+product._id)
+                            //-   input(type='submit', value=' ')
+                        li
+                          a(href='#', data-toggle='tooltip', title='Like it!')
+                            img(src='/img/trend/heart.png', alt='')
+                        //- li
+                        //-   a(href='#', data-toggle='tooltip', title='Compage')
+                        //-     i.fa.fa-bar-chart
+                        //- li
+                        //-   a.modal-view(href='#', data-toggle='modal', data-target='#productModal')
+                        //-     img(src='/img/trend/eye.png', alt='')
   // featured end
