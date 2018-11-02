@@ -22,6 +22,10 @@ router.post('/register/secretAdmin3103', function(req, res) {
   if(req.body.secret === 'This is our admin secret'){
     regis(req, res, true);
   }
+  else {
+    req.flash('danger', 'You are not one of our admins. Go away!');
+    res.redirect('back');
+  }
 });
 
 //Register Process

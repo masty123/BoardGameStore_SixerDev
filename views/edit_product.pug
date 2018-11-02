@@ -1,0 +1,78 @@
+extends layout
+
+block content
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 Admin Area
+  if user
+    if user.isAdmin
+      // banner end
+      .register_area
+        .container
+          .row
+            .col-md-3.col-sm-12
+            .col-md-6.col-sm-12
+              .register_customer
+                h2.register_heading Edit products
+                form(method='POST', action='/product/edit/'+product.id)
+                  p
+                    | Name
+                    span  * 
+                    br
+                    input(name='name', type='text', value=product.name)
+                  p
+                    | Description
+                    span  * 
+                    br
+                    textarea(name='description', type='text') #{product.description}
+                  p
+                    | Minimum players
+                    span  * 
+                    br
+                    input(name='player', type='number', value=product.player)
+                  p
+                    | Maximum players
+                    span  * 
+                    br
+                    input(name='maxPlayer', type='number', value=product.maxPlayer)
+                  p
+                    | Picture
+                    span  * 
+                    br
+                    input(name='picture', type='text', value=product.picture)
+                  p
+                    | Stock
+                    span  * 
+                    br
+                    input(name='stock', type='number', value=product.stock)
+                  p
+                    | Price
+                    span  * 
+                    br
+                    input(name='price', type='number', value=product.price)
+                  P
+                    | Category
+                    span  * 
+                    br
+                    input(name='category', type='text', value=product.category)
+                  input(type='submit', value='ADD PRODUCT')
+    else
+      .register_area
+        .container
+          .row
+            .col-md-3.col-sm-12
+            .col-md-6.col-sm-12
+              .register_customer
+                h2.register_heading Sorry! You are not the owner of this product.
+  else
+    .register_area
+      .container
+        .row
+          .col-md-3.col-sm-12
+          .col-md-6.col-sm-12
+            .register_customer
+              h2.register_heading Sorry! You are not supposed to be here.
