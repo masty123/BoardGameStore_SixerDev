@@ -41,7 +41,14 @@ block content
             h4
               | ฿#{product.price}
             p.detail
-              | Players: #{product.player} - #{product.maxPlayer}
+              if product.player == 0
+                | Players: ∞
+              else if product.maxPlayer == 0
+                | Players: #{product.player} - ∞
+              else if product.player == product.maxPlayer
+                | Players: #{product.player}
+              else
+                | Players: #{product.player} - #{product.maxPlayer}
               //- br
               //- | Playtime: 30+ minutes
               //- br
