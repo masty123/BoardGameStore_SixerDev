@@ -1,6 +1,11 @@
 extends layout
 
 block content
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
   // banner start
   .blog_banner_area
     .container
@@ -45,9 +50,11 @@ block content
             .wish_icon_hover.text-center
               ul
                 li.active.cart
-                  a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                    img(src='/img/trend/shopping_cart.png', alt='cart')
-                    | ADD TO CART
+                  form(method='POST', action='/cart/add/'+product._id)
+                    input(type='submit', value='      ADD TO CART')
+                  //- a(href='#', data-toggle='tooltip', title='Shopping Cart')
+                  //-   img(src='/img/trend/shopping_cart.png', alt='cart')
+                  //-   | ADD TO CART
                 li
                   a(href='#', data-toggle='tooltip', title='Like it!')
                     img(src='/img/trend/heart.png', alt='')

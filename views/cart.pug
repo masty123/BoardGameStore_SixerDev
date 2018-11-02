@@ -9,6 +9,11 @@ block content
           .page_title
             h2 SHOPPING CART
   // banner end
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
   // banner bottom start
   .banner_bottom_area
     .container
@@ -33,7 +38,7 @@ block content
         .col-lg-12.col-md-12.col-sm-12
           p
             | You have picked 
-            span  (3) items 
+            span  (#{products.length}) items 
             | in your Bag
           .cart_list.table-responsive
             table.table_cart.table-bordered
@@ -42,52 +47,26 @@ block content
                   th.product Item
                   th.description Description
                   th.unit_price Unit Price
-                  th.quantity Quantity
-                  th.value Subtotal
+                  //- th.quantity Quantity
+                  //- th.value Subtotal
                   th.action
               tbody
-                tr
-                  td.product_img
-                    a(href='#')
-                      img(src='/img/trend/cart/cart1.jpg', alt='cart')
-                  td.product_des
-                    h3 Test1
-                  td.u_price ฿333.00
-                  td.p_quantity
-                    .pp_quantity
-                      span  03
-                  td.p_value ฿333.00
-                  td.p_action
-                    a(href='#')
-                      i.fa.fa-times
-                tr
-                  td.product_img
-                    a(href='#')
-                      img(src='/img/trend/cart/cart2.jpg', alt='cart')
-                  td.product_des
-                    h3 Test2
-                  td.u_price ฿155.00
-                  td.p_quantity
-                    .pp_quantity
-                      span  01
-                  td.p_value ฿155.00
-                  td.p_action
-                    a(href='#')
-                      i.fa.fa-times
-                tr
-                  td.product_img
-                    a(href='#')
-                      img(src='/img/trend/cart/cart3.jpg', alt='cart')
-                  td.product_des
-                    h3 Test3
-                  td.u_price ฿250.00
-                  td.p_quantity
-                    .pp_quantity
-                      span  01
-                  td.p_value ฿250.00
-                  td.p_action
-                    a(href='#')
-                      i.fa.fa-times
+                each product in products
+                  tr
+                    td.product_img
+                      a(href='/product/'+product._id)
+                        img(src=product.picture, alt='cart')
+                    td.product_des
+                      a(href='/product/'+product._id)
+                        h3 #{product.name}
+                    td.u_price ฿#{product.price}
+                    //- td.p_quantity
+                    //-   .pp_quantity
+                    //-     span  03
+                    //- td.p_value ฿333.00
+                    td.p_action
+                      a(href='/cart/remove/'+product._id)
+                        i.fa.fa-times
       .row
         .col-md-6.col-lg-6
           .shipping_total
@@ -97,13 +76,13 @@ block content
                 tbody
                   tr
                     td Sub total:
-                    td ฿738.00
+                    td ฿#{price}
                   tr
                     td Shipping Fee:
                     td Free
                   tr
                     td Order Total:
-                    td.purple_total ฿738.00
+                    td.purple_total ฿#{price}
       .row
         .col-12
           .coupon

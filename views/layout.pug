@@ -164,51 +164,33 @@ html.no-js(lang='zxx')
                           a(href='/account/login') Login
                         li
                           a(href='/account/register') Register
-                  li.header_cart
-                    .cart-total
-                      ul
-                        li
-                          .shopping-cart
-                            a(href='/cart')
-                              img(src='/img/header_cart.png', alt='shopping_cart')
-                              p 3
-                          .mini-cart-content
-                            .cart-img-details
-                              .cart-img-photo
-                                a(href='')
-                                  img(src='/img/trend/trend_stra1.jpg', alt='accessories')
-                              .cart-img-contaent
-                                a(href='#')
-                                  h4 kk
-                                span 1 x ฿333.00
-                              .pro-del
-                                a(href='#')
-                                  i.fa.fa-times-circle
-                            .clear
-                            .cart-img-details
-                              .cart-img-photo
-                                a(href='#')
-                                  img(src='/img/trend/trend_stra2.jpg', alt='accessories')
-                              .cart-img-contaent
-                                a(href='#')
-                                  h4 kkk
-                                span 1 x ฿155.00
-                              .pro-del
-                                a(href='#')
-                                  i.fa.fa-times-circle
-                            .cart-img-details
-                              .cart-img-photo
-                                a(href='#')
-                                  img(src='/img/trend/trend_stra3.jpg', alt='accessories')
-                              .cart-img-contaent
-                                a(href='#')
-                                  h4 kkkk
-                                span 1 x ฿250.00
-                              .pro-del
-                                a(href='#')
-                                  i.fa.fa-times-circle
-                            .cart-inner-bottom
-                              h5.total Subtotal:.00
+                  if user
+                    li.header_cart
+                      .cart-total
+                        ul
+                          li
+                            .shopping-cart
+                              a(href='/cart')
+                                img(src='/img/header_cart.png', alt='shopping_cart')
+                                p #{user.shopping_cart.length}
+                            //- .mini-cart-content
+                            //-   if items.length != 0
+                            //-     each item in items
+                            //-       .cart-img-details
+                            //-         .cart-img-photo
+                            //-           a(href='/product/'+item._id)
+                            //-             img(src='/img/trend/trend_stra1.jpg', alt='accessories')
+                            //-         .cart-img-contaent
+                            //-           a(href='#')
+                            //-             h4 #{cartItem.name}
+                            //-           span ฿#{cartItem.price}
+                            //-         .pro-del
+                            //-           a(href='#')
+                            //-             i.fa.fa-times-circle
+                            //-   else
+                            //-     p(style='color: #FFFFFF;') No item in your shopping cart &nbsp;
+                            //-     //- .cart-inner-bottom
+                            //-     //-   h5.total Subtotal:.00
                   li.search_menu
                     img#toggle-search(src='/img/header_search.png', alt='search')
         .search
