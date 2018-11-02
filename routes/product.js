@@ -64,7 +64,7 @@ router.post('/add', ensureAuthenticated, function (req, res) {
 //Load edit form
 router.get('/edit/:id', ensureAuthenticated, function (req, res){
   Product.findById(req.params.id, function(err, product){
-    if(product.admin != req.user._id){
+    if(!req.user.isAdmin){
       req.flash('danger', 'Not authorized');
       res.redirect('/');
     }
