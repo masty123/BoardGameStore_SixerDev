@@ -46,3 +46,5 @@ We wanted to build the high quality website that sells board game that suits cus
 - [Software Requirement Specification V0.8](https://docs.google.com/document/d/1b1A2Iy0eDGJNV-Sg-D-bnQBdUHCJlt9zdBSxHG-3AOw/edit?usp=sharing)
 - [Software Design Specification V0.2](https://docs.google.com/document/d/195z7LRM7ebmYBl25UHglHUMC3LtOZZrJh6wl48ugL98/edit?usp=sharing)
 - [Iteration 1 presentation slide](https://docs.google.com/presentation/u/2/d/1hqaxZA4v0GSOJgcaLdR1DXWyj6Q9ev2ldwfyTTCyllw)
+- [Iteration 2 presentation slide](https://docs.google.com/presentation/d/1EjPmT3ndi0AXIw--zDImzgGOY30XBMg0KfASy_M5gJM/edit#slide=id.g458b520f2a_4_13)
+- [Deployed demo on Heroku](http://sixer-dev.herokuapp.com)
