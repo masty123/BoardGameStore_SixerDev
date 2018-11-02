@@ -15,15 +15,19 @@ router.post('/add', ensureAuthenticated, function (req, res) {
   const name        = req.body.name;
   const description = req.body.description;
   const player      = req.body.player;
+  const maxPlayer   = req.body.maxPlayer;
   const picture     = req.body.picture;
   const stock       = req.body.stock;
   const price       = req.body.price;
   const category    = req.body.category;
   const admin       = req.user._id;
+  const sold        = 0;
+  const likes       = [];
 
   req.checkBody('name','Name is required').notEmpty();
   req.checkBody('description','Description is required').notEmpty();
-  req.checkBody('player','Player is required').notEmpty();
+  req.checkBody('player','Minimum players is required').notEmpty();
+  req.checkBody('player','Maximum players is required').notEmpty();
   req.checkBody('picture','Picture is required').notEmpty();
   req.checkBody('stock','Stock is required').notEmpty();
   req.checkBody('price','Price is required').notEmpty();
@@ -37,11 +41,14 @@ router.post('/add', ensureAuthenticated, function (req, res) {
       name:         name,
       description:  description,
       player:       player,
+      maxPlayer:    maxPlayer,
       picture:      picture,
       stock:        stock,
       price:        price,
       category:     category,
-      admin:        admin
+      admin:        admin,
+      sold:         sold,
+      likes:        likes
     });
     product.save(function(err){
       if(err){
@@ -58,12 +65,18 @@ router.post('/add', ensureAuthenticated, function (req, res) {
 //Get product page
 router.get('/:id', function (req, res){
   Product.findById(req.params.id, function(err, product){
-    User.findById(product.admin, function(err, admin){
-      res.render('product_detail', {
-        product:product,
-        admin:admin.name
+    if(err){
+      req.flash('danger', 'Product ID not found');
+      res.redirect('/');
+    }
+    else{
+      User.findById(product.admin, function(err, admin){
+        res.render('product_detail', {
+          product:product,
+          admin:admin.name
+        });
       });
-    });
+    }
   });
 });
 

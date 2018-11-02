@@ -30,15 +30,18 @@ block content
               h2 #{product.name}
               br
             p
-              i.fa.fa-check
-              |  IN STOCK #{product.stock}
+              if product.stock != 0
+                i.fa.fa-check
+                |  IN STOCK #{product.stock}
+              else
+                | OUT OF ORDER
             p
               | PRODUCT CODE: 
               span #{product._id}
             h4
               | ฿#{product.price}
             p.detail
-              | Players: #{product.player}
+              | Players: #{product.player} - #{product.maxPlayer}
               //- br
               //- | Playtime: 30+ minutes
               //- br
@@ -50,11 +53,11 @@ block content
             .wish_icon_hover.text-center
               ul
                 li.active.cart
-                  form(method='POST', action='/cart/add/'+product._id)
-                    input(type='submit', value='      ADD TO CART')
-                  //- a(href='#', data-toggle='tooltip', title='Shopping Cart')
-                  //-   img(src='/img/trend/shopping_cart.png', alt='cart')
-                  //-   | ADD TO CART
+                  //- form(method='POST', action='/cart/add/'+product._id)
+                  //-   input(type='submit', value='      ADD TO CART')
+                  a(href='/cart/add/'+product._id, data-toggle='tooltip', title='Shopping Cart')
+                    img(src='/img/trend/shopping_cart.png', alt='cart')
+                    | ADD TO CART
                 li
                   a(href='#', data-toggle='tooltip', title='Like it!')
                     img(src='/img/trend/heart.png', alt='')

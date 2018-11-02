@@ -31,41 +31,27 @@ block content
     .container
       .row
         .col-lg-12.col-md-12.col-sm-12
-          p
-            | Returning Customer? 
-            a(href='#')  Click here to login 
           .row
             .col-md-6.col-lg-6
               .promotion_code
-                //
-                  <h2>Promotion core</h2>
-                  <div class="coupon_form">
-                  <form action="#">
-                  <p>Enter your coupon code if you have one</p>
-                  <input type="text" placeholder="Enter coupon code">
-                  <input type="submit" value="APPLY COUPON">
-                  </form>
-                  </div>
-                .your_order
-                  h2.order_title Your Order
+                form(method='POST', action='/checkout/confirm').your_order
+                  h2.order_title #{user.name}'s Order
                   .order_table
                     ul
                       li
                         h5
                           | PRODUCTS 
                           span TOTALS
-                        p
-                          | Test1  
-                          span  x  01
-                          span ฿135.99
-                        p
-                          | Test2  
-                          span  x  03
-                          span ฿65.35
+                        each product in products
+                          p #{product.name}
+                            span
+                              //This is for quantity
+                            span 
+                              | ฿#{product.price}
                       li
                         h5
                           | Cart Subtotal 
-                          span 199.34
+                          span ฿#{price}
                       li
                         h5
                           | Shipping 
@@ -73,25 +59,18 @@ block content
                       li.order_total_purple
                         h5
                           | Order Totals 
-                          span 199.34
+                          span ฿#{price}
                       li
                         h2.order_title Payment Methods
                       li
                         p.checkbox_title
                           input(type='checkbox')
                           | Cash on Delivery
-                        // <p>Make your payment directly into our bank account. Please use your order ID as the payment reference. Your order won’t be shippided until the funds have cleared in our account.</p>
-                        //
-                          <li>
-                          <p class="checkbox_title">
-                          <input type="checkbox">Paypal
-                          </p>
-                          <img src="img/checkout_paypal.png" alt=""> <a href="" class="paypal"> What's  paypal?</a>
-                          <p class="via">Pay via paypal you can pay with your credit card if you don’t  have paypal account</p>
-                          </li>
                         li
                           p.checkbox_title
                             input(type='checkbox')
                             | I’ve read & Accept the 
                             span.terms_left terms & Conditions
+                        li
+                          input.confirm_order_button(type='submit', value='CONFIRM ORDER')
   // cart area end
