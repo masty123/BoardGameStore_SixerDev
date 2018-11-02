@@ -19,99 +19,27 @@ router.get('/register', ensureUnauthenticated, function(req, res) {
 
 //Register as Admin Process
 router.post('/register/secretAdmin3103', function(req, res) {
-  const name = req.body.name;
-  const email = req.body.email;
-  const username = req.body.username.toLowerCase();
-  const password = req.body.password;
-  const password2 = req.body.password2;
-  const address = req.body.address;
-  const secret = req.body.secret;
-  const isAdmin = true;
-  const history = [];
-  const shopping_cart = [];
-  const wishlist = [];
-
-  req.checkBody('name', 'Name is required').notEmpty();
-  req.checkBody('email', 'Email is required').notEmpty();
-  req.checkBody('email', 'Email is not valid').isEmail();
-  req.checkBody('username', 'Username is required').notEmpty();
-  req.checkBody('password', 'Password is required').notEmpty();
-  req.checkBody('password2', 'Confirm Password is not match').equals(password);
-  req.checkBody('address', 'Address is required').notEmpty();
-  req.checkBody('secret', 'Secret is not correct, register as admin failed').equals("This is our admin secret");
-
-  let errors = req.validationErrors();
-  if (errors) {
-    res.render('register3103', {
-      errors: errors
-    });
-  } else {
-    let query = {
-      username: username.toLowerCase()
-    };
-    User.findOne(query, function(err, user) {
-      if (err) throw err;
-      if (!user) {
-        let query2 = {
-          email: email
-        };
-        User.findOne(query2, function(err2, user2) {
-          if (err2) throw err2;
-          if (!user2) {
-            let newUser = new User({
-              name: name,
-              email: email,
-              username: username,
-              password: password,
-              address: address,
-              isAdmin: isAdmin,
-              history: history,
-              shopping_cart: shopping_cart,
-              wishlist: wishlist
-            });
-            bcrypt.genSalt(10, function(err, salt) {
-              bcrypt.hash(newUser.password, salt, function(err, hash) {
-                if (err) {
-                  console.log(err);
-                }
-                newUser.password = hash;
-                newUser.save(function(err) {
-                  if (err) {
-                    console.log(err);
-                    return;
-                  } else {
-                    req.flash('success', 'You are now registered and can be log in with account.');
-                    res.redirect('/account/login');
-                  }
-                })
-              });
-            });
-          } else {
-            req.flash('danger', 'Email already exist.');
-            res.redirect('/account/register');
-          }
-        })
-      } else {
-        req.flash('danger', 'Username already exist.');
-        res.redirect('/account/register');
-      }
-    });
+  if(req.body.secret === 'This is our admin secret'){
+    regis(req, res, true);
   }
 });
 
 //Register Process
 router.post('/register', function(req, res) {
+  regis(req, res, false);
+});
+
+function regis(req, res, adminBoolean){
   const name = req.body.name;
   const email = req.body.email;
   const username = req.body.username.toLowerCase();
   const password = req.body.password;
   const password2 = req.body.password2;
   const address = req.body.address;
-  const isAdmin = false;
+  const isAdmin = adminBoolean;
   const history = [];
   const shopping_cart = [];
   const wishlist = [];
-
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
@@ -119,7 +47,6 @@ router.post('/register', function(req, res) {
   req.checkBody('password', 'Password is required').notEmpty();
   req.checkBody('password2', 'Confirm Password is not match').equals(password);
   req.checkBody('address', 'Address is required').notEmpty();
-
   let errors = req.validationErrors();
   if (errors) {
     res.render('register', {
@@ -160,7 +87,7 @@ router.post('/register', function(req, res) {
                     console.log(err);
                     return;
                   } else {
-                    req.flash('success', 'You are now registered and can be log in with account.');
+                    req.flash('success', 'You are now registered and can be log in with this account.');
                     res.redirect('/account/login');
                   }
                 })
@@ -168,16 +95,16 @@ router.post('/register', function(req, res) {
             });
           } else {
             req.flash('danger', 'Email already exist.');
-            res.redirect('/account/register');
+            res.redirect('back');
           }
         })
       } else {
         req.flash('danger', 'Username already exist.');
-        res.redirect('/account/register');
+        res.redirect('back');
       }
     });
   }
-});
+}
 
 //Login Form
 router.get('/login', ensureUnauthenticated, function(req, res) {

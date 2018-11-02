@@ -10335,3 +10335,19 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   width: 150px;
   border-radius: 10px;
 }
+.confirm_order_button{
+  background: transparent none repeat scroll 0 0;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  color: #252525;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-top: 25px;
+  padding: 5px 15px;
+  width: 160px;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}

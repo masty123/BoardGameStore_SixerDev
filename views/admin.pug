@@ -17,7 +17,7 @@ block content
             .col-md-3.col-sm-12
             .col-md-6.col-sm-12
               .register_customer
-                h2.register_heading Admin Area
+                h2.register_heading Add products
                 form(method='POST', action='/product/add')
                   p
                     | Name
@@ -30,11 +30,15 @@ block content
                     br
                     textarea(name='description', type='text')
                   p
-                    | Player
+                    | Minimum players
                     span  * 
                     br
                     input(name='player', type='number')
-                    
+                  p
+                    | Maximum players
+                    span  * 
+                    br
+                    input(name='maxPlayer', type='number')
                   p
                     | Picture
                     span  * 

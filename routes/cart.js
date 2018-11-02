@@ -17,10 +17,6 @@ router.get('/', function(req, res) {
       for (var i = 0 ; i < req.user.shopping_cart.length ; i++) {
           Product.findById(req.user.shopping_cart[i], function(err, product) {
             if (err) throw err;
-            // if (!product) {
-            //   req.flash('warning', 'Your cart is empty');
-            //   res.redirect('/');
-            // }
             else {
               products.push(product);
               price += product.price;
@@ -47,51 +43,67 @@ router.get('/', function(req, res) {
 });
 
 router.get('/remove/:id', function(req, res) {
-  if (req.user) {
-    let tempUser = {};
-    tempUser.shopping_cart = req.user.shopping_cart;
-    tempUser.shopping_cart.splice( tempUser.shopping_cart.indexOf(req.params.id), 1 );
-    let query = {
-      _id: req.user._id
+  Product.findById(req.params.id, function(err, product){
+    if(err){
+      req.flash('danger', 'Product ID not found');
+      res.redirect('/');
     }
-    User.updateOne(query, tempUser, function(err) {
-      if (err) {
-        req.flash('danger', err);
-        res.redirect('/');
-      } else {
-        // req.flash('success', 'removed 1 item from your cart');
-        res.redirect('/cart/');
+    else if (req.user) {
+      let tempUser = {};
+      tempUser.shopping_cart = req.user.shopping_cart;
+      tempUser.shopping_cart.splice( tempUser.shopping_cart.indexOf(req.params.id), 1 );
+      let query = {
+        _id: req.user._id
       }
-    })
-  }
-  else{
-    req.flash('danger', 'Please log-in to use cart system');
-    res.redirect('/account/login');
-  }
+      User.updateOne(query, tempUser, function(err) {
+        if (err) {
+          req.flash('danger', err);
+          res.redirect('/');
+        } else {
+          // req.flash('success', 'removed 1 item from your cart');
+          res.redirect('/cart/');
+        }
+      })
+    }
+    else{
+      req.flash('danger', 'Please log-in to use cart system');
+      res.redirect('/account/login');
+    }
+  });
 });
 
-router.post('/add/:id', function(req, res) {
-  if (req.user) {
-    let tempUser = {};
-    tempUser.shopping_cart = req.user.shopping_cart;
-    tempUser.shopping_cart.push(req.params.id);
-    let query = {
-      _id: req.user._id
+router.get('/add/:id', function(req, res) {
+  Product.findById(req.params.id, function(err, product){
+    if(err){
+      req.flash('danger', 'Product ID not found');
+      res.redirect('back');
     }
-    User.updateOne(query, tempUser, function(err) {
-      if (err) {
-        req.flash('danger', err);
-        res.redirect('/product/'+req.params.id);
-      } else {
-        req.flash('success', 'Added 1 item to your cart');
-        res.redirect('/product/'+req.params.id);
+    else if (product.stock <= 0){
+      req.flash('danger', 'Sorry! This product is out of order');
+      res.redirect('back');
+    }
+    else if (req.user) {
+      let tempUser = {};
+      tempUser.shopping_cart = req.user.shopping_cart;
+      tempUser.shopping_cart.push(req.params.id);
+      let query = {
+        _id: req.user._id
       }
-    })
-  }
-  else{
-    req.flash('danger', 'Please log-in to add items to cart');
-    res.redirect('/account/login');
-  }
+      User.updateOne(query, tempUser, function(err) {
+        if (err) {
+          req.flash('danger', err);
+          res.redirect('back');
+        } else {
+          req.flash('success', 'Added 1 item to your cart');
+          res.redirect('back');
+        }
+      });
+    }
+    else{
+      req.flash('danger', 'Please log-in to add items to cart');
+      res.redirect('/account/login');
+    }
+  });
 });
 
 module.exports = router;
