@@ -43,7 +43,8 @@ function regis(req, res, adminBoolean){
   const address2 = req.body.address2;
   const address3 = req.body.address3;
   const address4 = req.body.address4;
-  const address5 = req.body.address5;
+  // const address5 = req.body.address5;
+  const address5 = "Thailand";
   const tel_num = req.body.tel_num;
   const isAdmin = adminBoolean;
   const history = [];
@@ -59,7 +60,7 @@ function regis(req, res, adminBoolean){
   req.checkBody('address2', 'District is required').notEmpty();
   req.checkBody('address3', 'Province is required').notEmpty();
   req.checkBody('address4', 'Postal Code is required').notEmpty();
-  req.checkBody('address5', 'Country is required').notEmpty();
+  // req.checkBody('address5', 'Country is required').notEmpty();
   req.checkBody('tel_num', 'Telephone number is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {

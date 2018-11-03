@@ -69,12 +69,12 @@ block content
                 | Country
                 span  * 
                 br
-                input(name='address5', type='text', value="Thailand", DISABLED)
+                input(name='address5', type='text', value='Thailand', DISABLED)
               p
                 | Telephone Number
                 span  * 
                 br
-                input(name='tel_num', type='tel', pattern='[0-9]')
+                input(name='tel_num', type='text', oninput="this.value=this.value.replace(/[^0-9]/g,'');")
               p
                 | What is your secret?
                 span  * 
