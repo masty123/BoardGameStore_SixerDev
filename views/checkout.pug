@@ -66,9 +66,11 @@ block content
                           //- input(type='checkbox')
                           | Cash on Delivery
                       li
-                        h2.order_title Delivery Informations
-                        p.checkbox_title #{user.address}
-                          a(href="/account/edit_address")  Edit Address
+                        h2.order_title Delivery Information
+                        p
+                          a(href="/account/edit_address")  Edit
+                        p.checkbox_title #{user.address} #{user.address2} #{user.address3}, #{user.address5} #{user.address4}
+                        p.checkbox_title Tel. #{user.tel_num}
                       li
                         p.checkbox_title
                           input(type='checkbox')

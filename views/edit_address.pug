@@ -21,17 +21,37 @@ block content
         .col-md-3.col-sm-12
         .col-md-6.col-sm-12
           .register_customer
-            h2.register_heading Create a new account
-            form(method='POST', action='/account/register')
+            h2.register_heading Edit contact information
+            form(method='POST', action='/account/edit_address')
               p
                 | Address
                 span  * 
                 br
-                input(name='address', type='text')
+                input(name='address', type='text', value=user.address)
+              p
+                | District
+                span  * 
+                br
+                input(name='address2', type='text', value=user.address2)
+              p
+                | Province
+                span  * 
+                br
+                input(name='address3', type='text', value=user.address3)
+              p
+                | Postal Code
+                span  * 
+                br
+                input(name='address4', type='text', pattern='[0-9]{5}', value=user.address4)
+              p
+                | Country
+                span  * 
+                br
+                input(name='address5', type='text', value=user.address5, DISABLED)
               p
                 | Telephone Number
                 span  * 
                 br
-                input(name='tel_num', type='tel')
-              input(type='submit', value='REGISTER')
+                input(name='tel_num', type='text', oninput="this.value=this.value.replace(/[^0-9]/g,'');", value=user.tel_num)
+              input(type='submit', value='SAVE')
   // register end

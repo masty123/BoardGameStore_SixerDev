@@ -154,6 +154,44 @@ router.get('/edit_address', loggedIn, function(req, res) {
     user: req.user
   });
 });
+router.post('/edit_address', function (req, res){
+  const address  = req.body.address;
+  const address2 = req.body.address2;
+  const address3 = req.body.address3;
+  const address4 = req.body.address4;
+  // const address5        = req.body.address5;
+  const tel_num  = req.body.tel_num;
+  req.checkBody('address', 'Address is required').notEmpty();
+  req.checkBody('address2', 'District is required').notEmpty();
+  req.checkBody('address3', 'Province is required').notEmpty();
+  req.checkBody('address4', 'Postal Code is required').notEmpty();
+  // req.checkBody('address5', 'Country is required').notEmpty();
+  req.checkBody('tel_num', 'Telephone number is required').notEmpty();
+  let errors = req.validationErrors();
+  if(errors){
+    res.render('back')
+  }
+  else{
+    let user = {};
+    user.address = address;
+    user.address2 = address2;
+    user.address3 = address3;
+    user.address4 = address4;
+    // user.address5 = address5;
+    user.address5 = 'Thailand';
+    user.tel_num = tel_num;
+    let query = {_id:req.user._id};
+    User.updateOne(query, user, function(err){
+      if(err){
+        console.log(err)
+        return
+      }else{
+        // req.flash('success','Address updated');
+        res.redirect('/checkout');
+      }
+    })
+  }
+});
 
 //Access control
 function ensureAuthenticated(req, res, next){
@@ -174,7 +212,7 @@ function ensureAuthenticated(req, res, next){
 //Logged in
 function loggedIn(req, res, next){
   if(req.isAuthenticated()){
-    return next;
+    return next();
   }
   else{
     req.flash('danger', 'Please login');

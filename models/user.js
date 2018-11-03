@@ -52,6 +52,10 @@ let UserSchema = mongoose.Schema({
     wishlist: {
         type: [String],
         required: true
+    },
+    tel_num: {
+        type: String,
+        required: true
     }
 });
 
