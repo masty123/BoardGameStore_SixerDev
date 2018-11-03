@@ -154,13 +154,11 @@ html.no-js(lang='zxx')
                       if user
                         if user.isAdmin
                           li
-                            a(href="/product/add") Admin area
-                        else
-                          
-                          li
-                            a(href='/wishlist') Wishlist
-                          li
-                            a(href='/cart') Shopping Cart
+                            a(href="/product/add") Add Products
+                        li
+                          a(href='/wishlist') Wishlist
+                        li
+                          a(href='/cart') Shopping Cart
                         li
                           a(href='/account/logout') Logout
                       else
@@ -206,8 +204,6 @@ html.no-js(lang='zxx')
                   form#search-form(action='#')
                     input(type='search', placeholder='Search product...', name='s')
                     input.fa.fa-search(type='submit', value='')
-
-
                   
         // Mobile Menu Area start
         .mobile-menu-area
