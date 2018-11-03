@@ -95,11 +95,11 @@ html.no-js(lang='zxx')
       #sticker
         .container
           .row
-            .col-lg-3.col-md-9
+            .col-lg-2.col-md-9
               .logo
                 a(href='/')
                   img(src='/img/logo web v1.png', alt='HUGE', height='50%', width='50%')
-            .col-lg-7.col-md-7.d-none.d-lg-block
+            .col-lg-8.col-md-7.d-none.d-lg-block
               .mainmenu.nav.navbar-collapse.collapse.navbar-right
                 nav
                   ul#nav.navbar-nav
@@ -137,6 +137,13 @@ html.no-js(lang='zxx')
                       a(href='') about
                     li
                       a(href='') contact
+                    if user
+                      li
+                        a #{user.name}
+                    else
+                      li
+                        a(href='') 
+                        
             .col-lg-2.col-md-3
               .search_cart_sub_menu.text-right
                 ul
@@ -145,8 +152,6 @@ html.no-js(lang='zxx')
                       i.fa.fa-bars
                     ul.sub-menu
                       if user
-                        li
-                          a #{user.name}
                         if user.isAdmin
                           li
                             a(href="/product/add") Admin area
@@ -246,6 +251,9 @@ html.no-js(lang='zxx')
                         a(href='') ABOUT
                       li.contact
                         a(href='') CONTACT
+                      if user
+                      li
+                        a(href='')  #{user.name}
         // Mobile Menu Area end
     // header end
     block content
