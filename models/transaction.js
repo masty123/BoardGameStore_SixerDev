@@ -36,6 +36,10 @@ let transactionSchema = mongoose.Schema({
     isCancelled: {
         type: Boolean,
         required: true
+    },
+    notes: {
+        type: String,
+        required: false
     }
 });
 
