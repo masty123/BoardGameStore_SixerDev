@@ -25,6 +25,10 @@ let transactionSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    tel_num: {
+        type: String,
+        required: true
+    },
     isDelivered: {
         type: Boolean,
         required: true
