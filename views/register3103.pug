@@ -51,9 +51,34 @@ block content
                 br
                 input(name='address', type='text')
               p
+                | District
+                span  * 
+                br
+                input(name='address2', type='text')
+              p
+                | Province
+                span  * 
+                br
+                input(name='address3', type='text')
+              p
+                | Postal Code
+                span  * 
+                br
+                input(name='address4', type='text', pattern='[0-9]{5}')
+              p
+                | Country
+                span  * 
+                br
+                input(name='address5', type='text', value="Thailand", DISABLED)
+              p
+                | Telephone Number
+                span  * 
+                br
+                input(name='tel_num', type='tel', pattern='[0-9]')
+              p
                 | What is your secret?
                 span  * 
                 br
-                input(name='secret', type='text')
+                input(name='secret', type='text', autocomplete='off')
               input(type='submit', value='REGISTER')
   // register end

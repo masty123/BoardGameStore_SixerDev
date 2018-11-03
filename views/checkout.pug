@@ -62,15 +62,18 @@ block content
                           span ฿#{price}
                       li
                         h2.order_title Payment Methods
+                        p.checkbox_title
+                          //- input(type='checkbox')
+                          | Cash on Delivery
+                      li
+                        h2.order_title Delivery Informations
+                        p.checkbox_title #{user.address}
+                          a(href="/account/edit_address")  Edit Address
                       li
                         p.checkbox_title
                           input(type='checkbox')
-                          | Cash on Delivery
-                        li
-                          p.checkbox_title
-                            input(type='checkbox')
-                            | I’ve read & Accept the 
-                            span.terms_left terms & Conditions
-                        li
-                          input.confirm_order_button(type='submit', value='CONFIRM ORDER')
+                          | I’ve read & Accept the 
+                          span.terms_left terms & Conditions
+                          span
+                            input.confirm_order_button(type='submit', value='CONFIRM ORDER')
   // cart area end

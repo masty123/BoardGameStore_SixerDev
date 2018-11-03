@@ -1,6 +1,10 @@
 let mongoose = require('mongoose');
 
 let transactionSchema = mongoose.Schema({
+    date_ordered: {
+        type: Date,
+        required: true
+    },
     userID: {
         type: String,
         required: true

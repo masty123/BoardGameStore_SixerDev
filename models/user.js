@@ -21,6 +21,22 @@ let UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    address2: {
+        type: String,
+        required: true
+    },
+    address3: {
+        type: String,
+        required: true
+    },
+    address4: {
+        type: String,
+        required: true
+    },
+    address5: {
+        type: String,
+        required: true
+    },
     history: {
         type: [String],
         required: true

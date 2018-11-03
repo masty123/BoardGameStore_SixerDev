@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 Register
+  // banner end
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
+  // register start
+  .register_area
+    .container
+      .row
+        .col-md-3.col-sm-12
+        .col-md-6.col-sm-12
+          .register_customer
+            h2.register_heading Create a new account
+            form(method='POST', action='/account/register')
+              p
+                | Address
+                span  * 
+                br
+                input(name='address', type='text')
+              p
+                | Telephone Number
+                span  * 
+                br
+                input(name='tel_num', type='tel')
+              input(type='submit', value='REGISTER')
+  // register end

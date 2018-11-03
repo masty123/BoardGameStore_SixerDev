@@ -40,6 +40,11 @@ function regis(req, res, adminBoolean){
   const password = req.body.password;
   const password2 = req.body.password2;
   const address = req.body.address;
+  const address2 = req.body.address2;
+  const address3 = req.body.address3;
+  const address4 = req.body.address4;
+  const address5 = req.body.address5;
+  const tel_num = req.body.tel_num;
   const isAdmin = adminBoolean;
   const history = [];
   const shopping_cart = [];
@@ -51,12 +56,18 @@ function regis(req, res, adminBoolean){
   req.checkBody('password', 'Password is required').notEmpty();
   req.checkBody('password2', 'Confirm Password is not match').equals(password);
   req.checkBody('address', 'Address is required').notEmpty();
+  req.checkBody('address2', 'District is required').notEmpty();
+  req.checkBody('address3', 'Province is required').notEmpty();
+  req.checkBody('address4', 'Postal Code is required').notEmpty();
+  req.checkBody('address5', 'Country is required').notEmpty();
+  req.checkBody('tel_num', 'Telephone number is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
     res.render('register', {
       errors: errors
     });
-  } else {
+  }
+  else {
     let query = {
       username: username.toLowerCase()
     };
@@ -75,10 +86,15 @@ function regis(req, res, adminBoolean){
               username: username,
               password: password,
               address: address,
+              address2: address2,
+              address3: address3,
+              address4: address4,
+              address5: address5,
               isAdmin: isAdmin,
               history: history,
               shopping_cart: shopping_cart,
-              wishlist: wishlist
+              wishlist: wishlist,
+              tel_num: tel_num
             });
             bcrypt.genSalt(10, function(err, salt) {
               bcrypt.hash(newUser.password, salt, function(err, hash) {
@@ -131,6 +147,13 @@ router.get('/logout', function(req, res) {
   res.redirect('/account/login');
 });
 
+//Edit address
+router.get('/edit_address', loggedIn, function(req, res) {
+  res.render('edit_address',{
+    user: req.user
+  });
+});
+
 //Access control
 function ensureAuthenticated(req, res, next){
   if(req.isAuthenticated()){
@@ -140,6 +163,17 @@ function ensureAuthenticated(req, res, next){
       req.flash('danger', 'Please login as admin account');
       res.redirect('/account/login');
     }
+  }
+  else{
+    req.flash('danger', 'Please login');
+    res.redirect('/account/login');
+  }
+}
+
+//Logged in
+function loggedIn(req, res, next){
+  if(req.isAuthenticated()){
+    return next;
   }
   else{
     req.flash('danger', 'Please login');
