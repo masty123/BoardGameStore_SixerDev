@@ -58,7 +58,17 @@ block content
                     | Category
                     span  * 
                     br
-                    input(name='category', type='text', value=product.category)
+                    select(name='category')
+                        option(value='Strategy') Strategy Games
+                        option(value='Party') Party Games
+                        option(value='Thematic') Thematic Games
+                        option(value='Family') Family Games
+                        option(value='Children') Children Games
+                        option(value='Other') Other Games
+                        option(value='Dice_bag') Dice Bags
+                        option(value='Dice_set') Dice Sets
+                        option(value='Playmats') Playmats
+                        option(value='Other_acc') Other Accessories
                   input(type='submit', value='ADD PRODUCT')
     else
       .register_area
