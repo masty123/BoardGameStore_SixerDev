@@ -24,6 +24,16 @@ block content
             h2.register_heading Edit contact information
             form(method='POST', action='/account/edit_address')
               p
+                | Name
+                span  * 
+                br
+                | #{user.name}
+              p
+                | Email
+                span  * 
+                br
+                | #{user.email}
+              p
                 | Address
                 span  * 
                 br
@@ -47,7 +57,8 @@ block content
                 | Country
                 span  * 
                 br
-                input(name='address5', type='text', value=user.address5, DISABLED)
+                //- input(name='address5', type='text', value=user.address5, DISABLED)
+                | #{user.address5}
               p
                 | Telephone Number
                 span  * 

@@ -169,7 +169,13 @@ router.post('/edit_address', function (req, res){
   req.checkBody('tel_num', 'Telephone number is required').notEmpty();
   let errors = req.validationErrors();
   if(errors){
-    res.render('back')
+    if(req.user){
+      res.render('edit_address', {
+        errors: errors,
+        user: req.user
+      });
+    }
+    else res.redirect('/account/edit_address');
   }
   else{
     let user = {};
