@@ -25,10 +25,10 @@
     });
 
     // Handle click on search submit button
-    $('#search-form input[type=submit]').on('click', function() {
-        $('.search').toggleClass('open');
-        return true;
-    });
+    // $('#search-form input[type=submit]').on('click', function() {
+    //     $('.search').toggleClass('open');
+    //     return true;
+    // });
 
 
     //Category Toggle Menu

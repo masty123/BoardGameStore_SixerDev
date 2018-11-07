@@ -199,8 +199,8 @@ html.no-js(lang='zxx')
             .row
               .col-lg-6.col-md-6.offset-md-6
                 .search-form
-                  form#search-form(action='#')
-                    input(type='search', placeholder='Search product...', name='s')
+                  form#search-form(action='/product/search', method='POST')
+                    input(type='search', placeholder='Search product...', name='keyword')
                     input.fa.fa-search(type='submit', value='')
                   
         // Mobile Menu Area start
