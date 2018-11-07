@@ -15,7 +15,7 @@ let transactionSchema = mongoose.Schema({
     },
     promotionID: {
         type: String,
-        required: true
+        required: false
     },
     calculatedPrice: {
         type: Number,

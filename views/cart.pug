@@ -24,18 +24,19 @@ block content
             h4 SHOPPING CART
         .col-lg-4.col-md-4.col-sm-12
           .single_banner_bottom.text-center
-            p 02
-            h4 CHECK OUT
+            p.greyed_out 02
+            h4.greyed_out CHECK OUT
         .col-lg-4.col-md-4.col-sm-12
           .single_banner_bottom.text-center
-            p 03
-            h4 ORDER COMPLETE
+            p.greyed_out 03
+            h4.greyed_out ORDER COMPLETE
   // banner bottom end
   // cart start
   .cart_area
     .container
       .row
-        .col-lg-12.col-md-12.col-sm-12
+        .col-lg-2
+        .col-lg-8
           p
             | You have picked 
             span  (#{products.length}) items 
@@ -68,7 +69,8 @@ block content
                       a(href='/cart/remove/'+product._id)
                         i.fa.fa-times
       .row
-        .col-md-6.col-lg-6
+        .col-md-3
+        .col-md-6
           .shipping_total
             h2 total carts
             .mini_table
