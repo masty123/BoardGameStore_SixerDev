@@ -31,11 +31,13 @@ let transactionSchema = mongoose.Schema({
     },
     isDelivered: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     },
     isCancelled: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     },
     notes: {
         type: String,

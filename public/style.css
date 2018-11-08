@@ -10354,7 +10354,9 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
 }
-
 .greyed_out{
   color: #CCCCCC;
+}
+.parallax-window {
+  background: transparent;
 }
