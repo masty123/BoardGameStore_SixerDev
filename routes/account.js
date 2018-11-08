@@ -34,22 +34,21 @@ router.post('/register', function(req, res) {
 });
 
 function regis(req, res, adminBoolean){
-  const name = req.body.name;
-  const email = req.body.email;
-  const username = req.body.username.toLowerCase();
-  const password = req.body.password;
-  const password2 = req.body.password2;
-  const address = req.body.address;
-  const address2 = req.body.address2;
-  const address3 = req.body.address3;
-  const address4 = req.body.address4;
-  // const address5 = req.body.address5;
-  const address5 = "Thailand";
-  const tel_num = req.body.tel_num;
-  const isAdmin = adminBoolean;
-  const history = [];
+  const name          = req.body.name;
+  const email         = req.body.email;
+  const username      = req.body.username.toLowerCase();
+  const password      = req.body.password;
+  const password2     = req.body.password2;
+  const address       = req.body.address;
+  const address2      = req.body.address2;
+  const address3      = req.body.address3;
+  const address4      = req.body.address4;
+  const address5      = "Thailand";
+  const tel_num       = req.body.tel_num;
+  const isAdmin       = adminBoolean;
+  const history       = [];
   const shopping_cart = [];
-  const wishlist = [];
+  const wishlist      = [];
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
@@ -60,7 +59,6 @@ function regis(req, res, adminBoolean){
   req.checkBody('address2', 'District is required').notEmpty();
   req.checkBody('address3', 'Province is required').notEmpty();
   req.checkBody('address4', 'Postal Code is required').notEmpty();
-  // req.checkBody('address5', 'Country is required').notEmpty();
   req.checkBody('tel_num', 'Telephone number is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
@@ -82,17 +80,17 @@ function regis(req, res, adminBoolean){
           if (err2) throw err2;
           if (!user2) {
             let newUser = new User({
-              name: name,
-              email: email,
-              username: username,
-              password: password,
-              address: address,
-              address2: address2,
-              address3: address3,
-              address4: address4,
-              address5: address5,
-              isAdmin: isAdmin,
-              history: history,
+              name:          name,
+              email:         email,
+              username:      username,
+              password:      password,
+              address :      address,
+              address2:      address2,
+              address3:      address3,
+              address4:      address4,
+              address5:      address5,
+              isAdmin:       isAdmin,
+              history:       history,
               shopping_cart: shopping_cart,
               wishlist: wishlist,
               tel_num: tel_num
