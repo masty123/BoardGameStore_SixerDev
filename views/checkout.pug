@@ -1,6 +1,11 @@
 extends layout
 
 block content
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
   // banner start
   .blog_banner_area
     .container
@@ -72,9 +77,18 @@ block content
                     p.checkbox_title Tel. #{user.tel_num}
                   li
                     p.checkbox_title
-                      input(type='checkbox')
+                      input(type='checkbox', name='promotion_check')
+                      | Use promotion 
+                      p.checkbox_title
+                      span
+                        input(type='text', name='promotion_code', placeholder='Enter your promotion code here', style='width: 100%;')
+                  li
+                    p.checkbox_title
+                      input(type='checkbox', name='term')
                       | I’ve read & Accept the 
                       span.terms_left terms & Conditions
                       span
-                        input.confirm_order_button(type='submit', value='CONFIRM ORDER')
+                        input.confirm_order_button(type='submit', value='CONFIRM')
+                          
+  script(src='/js/checkout.js')
   // cart area end
