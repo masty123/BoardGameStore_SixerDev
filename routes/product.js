@@ -165,9 +165,14 @@ router.get('/search/:keyword', function(req, res) {
 router.get('/:id', function(req, res) {
   Product.findById(req.params.id, function(err, product) {
     if (err) {
+      req.flash('danger', 'Invalid url');
+      res.redirect('/');
+    }
+    else if(!product){
       req.flash('danger', 'Product ID not found');
       res.redirect('/');
-    } else {
+    }
+    else {
       User.findById(product.admin, function(err, admin) {
         res.render('product_detail', {
           product: product

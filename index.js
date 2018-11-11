@@ -19,14 +19,23 @@ const config = require('./config/database');
 const passport = require('passport');
 
 
-mongoose.connect(config.database, { useNewUrlParser: true });
+var new_arrival_product = ['Abyss', 'Abyss'];
+
+
+mongoose.connect(config.database, {
+  useNewUrlParser: true
+});
 
 db.on('error', console.error.bind(console, 'connection error:'));
 //Check connection.
-db.once('open', function(){console.log('connected to MongoDB.')});
+db.once('open', function() {
+  console.log('connected to MongoDB.')
+});
 
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
 app.use(bodyParser.json())
 
 app.set('views', path.join(__dirname, 'views'));
@@ -42,25 +51,25 @@ app.use(session({
 
 //Expression Messages Middleware
 app.use(require('connect-flash')());
-app.use(function(req, res, next){
+app.use(function(req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
   next();
 });
 
 //Express Validator Middleware
 app.use(expressValidator({
-  errorFormatter: function(param, msg, value){
-    var namespace = param.split('.')
-    , root        = namespace.shift()
-    , formParam   = root;
+  errorFormatter: function(param, msg, value) {
+    var namespace = param.split('.'),
+      root = namespace.shift(),
+      formParam = root;
 
-    while(namespace.length) {
+    while (namespace.length) {
       formParam += '[' + namespace.shift() + ']'
     }
     return {
-      parm : formParam,
-      msg : msg,
-      value : value
+      parm: formParam,
+      msg: msg,
+      value: value
     };
   }
 }));
@@ -73,19 +82,42 @@ app.use(passport.session());
 app.use(flash());
 
 
-app.get('*', function(req, res, next){
+app.get('*', function(req, res, next) {
   res.locals.user = req.user || null;
   next();
 });
 
 //Home Route
-app.get('/', function (req, res) {
-  Product.find({}, function(err, products){
-    if(err){
+app.get('/', function(req, res) {
+  Product.find({}, function(err, products) {
+    if (err) {
       console.log(err);
     } else {
       res.render('home', {
         products: products
+      });
+    }
+  });
+});
+
+app.get('/new_arrival/:number', function(req, res) {
+  var query = {
+    name: new_arrival_product[req.params.number]
+  }
+  Product.findOne(query, function(err, product) {
+    if (err) {
+      req.flash('danger', 'Error loading new arrival');
+      res.redirect('/');
+    }
+    else if(!product){
+      req.flash('danger', 'Sorry! New arrival product is not available at the moment.');
+      res.redirect('/');
+    }
+    else {
+      User.findById(product.admin, function(err, admin) {
+        res.render('product_detail', {
+          product: product
+        });
       });
     }
   });
