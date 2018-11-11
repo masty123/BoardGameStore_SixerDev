@@ -153,8 +153,8 @@ html.no-js(lang='zxx')
                         if user.isAdmin
                           li
                             a(href="/product/add") Add Products
-                        li
-                          a(href='/wishlist') Wishlist
+                        //- li
+                        //-   a(href='/wishlist') Wishlist
                         li
                           a(href='/cart') Shopping Cart
                         li
@@ -242,7 +242,7 @@ html.no-js(lang='zxx')
                       li
                         a(href='') SALES
                       li
-                        a(href='') ABOUT
+                        a(href='/page/about') ABOUT
                       if user
                         li
                           a(href='') LOGGED IN AS #{user.name}
@@ -293,11 +293,11 @@ html.no-js(lang='zxx')
                 h4 company
                 ul.footer_menu
                   li
-                    a(href='#') about us
+                    a(href='/page/about') about us
                   li
                     a(href='#') terms & conditions
                   li
-                    a(href='#') contact us
+                    a(href='/page/contact') contact us
             .col-lg-3.col-md-6.col-sm-6
               .footer_widget
                 h4 customer service

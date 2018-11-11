@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
-//Login Form
+//Wishlist
 router.get('/', function(req, res){
   res.render('wishlist');
 });

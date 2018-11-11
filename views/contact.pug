@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 Contact us
+  // banner end
+  // contact start
+  .register_area
+    .container
+      //
+        <div class="row">
+        <div class="col-12">
+        <div class="map-area">
+        <div id="googleMap" style="width:100%;height:500px;"></div>
+        </div>
+        </div>
+        </div>
+      .row
+        .col-lg-6.col-md-6
+          .address.text-center
+            .single_address
+              .single_address_img
+                img(src='img/map.png', alt='')
+              p
+                | 2033 Phahonyothin Alley, Khwaeng Lat Yao, Khet Chatuchak, Krung Thep Maha Nakhon 10900
+                br
+                | Thailand
+            .single_address
+              .single_address_img
+                img(src='img/phone.png', alt='')
+              p 012-345-6789
+            .single_address
+              .single_address_img
+                img(src='img/mail.png', alt='')
+              p
+                a(href='#') kk@kk.com
+        .col-lg-6.col-md-6
+          .register_customer.margin_short
+            h2.register_heading We will love to hear from you
+            img(src='img/offers/best_sellers_1.png', alt='')
+            form(action='/page/contact', method='post')
+              if user
+                input(type='text', name='name', placeholder='Name', value="User ID: "+user._id, disabled)
+                input(type='text', name='email', placeholder='Email' value=user.email, disabled)
+              else
+                input(type='text', name='name', placeholder='Name', value='Please log-in to use contact form', disabled)
+                input(type='text', name='email', placeholder='Email')
+              input(type='text', name='subject', placeholder='Subject')
+              textarea(name='message', placeholder='Message', cols='30', rows='6')
+              if user
+                input(type='submit', value='SEND MESSAGE')
+              else
+                input(type='submit', value='SEND MESSAGE', disabled)
+  // contact end
