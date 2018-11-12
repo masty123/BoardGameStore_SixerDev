@@ -16,23 +16,25 @@ router.post('/confirm', function(req, res) {
   if (req.user) {
     let price = 0;
     let j = 0;
+    const promotion_check = req.body.promotion_check;
+    const promotion_code = req.body.promotion_code.trim();
+    const term = req.body.term;
     if (req.user.shopping_cart.length != 0) {
       for (var i = 0; i < req.user.shopping_cart.length; i++) {
         Product.findById(req.user.shopping_cart[i], function(err, product) {
           if (err) throw err;
           else {
             price += product.price;
+            if (term === 'on') {
+              removeProduct(product._id);
+            }
           }
           if (j == req.user.shopping_cart.length - 1) {
             //Finish checkout
-            const promotion_check = req.body.promotion_check;
-            const promotion_code = req.body.promotion_code.trim();
-            const term = req.body.term;
             if (term !== 'on') {
               req.flash('danger', 'Please check terms & conditions');
               res.redirect('/checkout');
-            }
-            else if (promotion_check !== 'on') {
+            } else if (promotion_check !== 'on') {
               let transaction = new Transaction({
                 date_ordered: Date.now(),
                 userID: req.user._id,
@@ -51,10 +53,10 @@ router.post('/confirm', function(req, res) {
                   //Clear shopping cart
                   let tempUser = {};
                   tempUser.shopping_cart = [];
-                  let query = {
+                  let query2 = {
                     _id: req.user._id
                   }
-                  User.updateOne(query, tempUser, function(err) {
+                  User.updateOne(query2, tempUser, function(err) {
                     if (err) {
                       req.flash('danger', err);
                       res.redirect('back');
@@ -114,6 +116,23 @@ function getUserProductList(req, res, render_layout) {
     req.flash('danger', 'Please log-in to use cart system');
     res.redirect('/account/login');
   }
+}
+
+function removeProduct(productID) {
+  Product.findById(productID, function(err, product) {
+    let tempProduct = {};
+    tempProduct.stock = product.stock - 1;
+    let query = {
+      _id: productID
+    }
+    Product.updateOne(query, tempProduct, function(err) {
+      if (err) {
+        console.log("error removing 1 " + productID + " from stock");
+      } else {
+        console.log("customer bought " + productID + " | " + (tempProduct.stock) + " left")
+      }
+    });
+  });
 }
 
 module.exports = router;
