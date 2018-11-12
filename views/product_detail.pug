@@ -64,10 +64,10 @@ block content
                     li.active.cart
                       a(href='/product/edit/'+product._id, data-toggle='tooltip', title='Shopping Cart')
                         | EDIT THIS PRODUCT
-                li.active.cart
-                  //- form(method='POST', action='/cart/add/'+product._id)
-                  //-   input(type='submit', value='      ADD TO CART')
-                  if product.stock > 0
+                if product.stock > 0
+                  li.active.cart
+                    //- form(method='POST', action='/cart/add/'+product._id)
+                    //-   input(type='submit', value='      ADD TO CART')
                     a(href='/cart/add/'+product._id, data-toggle='tooltip', title='Shopping Cart')
                       img(src='/img/trend/shopping_cart.png', alt='cart')
                       | ADD TO CART
