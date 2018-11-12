@@ -30,7 +30,7 @@ block content
               h2 #{product.name}
               br
             p
-              if product.stock != 0
+              if product.stock > 0
                 i.fa.fa-check
                 |  IN STOCK #{product.stock}
               else
