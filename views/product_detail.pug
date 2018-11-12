@@ -67,9 +67,10 @@ block content
                 li.active.cart
                   //- form(method='POST', action='/cart/add/'+product._id)
                   //-   input(type='submit', value='      ADD TO CART')
-                  a(href='/cart/add/'+product._id, data-toggle='tooltip', title='Shopping Cart')
-                    img(src='/img/trend/shopping_cart.png', alt='cart')
-                    | ADD TO CART
+                  if product.stock > 0
+                    a(href='/cart/add/'+product._id, data-toggle='tooltip', title='Shopping Cart')
+                      img(src='/img/trend/shopping_cart.png', alt='cart')
+                      | ADD TO CART
                 li
                   a(href='#', data-toggle='tooltip', title='Like it!')
                     img(src='/img/trend/heart.png', alt='')
