@@ -8,8 +8,9 @@ const HashMap = require('hashmap');
 let User = require('../models/user');
 let Product = require('../models/product');
 
-//Login Form
-router.get('/', loggedIn, adjustShoppingCartExceedQuantity, function(req, res) {
+//Shopping Cart
+router.get('/', loggedIn, function(req, res) {
+  let productMap = getProductQuantityMap(req, res);
   let products = [];
   let outdated = [];
   let price = 0;
@@ -22,15 +23,18 @@ router.get('/', loggedIn, adjustShoppingCartExceedQuantity, function(req, res) {
           products.push(product);
           price += product.price;
         }
-        if (product.stock <= 0) {
-          outdated.push(product.name + " is out of order");
+        if (product.stock < productMap.get("" + product._id)) {
+          var errorString = 'You ordered ' + productMap.get("" + product._id) + ' "' + product.name + '", but there is/are only ' + product.stock + ' in the stock, please remove it before proceeding to check out';
+          if (!outdated.includes(errorString)) {
+            outdated.push(errorString);
+          }
         }
         if (j == req.user.shopping_cart.length - 1) {
           if (outdated.length != 0) {
             res.render('cart', {
               products: products,
               price: price,
-              errors: outdated
+              outdated: outdated
             });
           } else {
             res.render('cart', {
@@ -62,7 +66,7 @@ router.get('/add/:id', loggedIn, function(req, res) {
       req.flash('danger', 'Sorry! This product is out of order');
       res.redirect('back');
     } else if (productMap.get(req.params.id) >= product.stock) {
-      req.flash('danger', 'The order quantity exceed to stock amount');
+      req.flash('danger', 'The order quantity exceed the stock amount, cannot order more of this product');
       res.redirect('back');
     } else {
       let tempUser = {};
@@ -108,36 +112,26 @@ function loggedIn(req, res, next) {
 }
 
 //This one isn't working yet
-function adjustShoppingCartExceedQuantity(req, res, next){
+function anyProductExceedStock(req, res) {
   var productMap = getProductQuantityMap(req, res);
-  var changed = false;
+  var exceedProductsName = [];
   var shopping_cart = req.user.shopping_cart;
   for (var k = 0; k < shopping_cart.length; k++) {
-    // console.log(shopping_cart[k]);
-    // console.log(getStock(shopping_cart[k]));
-    if(getStock(shopping_cart[k]) < productMap.get(shopping_cart[k])){
-      console.log(shopping_cart[k]);
-      removeItem(shopping_cart[k]);
-      changed = true;
-    }
+    Product.findById(req.user.shopping_cart[k], function(err, product) {
+      if (err) throw err;
+      else if (!product) {
+        req.flash('danger', ' Product ID ' + req.user.shopping_cart[k] + ' not found. ');
+      } else {
+        if (productMap.get(product._id) > product.stock) {
+          return true;
+        }
+      }
+    })
   }
-  if(changed){
-    req.flash('danger','Removed some item(s) due to exceed stock amount');
-  }
-  next();
+  return false;
 }
 
-function getStock(productID){
-  Product.findById(productID, function(err, product) {
-    if(err) throw err;
-    else if (!product){
-      return 0;
-    }
-    return product.stock;
-  })
-}
-
-function removeItem(req, res, id){
+function removeItem(req, res, id) {
   Product.findById(id, function(err, product) {
     if (err || !product) {
       req.flash('danger', 'Product ID not found');
