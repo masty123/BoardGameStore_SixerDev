@@ -68,39 +68,34 @@ router.post('/confirm', loggedIn, function(req, res) {
                   discountValue: req.promotion.discountValue,
                   isActive: false,                  
                 });
-                if (promotion.type == 1) {
-                  let transaction = new Transaction({
-                    date_ordered: Date.now(),
-                    userID: req.user._id,
-                    productID: req.user.shopping_cart,
-                    promotionID: promotionID,
-                    calculatedPrice: price,
-                    deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
-                    tel_num: req.user.tel_num,
-                    isDelivered: false,
-                    isCancelled: false,
-                  });
-                  calculatedPrice = 0;
+                let transaction = new Transaction({
+                  date_ordered: Date.now(),
+                  userID: req.user._id,
+                  productID: req.user.shopping_cart,
+                  promotionID: promotionID,
+                  calculatedPrice: price,
+                  deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
+                  tel_num: req.user.tel_num,
+                  isDelivered: false,
+                  isCancelled: false,
+                });
+                if (promotion.type == 1 && promotion_code == transaction.promotionID && promotion.isActive == true) {
+                  // promotion.getFreeProductID = ;
                   placeOrder(req, res, transaction, productMap);
                 }
-                else if (promotion.type == 2 || promotion.type == 3) {
-                  let transaction = new Transaction({
-                    date_ordered: Date.now(),
-                    userID: req.user._id,
-                    productID: req.user.shopping_cart,
-                    promotionID: promotionID,
-                    calculatedPrice: price,
-                    deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
-                    tel_num: req.user.tel_num,
-                    isDelivered: false,
-                    isCancelled: false,
-                  });
+                else if (promotion.type == 2 && promotion_code == transaction.promotionID && promotion.isActive == true) {
                   promotion.discountValue = req.promotion.promotionID;
+                  calculatedPrice = calculatedPrice*((100-promotion.discountValue)/100);
+                  placeOrder(req, res, transaction, productMap);
+                }
+                else if (promotion.type == 3 && promotion_code == transaction.promotionID && promotion.isActive == true) {
                   calculatedPrice = calculatedPrice - promotion.discountValue;
                   placeOrder(req, res, transaction, productMap);
                 }
-                req.flash('danger', 'Promotion code is not available at the moment, please uncheck the promotion checkbox');
-                res.redirect('/checkout');
+                else {
+                  req.flash('danger', 'Promotion code is not available at the moment, please uncheck the promotion checkbox');
+                  res.redirect('/checkout');
+                }
               }
             }
             j++;
