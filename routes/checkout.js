@@ -7,6 +7,7 @@ const HashMap = require('hashmap');
 let User = require('../models/user');
 let Product = require('../models/product');
 let Transaction = require('../models/transaction');
+let Promotion = require('../models/promotion');
 
 //Login Form
 router.get('/', function(req, res) {
@@ -58,6 +59,46 @@ router.post('/confirm', loggedIn, function(req, res) {
               }
               else {
                 // TODO: Promotion goes here
+                let promotion = new Promotion({
+                  name: req.promotion.name,
+                  description: req.promotion.description,
+                  type: req.promotion.type,
+                  productID: req.users.shopping_cart,
+                  getFreeProductID: req.promotion.getFreeProductID,
+                  discountValue: req.promotion.discountValue,
+                  isActive: false,                  
+                });
+                if (promotion.type == 1) {
+                  let transaction = new Transaction({
+                    date_ordered: Date.now(),
+                    userID: req.user._id,
+                    productID: req.user.shopping_cart,
+                    promotionID: promotionID,
+                    calculatedPrice: price,
+                    deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
+                    tel_num: req.user.tel_num,
+                    isDelivered: false,
+                    isCancelled: false,
+                  });
+                  calculatedPrice = 0;
+                  placeOrder(req, res, transaction, productMap);
+                }
+                else if (promotion.type == 2 || promotion.type == 3) {
+                  let transaction = new Transaction({
+                    date_ordered: Date.now(),
+                    userID: req.user._id,
+                    productID: req.user.shopping_cart,
+                    promotionID: promotionID,
+                    calculatedPrice: price,
+                    deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
+                    tel_num: req.user.tel_num,
+                    isDelivered: false,
+                    isCancelled: false,
+                  });
+                  promotion.discountValue = req.promotion.promotionID;
+                  calculatedPrice = calculatedPrice - promotion.discountValue;
+                  placeOrder(req, res, transaction, productMap);
+                }
                 req.flash('danger', 'Promotion code is not available at the moment, please uncheck the promotion checkbox');
                 res.redirect('/checkout');
               }
