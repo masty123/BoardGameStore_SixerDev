@@ -56,14 +56,29 @@ block content
                 .toolbar-form.clearfix
                   p Short By
                   form(action='#')
-                    .toolbar-section
+                    .toolbar-section(style='margin-right: 20px;')
                       select#sort(name='sort')
                         option(value='default') DEFAULT SORTING
-                        //- option(value='Popularity') SORT BY POPULARITY
-                        //- option(value='rating') SORT BY AVERAGE RATING
-                        //- option(value='newness') SORT BY NEWNESS
-                        option(value='Price') SORT BY PRICE:LOW TO HIGH
-                        option(value='Price') SORT BY PRICE:HIGH TO LOW
+                        option(value='name_a_z') SORT BY NAME: A-Z
+                        option(value='name_a_z') SORT BY NAME: Z-A
+                        option(value='price_min') SORT BY PRICE:LOW TO HIGH
+                        option(value='price_max') SORT BY PRICE:HIGH TO LOW
+                .toolbar-form.clearfix
+                  p Category
+                  form(action='#')
+                    .toolbar-section
+                      select#sort(name='category')
+                        option(value='All') All
+                        option(value='All_games') All Games
+                        option(value='All_accessories') All Accessories
+                        option(value='Strategy') Strategy Games
+                        option(value='Party') Party Games
+                        option(value='Thematic') Thematic Games
+                        option(value='Family') Family Games
+                        option(value='Children') Children Games
+                        option(value='Dice_bag') Dice Bags
+                        option(value='Dice_set') Dice Sets
+                        option(value='Playmats') Playmats
           .row
             if products
               each product in products
@@ -77,8 +92,7 @@ block content
                       .single_trend_label.text-center
                         a(href='/product/'+product._id)
                           h3 #{product.name}
-                        h4
-                          | #{product.price}
+                          h4 ฿#{product.price}
                       .wish_icon_hover.text-center
                         ul
                           li.active
