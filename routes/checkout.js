@@ -80,7 +80,7 @@ router.post('/confirm', loggedIn, function(req, res) {
                   if (err) throw err;
                   else {  
                     if (promotion.type == 1) {
-                      var freearray = req.user.shopping_cart;
+                      // var freearray = req.user.shopping_cart;
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
                         userID: req.user._id,
@@ -110,7 +110,7 @@ router.post('/confirm', loggedIn, function(req, res) {
                       placeOrder(req, res, transaction, productMap);
                     }
                     else if (promotion.type == 3) {
-                      calculatedPrice = calculatedPrice - promotion.discountValue;
+                      var price = price - promotion.discountValue;
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
                         userID: req.user._id,
