@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
   Product.find({}, function(err, products) {
     res.render('browse', {
       title: "Shop All",
-      products: products
+      products: products,
     });
   });
 });

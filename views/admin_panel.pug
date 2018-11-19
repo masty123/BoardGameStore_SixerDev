@@ -1,0 +1,91 @@
+extends layout
+
+block content
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 ADMIN PANEL
+  // banner end
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
+  // cart start
+  .cart_area
+    .container
+      .row
+        .col-lg-1
+        .col-lg-10
+          .cart_list.table-responsive
+            table.table_cart.table-bordered
+              uo
+                | TABLES
+                li
+                  a(href='#product_table') Products
+                li
+                  a(href='#promotion_table') Transaction
+          .cart_list.table-responsive
+            table#product_table.table_cart.table-bordered
+              | Products
+              thead
+                tr
+                  th.description Name
+                  th.unit_price Price
+                  th.unit_price Stock
+                  th.unit_price Category
+                  th.action Action
+              tbody
+                each product in products
+                  tr
+                    td.u_price
+                      a(href='/product/'+product._id) #{product.name}
+                    td.u_price ฿#{product.price}
+                    td.u_price #{product.stock}
+                    td.u_price #{product.category}
+                    td.p_action
+                      if product.stock <= 0
+                        a(href='/product/edit/'+product._id)
+                          | Restock
+                      else
+                        a(href='/product/edit/'+product._id)
+                          | Edit
+        .cart_list.table-responsive            
+          table#promotion_table.table_cart.table-bordered
+            | Transaction
+            thead
+              tr
+                th.description Date Ordered
+                th.unit_price User
+                th.unit_price Products
+                th.unit_price Promotion
+                th.unit_price Price
+                th.unit_price Address
+                th.action Action
+            tbody
+              each transaction in transactions
+                tr
+                  td.u_price(style="padding: 0px;") #{transaction.date_ordered}
+                  td.u_price(style="padding: 0px;")
+                    each user in users
+                      if transaction.userID === user.id
+                        | #{user.name}
+                  td.u_price(style="padding: 0px;")
+                    each product_trans in transaction.productID
+                      each product_check in products
+                        if product_trans === product_check.id
+                          span
+                            a(href='/product/'+product_trans) #{product_check.name}
+                          br
+                  td.u_price(style="padding: 0px;") #{transaction.promotionID}
+                  td.u_price(style="padding: 0px;") #{transaction.calculatedPrice}
+                  td.u_price(style="padding: 0px;") #{transaction.deliveryAddress} #{transaction.tel_num}
+                  td.p_action(style="padding: 0px;")
+                    form(action='/transaction/done/'+transaction._id, method="post")
+                      input(type="submit", value="Deliver")
+                    form(action='/transaction/cancel/'+transaction._id, method="post")
+                      input(type="submit", value="Cancel")
+  // cart area end
