@@ -62,10 +62,10 @@ router.post('/confirm', loggedIn, function(req, res) {
                   isDelivered: false,
                   isCancelled: false,
                 });
+                console.log("no promotion here");
                 placeOrder(req, res, transaction, productMap);
               }
               else {
-                // TODO: Promotion goes here
                 let promotion = new Promotion({
                   name: name,
                   description: description,
@@ -78,9 +78,9 @@ router.post('/confirm', loggedIn, function(req, res) {
                 let query = {name: req.body.promotion_code};
                 Promotion.findOne(query, function(err, promotion) {
                   if (err) throw err;
-                  else {  
+                  else { 
                     if (promotion.type == 1) {
-                      // var freearray = req.user.shopping_cart;
+                      var freearray = req.user.shopping_cart;
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
                         userID: req.user._id,
@@ -96,13 +96,13 @@ router.post('/confirm', loggedIn, function(req, res) {
                     }
                     else if (promotion.type == 2) {
                       var discount = (100-promotion.discountValue)/100;
-                      var price = product.price*discount;
+                      price = product.price*discount;
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
                         userID: req.user._id,
                         productID: req.user.shopping_cart,
                         promotionID: promotion.name,
-                        calculatedPrice: price,
+                        calculatedPrice: price*discount,
                         deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
                         tel_num: req.user.tel_num,
                         isDelivered: false,
@@ -110,10 +110,11 @@ router.post('/confirm', loggedIn, function(req, res) {
                       });
                       console.log(discount);
                       console.log(price);
+                      transaction.calculatedPrice = product.price*discount;
                       placeOrder(req, res, transaction, productMap);
                     }
                     else if (promotion.type == 3) {
-                      var price = product.price - promotion.discountValue;
+                      price = product.price - promotion.discountValue;
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
                         userID: req.user._id,
@@ -125,6 +126,9 @@ router.post('/confirm', loggedIn, function(req, res) {
                         isDelivered: false,
                         isCancelled: false,
                       });
+                      transaction.calculatedPrice = price;
+                      console.log(price);
+                      console.log(transaction.calculatedPrice);
                       placeOrder(req, res, transaction, productMap);
                     }
                     else {
@@ -181,6 +185,7 @@ function getUserProductList(req, res, render_layout) {
 function placeOrder(req, res, transaction, productMap){
   transaction.save(function(err) {
     if (err) {
+      console.log("holy moly");
       req.flash('danger', err);
       res.redirect('back');
     } else {
@@ -194,7 +199,9 @@ function placeOrder(req, res, transaction, productMap){
         if (err) {
           req.flash('danger', err);
           res.redirect('back');
+          console.log("hello there");
         } else {
+          console.log("pass");
           removeProducts(req, res, productMap);
           req.flash('success', 'Placed your order into the queue');
           res.redirect('/');
