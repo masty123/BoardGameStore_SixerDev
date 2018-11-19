@@ -95,22 +95,25 @@ router.post('/confirm', loggedIn, function(req, res) {
                       placeOrder(req, res, transaction, productMap);
                     }
                     else if (promotion.type == 2) {
-                      var calculate = price*((100-promotion.discountValue)/100);
+                      var discount = (100-promotion.discountValue)/100;
+                      var price = product.price*discount;
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
                         userID: req.user._id,
                         productID: req.user.shopping_cart,
                         promotionID: promotion.name,
-                        calculatedPrice: calculate,
+                        calculatedPrice: price,
                         deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
                         tel_num: req.user.tel_num,
                         isDelivered: false,
                         isCancelled: false,
                       });
+                      console.log(discount);
+                      console.log(price);
                       placeOrder(req, res, transaction, productMap);
                     }
                     else if (promotion.type == 3) {
-                      var price = price - promotion.discountValue;
+                      var price = product.price - promotion.discountValue;
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
                         userID: req.user._id,
