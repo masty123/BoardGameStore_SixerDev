@@ -23,12 +23,9 @@ router.post('/add', ensureAuthenticated, function(req, res) {
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('description', 'Description is required').notEmpty();
   req.checkBody('type', 'Type is required').notEmpty();
-  req.checkBody('productID', 'Product ID is required').notEmpty();
-  req.checkBody('getFreeProductID', 'Get Free Product ID is required').notEmpty();
-  req.checkBody('discountValue', 'Discount Value is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
-    res.render('/')
+    res.redirect('/')
   } else {
     let promotion = new Promotion({
       name: name,
