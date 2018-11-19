@@ -131,6 +131,7 @@ let checkout = require('./routes/checkout');
 let wishlist = require('./routes/wishlist');
 let product = require('./routes/product');
 let page = require('./routes/page');
+let promotion = require('./routes/promotion');
 
 app.use('/account', account);
 app.use('/cart', cart);
@@ -138,6 +139,7 @@ app.use('/checkout', checkout);
 app.use('/wishlist', wishlist);
 app.use('/product', product);
 app.use('/page', page);
+app.use('/promotion', promotion);
 
 //set public folder.
 app.use(express.static(path.join(__dirname, 'public')));
