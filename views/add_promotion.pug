@@ -1,0 +1,68 @@
+extends layout
+
+block content
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 Adding promotion 
+  if user
+    if user.isAdmin
+      // banner end
+      .register_area
+        .container
+          .row
+            .col-md-3.col-sm-12
+            .col-md-6.col-sm-12
+              .register_customer
+                h2.register_heading Add promotion
+                form(method='POST', action='/promotion/add')
+                  p
+                    | Name
+                    span  * 
+                    br
+                    input(name='name', type='text')
+                  p
+                    | Description
+                    span  * 
+                    br
+                    textarea(name='description', type='text')
+                  p
+                    | Type
+                    span  * 
+                    br
+                    input(name='type', type='number')
+                  p
+                    | Product ID (Seperate by using "," for multiple items)
+                    span  * 
+                    br
+                    input(name='productID', type='text')
+                  p
+                    | Get Free Product ID (Seperate by using "," for multiple items)
+                    span  * 
+                    br
+                    input(name='getFreeProductID', type='text')
+                  p
+                    | Discount Value
+                    span  * 
+                    br
+                    input(name='discountValue', type='number')
+                  input(type='submit', value='ADD PROMOTION')
+    else
+      .register_area
+        .container
+          .row
+            .col-md-3.col-sm-12
+            .col-md-6.col-sm-12
+              .register_customer
+                h2.register_heading Sorry! You are not supposed to be here.
+  else
+    .register_area
+      .container
+        .row
+          .col-md-3.col-sm-12
+          .col-md-6.col-sm-12
+            .register_customer
+              h2.register_heading Sorry! You are not supposed to be here.
