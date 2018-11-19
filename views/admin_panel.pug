@@ -41,12 +41,12 @@ block content
               tbody
                 each product in products
                   tr
-                    td.u_price
+                    td.u_price(style="padding-top: 0px; padding-bottom: 0px;")
                       a(href='/product/'+product._id) #{product.name}
-                    td.u_price ฿#{product.price}
-                    td.u_price #{product.stock}
-                    td.u_price #{product.category}
-                    td.p_action
+                    td.u_price(style="padding-top: 0px; padding-bottom: 0px;") ฿#{product.price}
+                    td.u_price(style="padding-top: 0px; padding-bottom: 0px;") #{product.stock}
+                    td.u_price(style="padding-top: 0px; padding-bottom: 0px;") #{product.category}
+                    td.p_action(style="padding-top: 0px; padding-bottom: 0px;")
                       if product.stock == 0
                         a(href='/product/edit/'+product._id)
                           | Restock
