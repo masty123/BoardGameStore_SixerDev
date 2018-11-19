@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 Editing Promotion
+  if user
+    if user.isAdmin
+      // banner end
+      .register_area
+        .container
+          .row
+            .col-md-3.col-sm-12
+            .col-md-6.col-sm-12
+              .register_customer
+                h2.register_heading Edit promotion
+                form(method='POST', action='/promotion/edit/'+promotion.id)
+                  P
+                    | Status
+                    span  * 
+                    br
+                    select(name='isActive')
+                      option(value='true') True
+                      option(value='false') False
+                  input(type='submit', value='EDIT PROMOTION')
+    else
+      .register_area
+        .container
+          .row
+            .col-md-3.col-sm-12
+            .col-md-6.col-sm-12
+              .register_customer
+                h2.register_heading Sorry! You are not the owner of this product.
+  else
+    .register_area
+      .container
+        .row
+          .col-md-3.col-sm-12
+          .col-md-6.col-sm-12
+            .register_customer
+              h2.register_heading Sorry! You are not supposed to be here.
