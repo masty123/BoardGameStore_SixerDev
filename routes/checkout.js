@@ -73,42 +73,55 @@ router.post('/confirm', loggedIn, function(req, res) {
                   productID: productID,
                   getFreeProductID: getFreeProductID,
                   discountValue: discountValue,
-                  isActive: true,                  
+                  isActive: isActive,                  
                 });
-                let transaction = new Transaction({
-                  date_ordered: Date.now(),
-                  userID: req.user._id,
-                  productID: req.user.shopping_cart,
-                  promotionID: promotion.name,
-                  calculatedPrice: price,
-                  deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
-                  tel_num: req.user.tel_num,
-                  isDelivered: false,
-                  isCancelled: false,
-                });
-                let query = {name: promotion.name};
+                let query = {name: req.body.promotion_code};
                 Promotion.findOne(query, function(err, promotion) {
                   if (err) throw err;
-                  else {   
-                    let promotion = new Promotion({
-                      name: name,
-                      description: description,
-                      type: type,
-                      productID: productID,
-                      getFreeProductID: getFreeProductID,
-                      discountValue: discountValue,
-                      isActive: true,                  
-                    });
-                    if (promotion.type == 1 && promotion_code == transaction.promotionID) {
-                      // promotion.getFreeProductID = ;
+                  else {  
+                    if (promotion.type == 1) {
+                      var freearray = req.user.shopping_cart;
+                      let transaction = new Transaction({
+                        date_ordered: Date.now(),
+                        userID: req.user._id,
+                        productID: req.user.shopping_cart,
+                        promotionID: promotion.name,
+                        calculatedPrice: price,
+                        deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
+                        tel_num: req.user.tel_num,
+                        isDelivered: false,
+                        isCancelled: false,
+                      });
                       placeOrder(req, res, transaction, productMap);
                     }
-                    else if (promotion.type == 2 && promotion_code == transaction.promotionID) {
-                      calculatedPrice = calculatedPrice*((100-promotion.discountValue)/100);
+                    else if (promotion.type == 2) {
+                      var calculate = price*((100-promotion.discountValue)/100);
+                      let transaction = new Transaction({
+                        date_ordered: Date.now(),
+                        userID: req.user._id,
+                        productID: req.user.shopping_cart,
+                        promotionID: promotion.name,
+                        calculatedPrice: calculate,
+                        deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
+                        tel_num: req.user.tel_num,
+                        isDelivered: false,
+                        isCancelled: false,
+                      });
                       placeOrder(req, res, transaction, productMap);
                     }
-                    else if (promotion.type == 3 && promotion_code == transaction.promotionID) {
+                    else if (promotion.type == 3) {
                       calculatedPrice = calculatedPrice - promotion.discountValue;
+                      let transaction = new Transaction({
+                        date_ordered: Date.now(),
+                        userID: req.user._id,
+                        productID: req.user.shopping_cart,
+                        promotionID: promotion.name,
+                        calculatedPrice: price,
+                        deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
+                        tel_num: req.user.tel_num,
+                        isDelivered: false,
+                        isCancelled: false,
+                      });
                       placeOrder(req, res, transaction, productMap);
                     }
                     else {
