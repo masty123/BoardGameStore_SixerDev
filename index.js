@@ -133,6 +133,7 @@ let product = require('./routes/product');
 let page = require('./routes/page');
 let browse = require('./routes/browse');
 let admin_panel = require('./routes/admin_panel');
+let transaction = require('./routes/transaction');
 
 app.use('/account', account);
 app.use('/cart', cart);
@@ -142,6 +143,7 @@ app.use('/product', product);
 app.use('/page', page);
 app.use('/browse', browse);
 app.use('/admin_panel', admin_panel);
+app.use('/transaction', transaction);
 
 //set public folder.
 app.use(express.static(path.join(__dirname, 'public')));

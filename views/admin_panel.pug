@@ -27,7 +27,7 @@ block content
                 li
                   a(href='#product_table') Products
                 li
-                  a(href='#promotion_table') Transaction
+                  a(href='#transaction_table') Transaction
           .cart_list.table-responsive
             table#product_table.table_cart.table-bordered
               | Products
@@ -47,14 +47,17 @@ block content
                     td.u_price #{product.stock}
                     td.u_price #{product.category}
                     td.p_action
-                      if product.stock <= 0
+                      if product.stock == 0
                         a(href='/product/edit/'+product._id)
                           | Restock
+                      else if product.stock < 0
+                        a(href='/product/edit/'+product._id, style="color: red;")
+                          | Conflict
                       else
                         a(href='/product/edit/'+product._id)
                           | Edit
         .cart_list.table-responsive            
-          table#promotion_table.table_cart.table-bordered
+          table#transaction_table.table_cart.table-bordered
             | Transaction
             thead
               tr
@@ -64,7 +67,7 @@ block content
                 th.unit_price Promotion
                 th.unit_price Price
                 th.unit_price Address
-                th.action Action
+                th.action Status
             tbody
               each transaction in transactions
                 tr
@@ -84,8 +87,13 @@ block content
                   td.u_price(style="padding: 0px;") #{transaction.calculatedPrice}
                   td.u_price(style="padding: 0px;") #{transaction.deliveryAddress} #{transaction.tel_num}
                   td.p_action(style="padding: 0px;")
-                    form(action='/transaction/done/'+transaction._id, method="post")
-                      input(type="submit", value="Deliver")
-                    form(action='/transaction/cancel/'+transaction._id, method="post")
-                      input(type="submit", value="Cancel")
+                    if transaction.isDelivered
+                      span(style='color: green') Delivered
+                    else if transaction.isCancelled
+                      span Cancelled
+                    else
+                      form(action='/transaction/deliver/'+transaction._id, method="post")
+                        input(type="submit", value="Deliver")
+                      form(action='/transaction/cancel/'+transaction._id, method="post")
+                        input(type="submit", value="Cancel")
   // cart area end
