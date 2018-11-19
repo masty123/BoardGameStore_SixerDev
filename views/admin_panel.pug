@@ -40,21 +40,21 @@ block content
                   th.action Action
               tbody
                 each product in products
-                  tr
-                    td.u_price(style="padding-top: 0px; padding-bottom: 0px;")
-                      a(href='/product/'+product._id) #{product.name}
-                    td.u_price(style="padding-top: 0px; padding-bottom: 0px;") ฿#{product.price}
-                    td.u_price(style="padding-top: 0px; padding-bottom: 0px;") #{product.stock}
-                    td.u_price(style="padding-top: 0px; padding-bottom: 0px;") #{product.category}
-                    td.p_action(style="padding-top: 0px; padding-bottom: 0px;")
+                  tr.printto_hover
+                    td.u_printto(style="padding-top: 0px; padding-bottom: 0px;")
+                      a.u_printto(href='/product/'+product._id) #{product.name}
+                    td.u_printto(style="padding-top: 0px; padding-bottom: 0px;") ฿#{product.price}
+                    td.u_printto(style="padding-top: 0px; padding-bottom: 0px;") #{product.stock}
+                    td.u_printto(style="padding-top: 0px; padding-bottom: 0px;") #{product.category}
+                    td.u_printto(style="padding-top: 0px; padding-bottom: 0px;")
                       if product.stock == 0
-                        a(href='/product/edit/'+product._id)
+                        a.u_printto(href='/product/edit/'+product._id)
                           | Restock
                       else if product.stock < 0
-                        a(href='/product/edit/'+product._id, style="color: red;")
+                        a.u_printto(href='/product/edit/'+product._id, style="color: red;")
                           | Conflict
                       else
-                        a(href='/product/edit/'+product._id)
+                        a.u_printto(href='/product/edit/'+product._id)
                           | Edit
         .cart_list.table-responsive            
           table#transaction_table.table_cart.table-bordered
@@ -70,27 +70,27 @@ block content
                 th.action Status
             tbody
               each transaction in transactions
-                tr
-                  td.u_price(style="padding: 0px;") #{transaction.date_ordered}
-                  td.u_price(style="padding: 0px;")
+                tr.printto_hover
+                  td.u_printto(style="padding: 0px;") #{transaction.date_ordered}
+                  td.u_printto(style="padding: 0px;")
                     each user in users
                       if transaction.userID === user.id
                         | #{user.name}
-                  td.u_price(style="padding: 0px;")
+                  td.u_printto(style="padding: 0px;")
                     each product_trans in transaction.productID
                       each product_check in products
                         if product_trans === product_check.id
                           span
-                            a(href='/product/'+product_trans) #{product_check.name}
+                            a.u_printto(href='/product/'+product_trans) #{product_check.name}
                           br
-                  td.u_price(style="padding: 0px;") #{transaction.promotionID}
-                  td.u_price(style="padding: 0px;") #{transaction.calculatedPrice}
-                  td.u_price(style="padding: 0px;") #{transaction.deliveryAddress} #{transaction.tel_num}
+                  td.u_printto(style="padding: 0px;") #{transaction.promotionID}
+                  td.u_printto(style="padding: 0px;") #{transaction.calculatedPrice}
+                  td.u_printto(style="padding: 0px;") #{transaction.deliveryAddress} #{transaction.tel_num}
                   td.p_action(style="padding: 0px;")
                     if transaction.isDelivered
-                      span(style='color: green') Delivered
+                      span(style='color: green; font-weight: bold;') Delivered
                     else if transaction.isCancelled
-                      span Cancelled
+                      span.u_printto Cancelled
                     else
                       form(action='/transaction/deliver/'+transaction._id, method="post")
                         input(type="submit", value="Deliver")

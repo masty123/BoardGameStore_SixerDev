@@ -10363,3 +10363,12 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 .printto_table {
   padding: 0px;
 }
+.u_printto {
+  color: #000000;
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+.printto_hover:hover{
+  background-color: #FFFFCC;
+}
