@@ -175,7 +175,27 @@ html.no-js(lang='zxx')
                             .shopping-cart
                               a(href='/cart')
                                 img(src='/img/header_cart.png', alt='shopping_cart')
-                                p #{user.shopping_cart.length}
+                                p #{user.shopping_cart.length} 
+                                  .mini-cart-content
+                                    if user.shopping_cart.length != 0
+                                      each product in products
+                                        .cart-img-details
+                                          .cart-img-photo
+                                               img(src=product.picture, alt='accessories')
+                                          .cart-img-content 
+                                            a(href='/cart')
+                                              h5(style='color: #FFFFFF;') #{product.name}
+                                            span(style='color: #FFFFFF;') ฿#{product.price}
+                                          .pro-del
+                                            a(href='/cart')
+                                              i.fa.fa-times-circle
+                                    else
+                                      p(style='color: #FFFFFF;') No item in your shopping cart &nbsp;
+                                        .cart-inner-bottom
+                                          h5.total Subtotal:.00
+                                
+                                          
+                                  
                             //- .mini-cart-content
                             //-   if items.length != 0
                             //-     each item in items
@@ -185,7 +205,7 @@ html.no-js(lang='zxx')
                             //-             img(src='/img/trend/trend_stra1.jpg', alt='accessories')
                             //-         .cart-img-contaent
                             //-           a(href='#')
-                            //-             h4 #{cartItem.name}
+                            //-             h4 #{ยพนกีแ.name}
                             //-           span ฿#{cartItem.price}
                             //-         .pro-del
                             //-           a(href='#')

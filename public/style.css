@@ -287,7 +287,7 @@ header.header .logo, header.header_2 .logo {
     width: 255px;
     background: rgba(37, 37, 37, 0.9);
     z-index: 999;
-    padding-left: 0;
+    padding-left: 15;
     transform-origin: 0 0 0;
     opacity: 0;
     padding-bottom: 12px;
@@ -703,13 +703,13 @@ header.header .logo, header.header_2 .logo {
     padding: 10px 0 0;
     position: absolute;
     right: 0;
-    top: 190%;
+    top: 600%;
     transform-origin: 0 0 0;
     transition: all 0.5s ease 0s;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
-    width: 280px;
+    width: 300px;
     z-index: -99;
     left:auto;
     visibility: hidden;
@@ -3508,7 +3508,7 @@ header.header_2{
     background: #3f3f3f none repeat scroll 0 0;
     left: 0;
     right: auto;
-    top: 128%;
+    top: 100%;
 }
 .home_six .cart-inner-bottom, .home_seven .cart-inner-bottom {
     padding: 12px;
@@ -5850,8 +5850,10 @@ header.header_2{
 .home_fifteen .cart-total ul li a .cart-totals {
     color: #4bbea1
 }
-.home_fifteen .cart-total ul li .mini-cart-content .cart-img-details .cart-img-contaent h4:hover {
+.home_fifteen .cart-total ul li .mini-cart-content .cart-img-details .cart-img-content h5:hover {
     color: #4bbea1;
+    f
+
 }
 .home_fifteen .cart-total, .home_sixteen .cart-total {
     padding: 22px 0;
