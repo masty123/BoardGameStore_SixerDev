@@ -185,36 +185,16 @@ html.no-js(lang='zxx')
                                           .cart-img-content 
                                             a(href='/cart')
                                               h5(style='color: #FFFFFF;') #{product.name}
-                                            span(style='color: #FFFFFF;') ฿#{product.price}
+                                              span(style='color: #FFFFFF;') ฿#{product.price}
                                           .pro-del
                                             a(href='/cart/remove/'+product._id)
                                               i.fa.fa-times-circle
                                               
                                     else
-                                      p(style='color: #FFFFFF;') No item in your shopping cart &nbsp;
+                                      h(style='color: #FFFFFF;', text-align='center') No item in your shopping cart &nbsp;
                                             .cart-inner-bottom
                                               h5.total Subtotal:.00
-                                
-                                          
-                                  
-                            //- .mini-cart-content
-                            //-   if items.length != 0
-                            //-     each item in items
-                            //-       .cart-img-details
-                            //-         .cart-img-photo
-                            //-           a(href='/product/'+item._id)
-                            //-             img(src='/img/trend/trend_stra1.jpg', alt='accessories')
-                            //-         .cart-img-contaent
-                            //-           a(href='#')
-                            //-             h4 #{ยพนกีแ.name}
-                            //-           span ฿#{cartItem.price}
-                            //-         .pro-del
-                            //-           a(href='#')
-                            //-             i.fa.fa-times-circle
-                            //-   else
-                            //-     p(style='color: #FFFFFF;') No item in your shopping cart &nbsp;
-                            //-     //- .cart-inner-bottom
-                            //-     //-   h5.total Subtotal:.00
+                                                            
                   li.search_menu
                     img#toggle-search(src='/img/header_search.png', alt='search')
         .search

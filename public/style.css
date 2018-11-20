@@ -284,7 +284,7 @@ header.header .logo, header.header_2 .logo {
     position: absolute;
     left: 0;
     top: 100%;
-    width: 255px;
+    width: 300px;
     background: rgba(37, 37, 37, 0.9);
     z-index: 999;
     padding-left: 15;
