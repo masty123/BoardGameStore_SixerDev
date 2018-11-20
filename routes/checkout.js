@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/confirm', loggedIn, function(req, res) {
-    let productMap = new HashMap();
+    let productMap = getProductQuantityMap(req, res);
     var shopping_cart = req.user.shopping_cart;
     var promotion_check = req.body.promotion_check;
     var promotion_code = req.body.promotion_code.trim();
@@ -32,13 +32,6 @@ router.post('/confirm', loggedIn, function(req, res) {
       res.redirect('/checkout');
     }
     else{
-      for (var i = 0; i < shopping_cart.length; i++) {
-        if (productMap.has(shopping_cart[i])) {
-          productMap.set(shopping_cart[i], productMap.get(shopping_cart[i]) + 1);
-        } else {
-          productMap.set(shopping_cart[i], 1);
-        }
-      }
       let price = 0;
       let j = 0;
       if (shopping_cart.length != 0) {
@@ -62,7 +55,6 @@ router.post('/confirm', loggedIn, function(req, res) {
                   isDelivered: false,
                   isCancelled: false,
                 });
-                console.log("no promotion here");
                 placeOrder(req, res, transaction, productMap);
               }
               else {
@@ -185,7 +177,6 @@ function getUserProductList(req, res, render_layout) {
 function placeOrder(req, res, transaction, productMap){
   transaction.save(function(err) {
     if (err) {
-      console.log("holy moly");
       req.flash('danger', err);
       res.redirect('back');
     } else {
@@ -199,9 +190,7 @@ function placeOrder(req, res, transaction, productMap){
         if (err) {
           req.flash('danger', err);
           res.redirect('back');
-          console.log("hello there");
         } else {
-          console.log("pass");
           removeProducts(req, res, productMap);
           req.flash('success', 'Placed your order into the queue');
           res.redirect('/');
@@ -228,6 +217,19 @@ function removeProducts(req, res, productMap){
       });
     });
   });
+}
+
+function getProductQuantityMap(req, res){
+  let productMap = new HashMap();
+  var shopping_cart = req.user.shopping_cart;
+  for (var i = 0; i < shopping_cart.length; i++) {
+    if (productMap.has(shopping_cart[i])) {
+      productMap.set(shopping_cart[i], productMap.get(shopping_cart[i]) + 1);
+    } else {
+      productMap.set(shopping_cart[i], 1);
+    }
+  }
+  return productMap;
 }
 
 //Logged in
