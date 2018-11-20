@@ -1,0 +1,115 @@
+extends layout
+
+block content
+  // Start About shop area
+  section.shop_banner
+    .container
+      .row
+        .col-12
+          .shop_banner_text
+            .table_cell.text-center
+              h2 #{title}
+  // End About shop area
+  // Start shop page area
+  section.shop_page_area.section_padding_6
+    .container
+      .row
+        .col-lg-3.col-md-12.order-2.order-lg-1
+          .shop_left_sidebar
+            .widget
+              h3.widget-title adjust prices
+              .widget_prices
+                .price_bar
+                  #slider-range
+                  .price-amount
+                    input#min-amount(type='text', name='price_min', placeholder='Add Your Price')
+                    input#max-amount(type='text', name='price_max', placeholder='Add Your Price')
+                  a.filter(href='') FILTER
+            //- .widget
+            //-   h3.widget-title featured product
+            //-   .single_offers
+            //-     .single_offers_img
+            //-       a(href='#')
+            //-         img.primary_image(src='/img/offers/best_seller_2.jpg', alt='')
+            //-         img.secondary_image(src='/img/offers/best_seller_2.jpg', alt='')
+            //-     .single_offers_label
+            //-       a(href='#')
+            //-         h5 Abyss
+            //-       h4 ฿390.00
+            //-   .single_offers
+            //-     .single_offers_img
+            //-       a(href='#')
+            //-         img.primary_image(src='/img/offers/best_sellers_4.jpg', alt='')
+            //-         img.secondary_image(src='/img/offers/best_sellers_2.jpg', alt='')
+            //-     .single_offers_label
+            //-       a(href='#')
+            //-         h5 Potion Explosion
+            //-       h4 ฿390.00
+            //
+              <div class="widget single_slider_bottom hidden-md">
+              <a href=""><img src="img/widget_banner.jpg" alt=""></a>
+              </div>
+        .col-lg-9.col-md-12.order-1.order-lg-2
+          .row
+            .col-12
+              .toolbar.clearfix
+                .toolbar-form.clearfix
+                  p Short By
+                  form(action='#')
+                    .toolbar-section(style='margin-right: 20px;')
+                      select#sort(name='sort')
+                        option(value='default') DEFAULT SORTING
+                        option(value='name_a_z') SORT BY NAME: A-Z
+                        option(value='name_a_z') SORT BY NAME: Z-A
+                        option(value='price_min') SORT BY PRICE:LOW TO HIGH
+                        option(value='price_max') SORT BY PRICE:HIGH TO LOW
+                .toolbar-form.clearfix
+                  p Category
+                  form(action='#')
+                    .toolbar-section
+                      select#sort(name='category')
+                        option(value='All') All
+                        option(value='All_games') All Games
+                        option(value='All_accessories') All Accessories
+                        option(value='Strategy') Strategy Games
+                        option(value='Party') Party Games
+                        option(value='Thematic') Thematic Games
+                        option(value='Family') Family Games
+                        option(value='Children') Children Games
+                        option(value='Dice_bag') Dice Bags
+                        option(value='Dice_set') Dice Sets
+                        option(value='Playmats') Playmats
+          .row
+            if products
+              each product in products
+                .col-md-4.col-sm-12.col-lg-4
+                  .single_trend
+                    .single_trend_item
+                      .single_trend_img
+                        a(href='/product/'+product._id)
+                          img.primary_image(src=product.picture, alt='')
+                          img.secondary_image(src=product.picture, alt='')
+                      .single_trend_label.text-center
+                        a(href='/product/'+product._id)
+                          h3 #{product.name}
+                          h4 ฿#{product.price}
+                      .wish_icon_hover.text-center
+                        ul
+                          li.active
+                            a(href='/cart/add/'+product._id, data-toggle='tooltip', title='Shopping Cart')
+                              img(src='/img/trend/shopping_cart.png', alt='cart')
+                          li
+                            a(href='#', data-toggle='tooltip', title='Like it!')
+                              img(src='/img/trend/heart.png', alt='')
+          //- .row
+          //-   .col-12
+          //-     .pagination.text-center
+          //-       ul.page_no
+          //-         li.active
+          //-           a(href='#') 1
+          //-         li
+          //-           a(href='#') 2
+          //-         li.active
+          //-           a(href='#')
+          //-             i.fa.fa-long-arrow-right
+  // End shop page area

@@ -131,7 +131,13 @@ let checkout = require('./routes/checkout');
 let wishlist = require('./routes/wishlist');
 let product = require('./routes/product');
 let page = require('./routes/page');
+<<<<<<< HEAD
 let promotion = require('./routes/promotion');
+=======
+let browse = require('./routes/browse');
+let admin_panel = require('./routes/admin_panel');
+let transaction = require('./routes/transaction');
+>>>>>>> origin/master
 
 app.use('/account', account);
 app.use('/cart', cart);
@@ -139,7 +145,13 @@ app.use('/checkout', checkout);
 app.use('/wishlist', wishlist);
 app.use('/product', product);
 app.use('/page', page);
+<<<<<<< HEAD
 app.use('/promotion', promotion);
+=======
+app.use('/browse', browse);
+app.use('/admin_panel', admin_panel);
+app.use('/transaction', transaction);
+>>>>>>> origin/master
 
 //set public folder.
 app.use(express.static(path.join(__dirname, 'public')));

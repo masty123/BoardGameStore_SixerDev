@@ -106,20 +106,20 @@ html.no-js(lang='zxx')
                     li.active
                       a(href='/') home
                     li
-                      a(href='') games
+                      a(href='/browse') games
                       ul.sub-menu
                         li
-                          a(href='') Strategy
+                          a(href='/browse/strategy') Strategy
                         li
-                          a(href='') Party
+                          a(href='/browse/party') Party
                         li
-                          a(href='') Thematic
+                          a(href='/browse/thematic') Thematic
                         li
-                          a(href='') Family
+                          a(href='/browse/family') Family
                         li
-                          a(href='') Children
-                        li
-                          a(href='') All Games
+                          a(href='/browse/children') Children
+                        //- li
+                        //-   a(href='/browse') All Games
                     li
                       a(href='') accessories
                       ul.sub-menu
@@ -129,8 +129,8 @@ html.no-js(lang='zxx')
                           a(href='') Dice Sets
                         li
                           a(href='') Playmats
-                        li
-                          a(href='') All Accessories
+                        //- li
+                        //-   a(href='') All Accessories
                     li
                       a(href='') sales
                     li
@@ -153,8 +153,13 @@ html.no-js(lang='zxx')
                         if user.isAdmin
                           li
                             a(href="/product/add") Add Products
+<<<<<<< HEAD
                           li 
                             a(href="/promotion/add") Add Promotions
+=======
+                          li
+                            a(href="/admin_panel/") Admin Panel
+>>>>>>> origin/master
                         //- li
                         //-   a(href='/wishlist') Wishlist
                         li
