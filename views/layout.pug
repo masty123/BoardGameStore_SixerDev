@@ -187,12 +187,13 @@ html.no-js(lang='zxx')
                                               h5(style='color: #FFFFFF;') #{product.name}
                                             span(style='color: #FFFFFF;') ฿#{product.price}
                                           .pro-del
-                                            a(href='/cart')
+                                            a(href='/cart/remove/'+product._id)
                                               i.fa.fa-times-circle
+                                              
                                     else
                                       p(style='color: #FFFFFF;') No item in your shopping cart &nbsp;
-                                        .cart-inner-bottom
-                                          h5.total Subtotal:.00
+                                            .cart-inner-bottom
+                                              h5.total Subtotal:.00
                                 
                                           
                                   
