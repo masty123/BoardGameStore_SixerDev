@@ -30,7 +30,7 @@ let promotionSchema = mongoose.Schema({
     //for type 2 and 3
     discountValue: {
         type: Number,
-        required: true
+        required: false
     },
     isActive: {
         type: Boolean,

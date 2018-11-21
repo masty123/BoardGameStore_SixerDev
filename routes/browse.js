@@ -91,4 +91,8 @@ function sortObjectBy(property) {
     }
 }
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> origin/master

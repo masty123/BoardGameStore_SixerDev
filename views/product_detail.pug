@@ -64,6 +64,9 @@ block content
                     li.active.cart
                       a(href='/product/edit/'+product._id, data-toggle='tooltip', title='Shopping Cart')
                         | EDIT THIS PRODUCT
+                    li.active.cart
+                      a(href='/promotion/edit/'+product._id, data-toggle='tooltip', title='Shopping Cart')
+                        | EDIT PROMOTION
                 if product.stock > 0
                   li.active.cart
                     //- form(method='POST', action='/cart/add/'+product._id)

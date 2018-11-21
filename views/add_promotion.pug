@@ -49,6 +49,13 @@ block content
                     span  * 
                     br
                     input(name='discountValue', type='number')
+                  P
+                    | Status
+                    span  * 
+                    br
+                    select(name='isActive')
+                      option(value='true') True
+                      option(value='false') False
                   input(type='submit', value='ADD PROMOTION')
     else
       .register_area

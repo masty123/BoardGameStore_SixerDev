@@ -39,4 +39,8 @@ function ensureAuthenticated(req, res, next) {
   }
 }
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> origin/master
