@@ -148,4 +148,4 @@ app.use('/transaction', transaction);
 //set public folder.
 app.use(express.static(path.join(__dirname, 'public')));
 //Start the server.
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.listen(3000, () => console.log('Sixer-Dev listening on port 3000!'))
