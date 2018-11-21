@@ -20,7 +20,7 @@ router.post('/add', ensureAuthenticated, function(req, res) {
   const productID = req.body.productID;
   const getFreeProductID = req.body.getFreeProductID;
   const discountValue = req.body.discountValue;
-  const isActive = req.body.isActive;
+  const isActive = false;
   const admin = req.user._id;
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('description', 'Description is required').notEmpty();
@@ -30,7 +30,7 @@ router.post('/add', ensureAuthenticated, function(req, res) {
   req.checkBody('discountValue', 'Discount Value is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
-    Renderer.renderWithObject(req, res, 'add_promotion',{
+    Renderer.renderWithObject(req, res, 'add_promotion', {
       errors: errors,
       user: req.user
     });
@@ -50,48 +50,57 @@ router.post('/add', ensureAuthenticated, function(req, res) {
         console.log(err)
         return
       } else {
-        req.flash('success', 'Promotion added');
-        res.redirect('/')
+        req.flash('success', 'Promotion added, please activate the promotion in Admin Panel');
+        res.redirect('/');
       }
     })
   }
 });
 
 //Load edit form
-router.get('/edit/:id', ensureAuthenticated, function(req, res) {
+// router.get('/edit/:id', ensureAuthenticated, function(req, res) {
+//   Promotion.findById(req.params.id, function(err, promotion) {
+//     if (err) {
+//       req.flash('danger', 'Error query promotion from database');
+//       res.redirect('back');
+//     } else if (!req.user.isAdmin) {
+//       req.flash('danger', 'Not authorized');
+//       res.redirect('/');
+//     } else if (!promotion) {
+//       req.flash('danger', 'Invalid Promotion ID');
+//       res.redirect('back');
+//     } else {
+//       Renderer.renderWithObject(req, res, 'edit_promotion', {
+//         promotion: promotion
+//       });
+//     }
+//   });
+// });
+router.post('/activate/:id', function(req, res) {
   Promotion.findById(req.params.id, function(err, promotion) {
-    if (!req.user.isAdmin) {
-      req.flash('danger', 'Not authorized');
-      res.redirect('/');
+    if (err) {
+      req.flash('danger', 'Error activating promotion in the database');
+      res.redirect('back');
+    } else if (!promotion) {
+      req.flash('danger', 'Promotion ID not found');
+      res.redirect('back');
     } else {
-      Renderer.renderWithObject(req, res, 'edit_promotion', {
-        promotion: promotion
+      let temp_promotion = {};
+      temp_promotion.isActive = !promotion.isActive;
+      let query = {
+        _id: req.params.id
+      }
+      Promotion.updateOne(query, temp_promotion, function(err) {
+        if (err) {
+          console.log(err)
+          return
+        } else {
+          req.flash('success', 'Promotion activated/deactivated');
+          res.redirect('back')
+        }
       });
     }
   });
-});
-router.post('/edit/:id', function(req, res) {
-  const isActive = req.body.isActive;
-  let errors = req.validationErrors();
-  if (errors) {
-    req.flash('danger', 'Error editing isActive');
-    res.redirect('back');
-  } else {
-    let promotion = {};
-    promotion.isActive = isActive;
-    let query = {
-      _id: req.params.id
-    }
-    Promotion.updateOne(query, promotion, function(err) {
-      if (err) {
-        console.log(err)
-        return
-      } else {
-        req.flash('success', 'Promotion updated');
-        res.redirect('/product/' + req.params.id)
-      }
-    })
-  }
 });
 
 //Access control

@@ -25,7 +25,7 @@ block content
                 h2.register_heading Add promotion
                 form(method='POST', action='/promotion/add')
                   p
-                    | Name
+                    | Promotion Code
                     span  * 
                     br
                     input(name='name', type='text')
@@ -43,7 +43,7 @@ block content
                       option(value='2') Normal discount
                       option(value='3') Percent discount
                   p
-                    | Product ID (Seperate by using "," for multiple items)
+                    | (Unused) For Product ID (Seperate by using "," for multiple items)
                     span  * 
                     br
                     input(name='productID', type='text')
@@ -57,14 +57,14 @@ block content
                     span  * 
                     br
                     input(name='discountValue', type='number')
-                  P
-                    | Status
-                    span  * 
-                    br
-                    select(name='isActive')
-                      option(value='true') Active
-                      option(value='false') Inactive
-                  input(type='submit', value='ADD PROMOTION')
+                  //- P
+                  //-   | Status
+                  //-   span  * 
+                  //-   br
+                  //-   select(name='isActive')
+                  //-     option(value='true') Active
+                  //-     option(value='false') Inactive
+                  input(type='submit', value='SAVE PROMO')
     else
       .register_area
         .container
