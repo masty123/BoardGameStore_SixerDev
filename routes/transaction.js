@@ -48,8 +48,4 @@ router.post('/cancel/:id', function(req,res){
   });
 });
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-module.exports = router;
->>>>>>> origin/master
