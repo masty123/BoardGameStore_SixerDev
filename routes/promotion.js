@@ -71,7 +71,8 @@ router.post('/edit/:id', function(req, res) {
   const isActive = req.body.isActive;
   let errors = req.validationErrors();
   if (errors) {
-    Renderer.render(req, res, 'back')
+    req.flash('Error editing isActive');
+    res.redirect('back');
   } else {
     let promotion = {};
     promotion.isActive = isActive;
