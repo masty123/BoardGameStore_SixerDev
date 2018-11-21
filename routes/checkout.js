@@ -73,8 +73,10 @@ router.post('/confirm', loggedIn, function(req, res) {
                   else { 
                     if (promotion.type == 1) {
                       var freearray = req.user.shopping_cart;
+                      
                       let product = new Product({
-                        name: promotion.getFreeProductID
+                        name: promotion.getFreeProductID,
+                        stock: stock-1,
                       });
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
@@ -87,6 +89,7 @@ router.post('/confirm', loggedIn, function(req, res) {
                         isDelivered: false,
                         isCancelled: false,
                       });
+                      console.log('number of product after using promotion'+stock);
                       console.log('get '+product.name);
                       placeOrder(req, res, transaction, productMap);
                     }
