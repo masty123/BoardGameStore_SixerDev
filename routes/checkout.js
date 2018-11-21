@@ -73,6 +73,9 @@ router.post('/confirm', loggedIn, function(req, res) {
                   else { 
                     if (promotion.type == 1) {
                       var freearray = req.user.shopping_cart;
+                      let product = new Product({
+                        name: promotion.getFreeProductID
+                      });
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
                         userID: req.user._id,
@@ -84,6 +87,7 @@ router.post('/confirm', loggedIn, function(req, res) {
                         isDelivered: false,
                         isCancelled: false,
                       });
+                      console.log('get '+product.name);
                       placeOrder(req, res, transaction, productMap);
                     }
                     else if (promotion.type == 2) {
