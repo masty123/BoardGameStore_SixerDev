@@ -114,7 +114,7 @@ app.get('/new_arrival/:number', function(req, res) {
     }
     else {
       User.findById(product.admin, function(err, admin) {
-        Renderer.renderWithObject('product_detail', {
+        Renderer.renderWithObject(req, res, 'product_detail', {
           product: product
         });
       });
