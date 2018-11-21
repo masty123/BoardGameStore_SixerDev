@@ -72,10 +72,13 @@ router.post('/confirm', loggedIn, function(req, res) {
                 let query = {name: req.body.promotion_code};
                 Promotion.findOne(query, function(err, promotion) {
                   if (err) throw err;
-                  else { 
+                  else if(!promotion){
+                    req.flash('danger', "Invalid promotion code");
+                    res.redirect('back');
+                  }
+                  else {
                     if (promotion.type == 1) {
                       var freearray = req.user.shopping_cart;
-                      
                       let product = new Product({
                         name: promotion.getFreeProductID,
                         stock: stock-1,

@@ -1,6 +1,11 @@
 extends layout
 
 block content
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
   // banner start
   .blog_banner_area
     .container
@@ -33,7 +38,10 @@ block content
                     | Type
                     span  * 
                     br
-                    input(name='type', type='number')
+                    select(name='type')
+                      option(value='1') Get free items
+                      option(value='2') Normal discount
+                      option(value='3') Percent discount
                   p
                     | Product ID (Seperate by using "," for multiple items)
                     span  * 
@@ -54,8 +62,8 @@ block content
                     span  * 
                     br
                     select(name='isActive')
-                      option(value='true') True
-                      option(value='false') False
+                      option(value='true') Active
+                      option(value='false') Inactive
                   input(type='submit', value='ADD PROMOTION')
     else
       .register_area

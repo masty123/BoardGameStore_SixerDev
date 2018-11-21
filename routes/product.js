@@ -94,7 +94,7 @@ router.post('/edit/:id', function(req, res) {
   req.checkBody('category', 'Category is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
-    req.flash('Error saving product');
+    req.flash('danger', 'Error saving product');
     res.redirect('back');
   } else {
     let product = {};

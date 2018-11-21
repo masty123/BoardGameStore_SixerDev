@@ -30,14 +30,17 @@ router.post('/add', ensureAuthenticated, function(req, res) {
   req.checkBody('discountValue', 'Discount Value is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
-    Renderer.render(req, res, '/')
+    Renderer.renderWithObject(req, res, 'add_promotion',{
+      errors: errors,
+      user: req.user
+    });
   } else {
     let promotion = new Promotion({
       name: name,
       description: description,
       type: type,
-      productID: productID,
-      getFreeProductID: getFreeProductID,
+      productID: productID.split(','),
+      getFreeProductID: getFreeProductID.split(','),
       discountValue: discountValue,
       isActive: isActive,
       admin: admin
@@ -71,7 +74,7 @@ router.post('/edit/:id', function(req, res) {
   const isActive = req.body.isActive;
   let errors = req.validationErrors();
   if (errors) {
-    req.flash('Error editing isActive');
+    req.flash('danger', 'Error editing isActive');
     res.redirect('back');
   } else {
     let promotion = {};

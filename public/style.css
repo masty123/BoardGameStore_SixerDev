@@ -9387,12 +9387,12 @@ li.order_total_purple{
 .order_table input[type="checkbox"] {
   margin-right: 10px;
 }
-.checkout .single_banner_bottom{
+.single_banner_bottom{
     color: #252525;
     padding-top: 10px;
     padding-bottom: 45px;
 }
-.checkout .single_banner_bottom p{
+.single_banner_bottom p{
     font-size: 22px;
     font-weight: 600;
     border: 2px solid #ddd;
@@ -9403,7 +9403,7 @@ li.order_total_purple{
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
 }
-.checkout .single_banner_bottom h4{
+.single_banner_bottom h4{
     color: #252525;
     font-size: 15px;
     font-weight: 600;
@@ -9412,10 +9412,10 @@ li.order_total_purple{
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
 }
-.checkout .banner_bottom_area .single_banner_bottom:hover h4, .checkout .banner_bottom_area .single_banner_bottom.hover p, .checkout .banner_bottom_area .single_banner_bottom.active h4, .checkout .banner_bottom_area .single_banner_bottom p.active{
+.single_banner_bottom:hover h4, .banner_bottom_area .single_banner_bottom.hover p, .checkout .banner_bottom_area .single_banner_bottom.active h4, .checkout .banner_bottom_area .single_banner_bottom p.active{
     color: #c43b68;
 }
-.checkout .banner_bottom_area .single_banner_bottom:hover p, .checkout .banner_bottom_area .single_banner_bottom p.active{
+.single_banner_bottom:hover p, .banner_bottom_area .single_banner_bottom p.active{
     color: #c43b68;
     border: 2px solid #c43b68;
 }
@@ -10375,4 +10375,26 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 }
 .printto-cart-img-content{
     font-size: 15px;
+}
+.ordercomplete a{
+    background: transparent none repeat scroll 0 0;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    color: #252525;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    padding: 5px 15px;
+    width: 140px;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.ordercomplete a{
+    margin-left: 10px;
+    background: #C43B68;
+    color: #fff;
+    border: 1px solid #C43B68;
 }
