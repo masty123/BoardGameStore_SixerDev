@@ -89,12 +89,13 @@ router.post('/confirm', loggedIn, function(req, res) {
                     else if (promotion.type == 2) {
                       var discount = (100-promotion.discountValue)/100;
                       price = product.price*discount;
+                      price = Math.ceil(price);
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
                         userID: req.user._id,
                         productID: req.user.shopping_cart,
                         promotionID: promotion.name,
-                        calculatedPrice: price*discount,
+                        calculatedPrice: price,
                         deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
                         tel_num: req.user.tel_num,
                         isDelivered: false,
