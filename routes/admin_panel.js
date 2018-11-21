@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
+let Renderer = require('../routes/renderer');
+
 let Product = require('../models/product');
 let Transaction = require('../models/transaction');
 let User = require('../models/user');
@@ -12,7 +14,7 @@ router.get('/', ensureAuthenticated, function(req, res) {
   Product.find({}, function(err, products) {
     Transaction.find({}, function(err2, transactions) {
       User.find({}, function(err3, users) {
-        res.render('admin_panel', {
+        Renderer.renderWithObject(req, res, 'admin_panel', {
           products: products,
           transactions: transactions,
           users: users

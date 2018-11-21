@@ -5,11 +5,12 @@ const express = require('express');
 const path = require('path');
 const app = express();
 var bodyParser = require('body-parser');
+
+let Renderer = require('./routes/renderer');
+
 //Bring in Models
 let Product = require('./models/product');
-let Promotion = require('./models/promotion');
 let User = require('./models/user');
-let Transaction = require('./models/transaction');
 
 
 const expressValidator = require('express-validator');
@@ -94,7 +95,8 @@ app.get('/', function(req, res) {
       console.log(err);
     } else {
       res.render('home', {
-        products: products
+        products: products,
+        products_checker: products
       });
     }
   });
@@ -115,7 +117,7 @@ app.get('/new_arrival/:number', function(req, res) {
     }
     else {
       User.findById(product.admin, function(err, admin) {
-        res.render('product_detail', {
+        Renderer.renderWithObject('product_detail', {
           product: product
         });
       });

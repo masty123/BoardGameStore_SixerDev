@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const HashMap = require('hashmap');
 
+let Renderer = require('../routes/renderer');
+
 let User = require('../models/user');
 let Product = require('../models/product');
 let Transaction = require('../models/transaction');
@@ -59,7 +61,7 @@ router.post('/confirm', loggedIn, function(req, res) {
                   productID: req.users.shopping_cart,
                   getFreeProductID: req.promotion.getFreeProductID,
                   discountValue: req.promotion.discountValue,
-                  isActive: false,                  
+                  isActive: false,
                 });
                 let transaction = new Transaction({
                   date_ordered: Date.now(),
@@ -116,7 +118,7 @@ function getUserProductList(req, res, render_layout) {
             price += product.price;
           }
           if (j == req.user.shopping_cart.length - 1) {
-            res.render(render_layout, {
+            Renderer.renderWithObject(req, res, render_layout, {
               products: products,
               price: price
             });

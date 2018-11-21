@@ -729,7 +729,7 @@ header.header .logo, header.header_2 .logo {
 .cart-total ul li .mini-cart-content .cart-img-details{
     border-bottom: 0 none;
     overflow: hidden;
-    padding: 12px 12px 0;
+    padding: 12px 12px 12px;
     position: relative;
 }
 .cart-total ul li .mini-cart-content .cart-img-details .cart-img-photo{
@@ -5853,7 +5853,6 @@ header.header_2{
 .home_fifteen .cart-total ul li .mini-cart-content .cart-img-details .cart-img-content h5:hover {
     color: #4bbea1;
     f
-
 }
 .home_fifteen .cart-total, .home_sixteen .cart-total {
     padding: 22px 0;
@@ -10373,4 +10372,7 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 }
 .printto_hover:hover{
   background-color: #FFFFCC;
+}
+.printto-cart-img-content{
+    font-size: 15px;
 }

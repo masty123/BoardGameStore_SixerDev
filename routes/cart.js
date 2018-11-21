@@ -5,6 +5,8 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const HashMap = require('hashmap');
 
+let Renderer = require('../routes/renderer');
+
 let User = require('../models/user');
 let Product = require('../models/product');
 
@@ -31,13 +33,13 @@ router.get('/', loggedIn, function(req, res) {
         }
         if (j == req.user.shopping_cart.length - 1) {
           if (outdated.length != 0) {
-            res.render('cart', {
+            Renderer.renderWithObject(req, res, 'cart', {
               products: products,
               price: price,
               outdated: outdated
             });
           } else {
-            res.render('cart', {
+            Renderer.renderWithObject(req, res, 'cart', {
               products: products,
               price: price,
             });
@@ -149,7 +151,7 @@ function removeItem(req, res, id) {
           res.redirect('/');
         } else {
           // req.flash('success', 'removed 1 item from your cart');
-          res.redirect('/cart/');
+          res.redirect('back');
         }
       })
     }

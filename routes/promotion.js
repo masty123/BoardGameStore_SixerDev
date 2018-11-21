@@ -3,12 +3,14 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
+let Renderer = require('../routes/renderer');
+
 let Promotion = require('../models/promotion');
 let User = require('../models/user');
 
 //Add Promotion Form
 router.get('/add', ensureAuthenticated, function(req, res) {
-  res.render('add_promotion');
+  Renderer.render(req, res, 'add_promotion');
 });
 
 router.post('/add', ensureAuthenticated, function(req, res) {
@@ -28,7 +30,7 @@ router.post('/add', ensureAuthenticated, function(req, res) {
   req.checkBody('discountValue', 'Discount Value is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
-    res.render('/')
+    Renderer.render(req, res, '/')
   } else {
     let promotion = new Promotion({
       name: name,
@@ -59,7 +61,7 @@ router.get('/edit/:id', ensureAuthenticated, function(req, res) {
       req.flash('danger', 'Not authorized');
       res.redirect('/');
     } else {
-      res.render('edit_promotion', {
+      Renderer.renderWithObject(req, res, 'edit_promotion', {
         promotion: promotion
       });
     }
@@ -69,7 +71,7 @@ router.post('/edit/:id', function(req, res) {
   const isActive = req.body.isActive;
   let errors = req.validationErrors();
   if (errors) {
-    res.render('back')
+    Renderer.render(req, res, 'back')
   } else {
     let promotion = {};
     promotion.isActive = isActive;

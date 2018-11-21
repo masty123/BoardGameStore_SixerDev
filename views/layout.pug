@@ -178,17 +178,20 @@ html.no-js(lang='zxx')
                                 p #{user.shopping_cart.length} 
                                   .mini-cart-content
                                     if user.shopping_cart.length != 0
-                                      each product in products
-                                        .cart-img-details
-                                          .cart-img-photo
-                                               img(src=product.picture, alt='accessories')
-                                          .cart-img-content 
-                                            a(href='/cart')
-                                              h5(style='color: #FFFFFF;') #{product.name}
-                                              span(style='color: #FFFFFF;') ฿#{product.price}
-                                          .pro-del
-                                            a(href='/cart/remove/'+product._id)
-                                              i.fa.fa-times-circle
+                                        each user_product in user.shopping_cart
+                                          each product_checker in products_checker
+                                            if user_product === product_checker.id
+                                              .cart-img-details
+                                                .cart-img-photo
+                                                     img(src=product_checker.picture, alt='product')
+                                                .printto-cart-img-content
+                                                  a(href='/product/'+product_checker._id)
+                                                    span(style='color: #FFFFFF;') #{product_checker.name}
+                                                    br
+                                                    |฿#{product_checker.price}
+                                                .pro-del
+                                                  a(href='/cart/remove/'+product_checker._id)
+                                                    i.fa.fa-times-circle
                                               
                                     else
                                       h(style='color: #FFFFFF;', text-align='center') No item in your shopping cart &nbsp;

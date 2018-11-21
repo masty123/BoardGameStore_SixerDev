@@ -3,12 +3,14 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
+let Renderer = require('../routes/renderer');
+
 let Product = require('../models/product');
 let User = require('../models/user');
 
 //Add Product Form
 router.get('/add', ensureAuthenticated, function(req, res) {
-  res.render('add_product');
+  Renderer.render(req, res, 'add_product');
 });
 
 router.post('/add', ensureAuthenticated, function(req, res) {
@@ -33,7 +35,7 @@ router.post('/add', ensureAuthenticated, function(req, res) {
   req.checkBody('category', 'Category is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
-    res.render('/')
+    Renderer.render(req, res, '/')
   } else {
     let product = new Product({
       name: name,
@@ -67,7 +69,7 @@ router.get('/edit/:id', ensureAuthenticated, function(req, res) {
       req.flash('danger', 'Not authorized');
       res.redirect('/');
     } else {
-      res.render('edit_product', {
+      Renderer.renderWithObject(req, res, 'edit_product', {
         product: product
       });
     }
@@ -92,7 +94,7 @@ router.post('/edit/:id', function(req, res) {
   req.checkBody('category', 'Category is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
-    res.render('back')
+    Renderer.render(req, res, 'back')
   } else {
     let product = {};
     product.name = name;
@@ -142,7 +144,7 @@ router.get('/search/:keyword', function(req, res) {
       console.log(err + "bitch");
     }
     else if (product.length != 0) {
-      res.render('search', {products:product});
+      Renderer.renderWithObject(req, res, 'search', {products:product});
     }
     else{
       req.flash('danger', 'No matching product found');
@@ -174,7 +176,7 @@ router.get('/:id', function(req, res) {
     }
     else {
       User.findById(product.admin, function(err, admin) {
-        res.render('product_detail', {
+        Renderer.renderWithObject(req, res, 'product_detail', {
           product: product
         });
       });
