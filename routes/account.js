@@ -4,17 +4,19 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 //const flash = require('req-flash');
 
+let Renderer = require('../routes/renderer');
+
 //Bring in User model
 let User = require('../models/user');
 
 //Secret register form
 router.get('/register/secretAdmin3103', ensureUnauthenticated, function(req, res) {
-  res.render('register3103');
+  Renderer.render(req, res, 'register3103');
 });
 
 //Register form
 router.get('/register', ensureUnauthenticated, function(req, res) {
-  res.render('register');
+  Renderer.render(req, res, 'register');
 });
 
 //Register as Admin Process
@@ -62,7 +64,7 @@ function regis(req, res, adminBoolean){
   req.checkBody('tel_num', 'Telephone number is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
-    res.render('register', {
+    Renderer.renderWithObject(req, res, 'register',{
       errors: errors
     });
   }
@@ -127,7 +129,7 @@ function regis(req, res, adminBoolean){
 
 //Login Form
 router.get('/login', ensureUnauthenticated, function(req, res) {
-  res.render('login');
+  Renderer.render(req, res, 'login');
 });
 
 //Login Process
@@ -148,7 +150,7 @@ router.get('/logout', function(req, res) {
 
 //Edit address
 router.get('/edit_address', loggedIn, function(req, res) {
-  res.render('edit_address',{
+  Renderer.render(req, res, 'edit_address',{
     user: req.user
   });
 });
@@ -168,7 +170,7 @@ router.post('/edit_address', function (req, res){
   let errors = req.validationErrors();
   if(errors){
     if(req.user){
-      res.render('edit_address', {
+      Renderer.renderWithObject(req, res, 'edit_address', {
         errors: errors,
         user: req.user
       });

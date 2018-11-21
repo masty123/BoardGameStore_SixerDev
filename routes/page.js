@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
+let Renderer = require('../routes/renderer');
+
 let User = require('../models/user');
 let Contact = require('../models/contact');
 
@@ -12,18 +14,18 @@ router.get('/', function(req, res){
 
 //Render about page
 router.get('/about', function(req, res){
-  res.render('about');
+  Renderer.render(req, res, 'about');
 });
 
 //Contact page
 router.get('/contact', function(req, res){
   if(req.user){
-    res.render('contact',{
+    Renderer.renderWithObject(req, res, 'contact',{
       user: req.user
     });
   }
   else {
-    res.render('contact');
+    Renderer.renderWithObject(req, res, 'contact');
   }
 });
 router.post('/contact', loggedIn, function(req,res){

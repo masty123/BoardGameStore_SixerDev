@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
+let Renderer = require('../routes/renderer');
+
 let Transaction = require('../models/transaction');
 
 //Transaction

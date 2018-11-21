@@ -3,9 +3,11 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
+let Renderer = require('../routes/renderer');
+
 //Wishlist
 router.get('/', function(req, res){
-  res.render('wishlist');
+  Renderer.render(req, res, 'wishlist');
 });
 
 module.exports = router;

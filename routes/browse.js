@@ -3,12 +3,14 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
+let Renderer = require('../routes/renderer');
+
 let Product = require('../models/product');
 
 //Browser
 router.get('/', function(req, res) {
   Product.find({}, function(err, products) {
-    res.render('browse', {
+    Renderer.renderWithObject(req, res, 'browse', {
       title: "Shop All",
       products: products,
     });
@@ -23,7 +25,7 @@ router.get('/:category', function(req, res) {
     }
   }
   Product.find(query, function(err, products) {
-    res.render('browse', {
+    Renderer.renderWithObject(req, res, 'browse', {
       title: req.params.category,
       products: products
     });
@@ -35,7 +37,7 @@ router.get('/all/:sort', function(req, res) {
   Product.find({}, function(err, products) {
     // TODO: Sort first
     var sortedProducts = sortProducts(products, req.params.sort);
-    res.render('browse', {
+    Renderer.renderWithObject(req, res, 'browse', {
       title: "Shop All",
       products: sortedProducts
     });
@@ -52,7 +54,7 @@ router.get('/:category/:sort', function(req, res) {
   Product.find(query, function(err, products) {
     // TODO: Sort first
     var sortedProducts = sortProducts(products, req.params.sort);
-    res.render('browse', {
+    Renderer.renderWithObject(req, res, 'browse', {
       title: req.params.category,
       products: sortedProducts
     });

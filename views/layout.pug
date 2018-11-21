@@ -180,25 +180,29 @@ html.no-js(lang='zxx')
                             .shopping-cart
                               a(href='/cart')
                                 img(src='/img/header_cart.png', alt='shopping_cart')
-                                p #{user.shopping_cart.length}
-                            //- .mini-cart-content
-                            //-   if items.length != 0
-                            //-     each item in items
-                            //-       .cart-img-details
-                            //-         .cart-img-photo
-                            //-           a(href='/product/'+item._id)
-                            //-             img(src='/img/trend/trend_stra1.jpg', alt='accessories')
-                            //-         .cart-img-contaent
-                            //-           a(href='#')
-                            //-             h4 #{cartItem.name}
-                            //-           span ฿#{cartItem.price}
-                            //-         .pro-del
-                            //-           a(href='#')
-                            //-             i.fa.fa-times-circle
-                            //-   else
-                            //-     p(style='color: #FFFFFF;') No item in your shopping cart &nbsp;
-                            //-     //- .cart-inner-bottom
-                            //-     //-   h5.total Subtotal:.00
+                                p #{user.shopping_cart.length} 
+                                  .mini-cart-content
+                                    if user.shopping_cart.length != 0
+                                        each user_product in user.shopping_cart
+                                          each product_checker in products_checker
+                                            if user_product === product_checker.id
+                                              .cart-img-details
+                                                .cart-img-photo
+                                                     img(src=product_checker.picture, alt='product')
+                                                .printto-cart-img-content
+                                                  a(href='/product/'+product_checker._id)
+                                                    span(style='color: #FFFFFF;') #{product_checker.name}
+                                                    br
+                                                    |฿#{product_checker.price}
+                                                .pro-del
+                                                  a(href='/cart/remove/'+product_checker._id)
+                                                    i.fa.fa-times-circle
+                                              
+                                    else
+                                      h(style='color: #FFFFFF;', text-align='center') No item in your shopping cart &nbsp;
+                                            .cart-inner-bottom
+                                              h5.total Subtotal:.00
+                                                            
                   li.search_menu
                     img#toggle-search(src='/img/header_search.png', alt='search')
         .search

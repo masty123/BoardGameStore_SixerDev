@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const HashMap = require('hashmap');
 
+let Renderer = require('../routes/renderer');
+
 let User = require('../models/user');
 let Product = require('../models/product');
 let Transaction = require('../models/transaction');
@@ -65,7 +67,7 @@ router.post('/confirm', loggedIn, function(req, res) {
                   productID: productID,
                   getFreeProductID: getFreeProductID,
                   discountValue: discountValue,
-                  isActive: isActive,                  
+                  isActive: isActive
                 });
                 let query = {name: req.body.promotion_code};
                 Promotion.findOne(query, function(err, promotion) {
@@ -164,7 +166,7 @@ function getUserProductList(req, res, render_layout) {
             price += product.price;
           }
           if (j == req.user.shopping_cart.length - 1) {
-            res.render(render_layout, {
+            Renderer.renderWithObject(req, res, render_layout, {
               products: products,
               price: price
             });
