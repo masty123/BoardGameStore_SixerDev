@@ -27,9 +27,9 @@ block content
                 li
                   a(href='#product_table') Products
                 li
-                  a(href='#transaction_table') Transactions
-                li
                   a(href='#promotion_table') Promotions
+                li
+                  a(href='#transaction_table') Transactions
           .cart_list.table-responsive
             table#product_table.table_cart.table-bordered
               | Products
@@ -59,54 +59,8 @@ block content
                         else
                           a.u_printto(href='/product/edit/'+product._id)
                             | Edit
-        .cart_list.table-responsive            
-          table#transaction_table.table_cart.table-bordered
-            | Transactions
-            thead
-              tr
-                th.description Date Ordered
-                th.unit_price User
-                th.unit_price Products
-                th.unit_price Promotion
-                th.unit_price Price
-                th.unit_price Address
-                th.action Status
-            tbody
-              if transactions
-                each transaction in transactions
-                  tr.printto_hover
-                    td.u_printto(style="padding: 0px;") #{transaction.date_ordered}
-                    td.u_printto(style="padding: 0px;")
-                      each user in users
-                        if transaction.userID === user.id
-                          | #{user.name}
-                    td.u_printto(style="padding: 0px;")
-                      each product_trans in transaction.productID
-                        each product_check in products
-                          if product_trans === product_check.id
-                            span
-                              a.u_printto(href='/product/'+product_trans) #{product_check.name}
-                            br
-                    td.u_printto(style="padding: 0px;")
-                      each promotion_check in promotions
-                        if transaction.promotionID === promotion_check.id
-                          span
-                            | #{promotion_check.name}
-                          br
-                    td.u_printto(style="padding: 0px;") #{transaction.calculatedPrice}
-                    td.u_printto(style="padding: 0px;") #{transaction.deliveryAddress} #{transaction.tel_num}
-                    td.p_action(style="padding: 0px;")
-                      if transaction.isDelivered
-                        span(style='color: green; font-weight: bold;') Delivered
-                      else if transaction.isCancelled
-                        span.u_printto Cancelled
-                      else
-                        form(action='/transaction/deliver/'+transaction._id, method="post")
-                          input(type="submit", value="Deliver")
-                        form(action='/transaction/cancel/'+transaction._id, method="post")
-                          input(type="submit", value="Cancel")
-        .col-lg-1
-        .col-lg-10
+        .col-lg-2
+        .col-lg-8
           .cart_list.table-responsive            
             table#promotion_table.table_cart.table-bordered
               | Promotions
@@ -160,4 +114,50 @@ block content
                           span.u_printto Not Active
                           form(action='/promotion/activate/'+promotion._id, method="post")
                             input(type="submit", value="Activate")
+        .cart_list.table-responsive            
+          table#transaction_table.table_cart.table-bordered
+            | Transactions
+            thead
+              tr
+                th.description Date Ordered
+                th.unit_price User
+                th.unit_price Products
+                th.unit_price Promotion
+                th.unit_price Price
+                th.unit_price Address
+                th.action Status
+            tbody
+              if transactions
+                each transaction in transactions
+                  tr.printto_hover
+                    td.u_printto(style="padding: 0px;") #{transaction.date_ordered}
+                    td.u_printto(style="padding: 0px;")
+                      each user in users
+                        if transaction.userID === user.id
+                          | #{user.name}
+                    td.u_printto(style="padding: 0px;")
+                      each product_trans in transaction.productID
+                        each product_check in products
+                          if product_trans === product_check.id
+                            span
+                              a.u_printto(href='/product/'+product_trans) #{product_check.name}
+                            br
+                    td.u_printto(style="padding: 0px;")
+                      each promotion_check in promotions
+                        if transaction.promotionID === promotion_check.id
+                          span
+                            | #{promotion_check.name}
+                          br
+                    td.u_printto(style="padding: 0px;") #{transaction.calculatedPrice}
+                    td.u_printto(style="padding: 0px;") #{transaction.deliveryAddress} #{transaction.tel_num}
+                    td.p_action(style="padding: 0px;")
+                      if transaction.isDelivered
+                        span(style='color: green; font-weight: bold;') Delivered
+                      else if transaction.isCancelled
+                        span.u_printto Cancelled
+                      else
+                        form(action='/transaction/deliver/'+transaction._id, method="post")
+                          input(type="submit", value="Deliver")
+                        form(action='/transaction/cancel/'+transaction._id, method="post")
+                          input(type="submit", value="Cancel")
   // cart area end
