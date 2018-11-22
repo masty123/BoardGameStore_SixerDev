@@ -10,10 +10,26 @@ block content
   .slider-wrap
     .bend.niceties.preview-1
       #nivoslider.slides
+        if promotions
+          each promotion in promotions
+            if promotion.isActive
+              // Add more promotions here
+              if promotion.name === "openning"
+                img(src='/img/promotion/grand.jpg', alt='', title='#slider-direction-0')
         img(src='/img/slider/slider-1_temp.png', alt='', title='#slider-direction-1')
         img(src='/img/slider/slider-2_temp.png', alt='', title='#slider-direction-2')
-      // direction 1
-      #slider-direction-1.t-cn.slider-direction
+      // Grand openning free dice promotion
+      #slider-direction-0.slider-direction
+        .slider-content.slider-text-1(style='padding-top: 10%; text-shadow: 3px 3px #AA7700;')
+          .wow.bounceInLeft(data-wow-duration='3s', data-wow-delay='0.3s')
+            p Free Dice Giveaway
+          .wow.bounceInRight(data-wow-duration='3s', data-wow-delay='0.3s')
+            h1.title1 Sixer Dev Grand Openning
+        .slider-content.slider-text-2(style='text-shadow: 3px 3px #AA7700;')
+          .wow.bounceInLeft(data-wow-duration='3s', data-wow-delay='0.3s')
+            p Input code "OPENING" as a promotion!
+      // direction 1  
+      #slider-direction-1.slider-direction
         .slider-content.slider-text-1
           .wow.bounceInDown(data-wow-duration='3s', data-wow-delay='0.3s')
             h1.title1 new arrivals

@@ -10,6 +10,7 @@ let Renderer = require('./routes/renderer');
 
 //Bring in Models
 let Product = require('./models/product');
+let Promotion = require('./models/promotion');
 let User = require('./models/user');
 
 const expressValidator = require('express-validator');
@@ -91,9 +92,16 @@ app.get('/', function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render('home', {
-        products: products,
-        products_checker: products
+      Promotion.find({}, function(err2, promotions) {
+        if (err2) {
+          console.log(err2);
+        } else {
+          res.render('home', {
+            products: products,
+            promotions: promotions,
+            products_checker: products
+          });
+        }
       });
     }
   });
@@ -107,12 +115,10 @@ app.get('/new_arrival/:number', function(req, res) {
     if (err) {
       req.flash('danger', 'Error loading new arrival');
       res.redirect('/');
-    }
-    else if(!product){
+    } else if (!product) {
       req.flash('danger', 'Sorry! New arrival product is not available at the moment.');
       res.redirect('/');
-    }
-    else {
+    } else {
       User.findById(product.admin, function(err, admin) {
         Renderer.renderWithObject(req, res, 'product_detail', {
           product: product
@@ -149,4 +155,4 @@ app.use('/transaction', transaction);
 //set public folder.
 app.use(express.static(path.join(__dirname, 'public')));
 //Start the server.
-app.listen(3000, () => console.log('Sixer-Dev listening on port 3000!'))
+app.listen(process.env.PORT || 3000, () => console.log('Sixer-Dev listening on port 3000!'))

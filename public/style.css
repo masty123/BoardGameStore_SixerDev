@@ -10398,3 +10398,13 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     color: #fff;
     border: 1px solid #C43B68;
 }
+.slider-text-1 p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 1%;
+    text-align: center;
+    word-spacing: 1px;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
