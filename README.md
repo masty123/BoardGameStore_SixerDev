@@ -55,7 +55,7 @@ We wanted to build the high quality website that sells board game that suits cus
 - [Iteration 2 Test Cases](https://docs.google.com/document/d/1p9vvIUd_s_NE6pNBTwCEu4-dHE4RnjIUUDwpBYeqvhE/edit)
 ### Iteration 3 Documentations
 - [Iteration 3 presentation slide](https://docs.google.com/presentation/d/17loGu9-SMV4Hdc7-1g36lKeXu5blvwvqOEjWdcRv2-8/edit)
-- [Iteration 3 Tasks](https://docs.google.com/document/d/1FVCoV_1kJsOVIoAVPt4PesyzqugFo4ne4-oaJ2dlK_w/edit)
+- [Iteration 3 Tasks](https://docs.google.com/document/d/1gSEd7f9IjbyzMDokB_Q6rAmhaPivNOB0NLsiCpLwVn0/edit)
 
 ## Deployment
 - [Deployed demo on Heroku](http://sixer-dev.herokuapp.com)
