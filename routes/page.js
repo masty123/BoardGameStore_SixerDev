@@ -25,7 +25,7 @@ router.get('/contact', function(req, res){
     });
   }
   else {
-    Renderer.renderWithObject(req, res, 'contact');
+    Renderer.render(req, res, 'contact');
   }
 });
 router.post('/contact', loggedIn, function(req,res){
