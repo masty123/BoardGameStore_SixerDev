@@ -35,7 +35,8 @@ router.post('/add', ensureAuthenticated, function(req, res) {
   req.checkBody('category', 'Category is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
-    Renderer.render(req, res, '/')
+    res.flash('danger','Save product failed');
+    res.redirect('back');
   } else {
     let product = new Product({
       name: name,
