@@ -21,5 +21,6 @@ block content
                   a.active(href='#description', aria-controls='description', role='tab', data-toggle='tab') Promotion Description
             .tab-content
               #description.tab-pane.active(role='tabpanel')
+                p Promotion ID: #{promotion.id}
                 p !{promotion.description}
   // promotion end
