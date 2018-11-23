@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 Promotion: #{promotion.name.toUpperCase()}
+  // banner end
+  // promotion start
+  .cart_area
+    .container
+      .row
+        .col-12
+          .product_description_tab
+            .description_tab_menu
+              ul.clearfix.nav(role='tablist')
+                li.active(role='presentation')
+                  a.active(href='#description', aria-controls='description', role='tab', data-toggle='tab') Promotion Description
+            .tab-content
+              #description.tab-pane.active(role='tabpanel')
+                p !{promotion.description}
+  // promotion end

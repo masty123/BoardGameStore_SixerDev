@@ -76,7 +76,7 @@ router.post('/add', ensureAuthenticated, function(req, res) {
 //     }
 //   });
 // });
-router.post('/activate/:id', function(req, res) {
+router.post('/activate/:id', ensureAuthenticated, function(req, res) {
   Promotion.findById(req.params.id, function(err, promotion) {
     if (err) {
       req.flash('danger', 'Error activating promotion in the database');
@@ -99,6 +99,22 @@ router.post('/activate/:id', function(req, res) {
           res.redirect('back')
         }
       });
+    }
+  });
+});
+
+router.get('/:id', function(req, res) {
+  Promotion.findById(req.params.id, function(err, promotion) {
+    if (err) {
+      req.flash('danger', 'Error activating promotion in the database');
+      res.redirect('back');
+    } else if (!promotion) {
+      req.flash('danger', 'Promotion ID not found');
+      res.redirect('back');
+    } else {
+      Renderer.renderWithObject(req, res, 'promotion', {
+        promotion: promotion
+      })
     }
   });
 });

@@ -79,7 +79,8 @@ block content
                 if promotions
                   each promotion in promotions
                     tr.printto_hover
-                      td.u_printto(style="padding: 0px;") #{promotion.name}
+                      td.u_printto(style="padding: 0px;")
+                        a(href='/promotion/'+promotion.id) #{promotion.name}
                       td.u_printto(style="padding: 0px;") #{promotion.description}
                       td.u_printto(style="padding: 0px;")
                         if promotion.type == 1
