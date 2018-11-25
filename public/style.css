@@ -8618,17 +8618,19 @@ ol {
     height: 16px;
     border: none;
 }
-a.filter{
+.filter{
     font-size: 13px;
     font-weight: 700;
     color: #c43b68;
     border: 1px solid #c43b68;
     padding: 8px 25px;
     border-radius: 20px;
+    background: #FFFFFF;
 }
-a.filter:hover{
+.filter:hover{
     color: #252525;
     border: 1px solid #252525;
+    background: #FFFFFF;
 }
 .widget_brand span {
     color: #999;

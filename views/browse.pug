@@ -12,7 +12,7 @@ block content
   // End About shop area
   // Start shop page area
   section.shop_page_area.section_padding_6
-    .container
+    form.container(method='POST', action='/browse/filter')
       .row
         .col-lg-3.col-md-12.order-2.order-lg-1
           .shop_left_sidebar
@@ -24,7 +24,7 @@ block content
                   .price-amount
                     input#min-amount(type='text', name='price_min', placeholder='Add Your Price')
                     input#max-amount(type='text', name='price_max', placeholder='Add Your Price')
-                  a.filter(href='') FILTER
+                  input.filter(type='submit', value='Filter')
             //- .widget
             //-   h3.widget-title featured product
             //-   .single_offers
@@ -55,30 +55,30 @@ block content
               .toolbar.clearfix
                 .toolbar-form.clearfix
                   p Short By
-                  form(action='#')
-                    .toolbar-section(style='margin-right: 20px;')
-                      select#sort(name='sort')
-                        option(value='default') DEFAULT SORTING
-                        option(value='name_a_z') SORT BY NAME: A-Z
-                        option(value='name_a_z') SORT BY NAME: Z-A
-                        option(value='price_min') SORT BY PRICE:LOW TO HIGH
-                        option(value='price_max') SORT BY PRICE:HIGH TO LOW
+                  //- form(action='#')
+                  .toolbar-section(style='margin-right: 20px;')
+                    select#sort(name='sort')
+                      option(value='default') DEFAULT SORTING
+                      option(value='name_a_z') SORT BY NAME: A-Z
+                      option(value='name_a_z') SORT BY NAME: Z-A
+                      option(value='price_min') SORT BY PRICE:LOW TO HIGH
+                      option(value='price_max') SORT BY PRICE:HIGH TO LOW
                 .toolbar-form.clearfix
                   p Category
-                  form(action='#')
-                    .toolbar-section
-                      select#sort(name='category')
-                        option(value='all') All
-                        option(value='strategy+party+thematic+family+children') All Games
-                        option(value='dice_bag+dice_set+playmats') All Accessories
-                        option(value='strategy') Strategy Games
-                        option(value='party') Party Games
-                        option(value='thematic') Thematic Games
-                        option(value='family') Family Games
-                        option(value='children') Children Games
-                        option(value='dice_bag') Dice Bags
-                        option(value='dice_set') Dice Sets
-                        option(value='playmats') Playmats
+                  //- form(action='#')
+                  .toolbar-section
+                    select#sort(name='category')
+                      option(value='all') All
+                      option(value='strategy+party+thematic+family+children') All Games
+                      option(value='dice_bag+dice_set+playmats') All Accessories
+                      option(value='strategy') Strategy Games
+                      option(value='party') Party Games
+                      option(value='thematic') Thematic Games
+                      option(value='family') Family Games
+                      option(value='children') Children Games
+                      option(value='dice_bag') Dice Bags
+                      option(value='dice_set') Dice Sets
+                      option(value='playmats') Playmats
           .row
             if products
               each product in products

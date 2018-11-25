@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
 router.get('/:category', function(req, res) {
   Product.find({}, function(err, products) {
     Renderer.renderWithObject(req, res, 'browse', {
-      title: req.params.category,
+      title: getTitle(req.params.category),
       products: products,
       category: req.params.category
     });
@@ -47,7 +47,7 @@ router.get('/:category/:sort', function(req, res) {
     // TODO: Sort first
     var sortedProducts = sortProducts(products, req.params.sort);
     Renderer.renderWithObject(req, res, 'browse', {
-      title: req.params.category,
+      title: getTitle(req.params.category),
       products: sortedProducts,
       category: req.params.category
     });
@@ -68,6 +68,8 @@ function sortProducts(products, sorting) {
     case "price_min":
       return products.sort(sortObjectBy("price"));
       break;
+    default:
+      return products;
   }
 }
 
@@ -82,6 +84,18 @@ function sortObjectBy(property) {
         var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
         return result * sortOrder;
     }
+}
+
+function getTitle(category) {
+  if( category === 'strategy+party+thematic+family+children' ){
+    return 'All Games';
+  }
+  else if( category === 'dice_bag+dice_set+playmats' ){
+    return 'All Accessories'
+  }
+  else {
+    return category;
+  }
 }
 
 module.exports = router;
