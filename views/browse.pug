@@ -68,39 +68,44 @@ block content
                   form(action='#')
                     .toolbar-section
                       select#sort(name='category')
-                        option(value='All') All
-                        option(value='All_games') All Games
-                        option(value='All_accessories') All Accessories
-                        option(value='Strategy') Strategy Games
-                        option(value='Party') Party Games
-                        option(value='Thematic') Thematic Games
-                        option(value='Family') Family Games
-                        option(value='Children') Children Games
-                        option(value='Dice_bag') Dice Bags
-                        option(value='Dice_set') Dice Sets
-                        option(value='Playmats') Playmats
+                        option(value='all') All
+                        option(value='strategy+party+thematic+family+children') All Games
+                        option(value='dice_bag+dice_set+playmats') All Accessories
+                        option(value='strategy') Strategy Games
+                        option(value='party') Party Games
+                        option(value='thematic') Thematic Games
+                        option(value='family') Family Games
+                        option(value='children') Children Games
+                        option(value='dice_bag') Dice Bags
+                        option(value='dice_set') Dice Sets
+                        option(value='playmats') Playmats
           .row
             if products
               each product in products
-                .col-md-4.col-sm-12.col-lg-4
-                  .single_trend
-                    .single_trend_item
-                      .single_trend_img
-                        a(href='/product/'+product._id)
-                          img.primary_image(src=product.picture, alt='')
-                          img.secondary_image(src=product.picture, alt='')
-                      .single_trend_label.text-center
-                        a(href='/product/'+product._id)
-                          h3 #{product.name}
-                          h4 ฿#{product.price}
-                      .wish_icon_hover.text-center
-                        ul
-                          li.active
-                            a(href='/cart/add/'+product._id, data-toggle='tooltip', title='Shopping Cart')
-                              img(src='/img/trend/shopping_cart.png', alt='cart')
-                          li
-                            a(href='#', data-toggle='tooltip', title='Like it!')
-                              img(src='/img/trend/heart.png', alt='')
+                if category
+                  - var check_category = category.split('+').includes(product.category.toLowerCase()) || category === "all"
+                else
+                  - var check_category = true
+                if check_category
+                  .col-md-4.col-sm-12.col-lg-4
+                    .single_trend
+                      .single_trend_item
+                        .single_trend_img
+                          a(href='/product/'+product._id)
+                            img.primary_image(src=product.picture, alt='')
+                            img.secondary_image(src=product.picture, alt='')
+                        .single_trend_label.text-center
+                          a(href='/product/'+product._id)
+                            h3 #{product.name}
+                            h4 ฿#{product.price}
+                        .wish_icon_hover.text-center
+                          ul
+                            li.active
+                              a(href='/cart/add/'+product._id, data-toggle='tooltip', title='Shopping Cart')
+                                img(src='/img/trend/shopping_cart.png', alt='cart')
+                            li
+                              a(href='#', data-toggle='tooltip', title='Like it!')
+                                img(src='/img/trend/heart.png', alt='')
           //- .row
           //-   .col-12
           //-     .pagination.text-center

@@ -19,15 +19,11 @@ router.get('/', function(req, res) {
 
 //Browser
 router.get('/:category', function(req, res) {
-  var query = {
-    category: {
-      $regex: new RegExp(req.params.category, "i")
-    }
-  }
-  Product.find(query, function(err, products) {
+  Product.find({}, function(err, products) {
     Renderer.renderWithObject(req, res, 'browse', {
       title: req.params.category,
-      products: products
+      products: products,
+      category: req.params.category
     });
   });
 });
@@ -39,24 +35,21 @@ router.get('/all/:sort', function(req, res) {
     var sortedProducts = sortProducts(products, req.params.sort);
     Renderer.renderWithObject(req, res, 'browse', {
       title: "Shop All",
-      products: sortedProducts
+      products: sortedProducts,
+      category: "all"
     });
   });
 });
 
 //Browser
 router.get('/:category/:sort', function(req, res) {
-  var query = {
-    category: {
-      $regex: new RegExp(req.params.category, "i")
-    }
-  }
-  Product.find(query, function(err, products) {
+  Product.find({}, function(err, products) {
     // TODO: Sort first
     var sortedProducts = sortProducts(products, req.params.sort);
     Renderer.renderWithObject(req, res, 'browse', {
       title: req.params.category,
-      products: sortedProducts
+      products: sortedProducts,
+      category: req.params.category
     });
   });
 });
