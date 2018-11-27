@@ -10410,7 +10410,7 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     font-family: 'Josefin Sans', sans-serif;
     text-transform: uppercase;
 }
-.register_customer a{
+/* .register_customer a{
     background: transparent none repeat scroll 0 0;
     border: 2px solid #ddd;
     border-radius: 20px;
@@ -10431,7 +10431,7 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     background: #C43B68;
     color: #fff;
     border: 1px solid #C43B68;
-}
+} */
 .customer_order a{
     background: transparent none repeat scroll 0 0;
     border: 2px solid #ddd;
