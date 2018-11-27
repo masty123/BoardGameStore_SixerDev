@@ -10410,3 +10410,48 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     font-family: 'Josefin Sans', sans-serif;
     text-transform: uppercase;
 }
+.register_customer a{
+    background: transparent none repeat scroll 0 0;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    color: #252525;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    padding: 5px 15px;
+    width: 140px;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.register_customer a{
+    margin-left: 10px;
+    background: #C43B68;
+    color: #fff;
+    border: 1px solid #C43B68;
+}
+.customer_order a{
+    background: transparent none repeat scroll 0 0;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    color: #252525;
+    display: inline-block;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    padding: 5px 15px;
+    width: 140px;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.customer_order a{
+    margin-left: 10px;
+    background: #C43B68;
+    color: #fff;
+    border: 1px solid #C43B68;
+}
