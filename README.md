@@ -58,4 +58,4 @@ We wanted to build the high quality website that sells board game that suits cus
 - [Iteration 3 Tasks](https://docs.google.com/document/d/1gSEd7f9IjbyzMDokB_Q6rAmhaPivNOB0NLsiCpLwVn0/edit)
 
 ## Deployment
-- [Deployed demo on Heroku](http://sixer-dev.herokuapp.com)
+- [Deployed demo on Heroku](http://sixer-dev-store.herokuapp.com)
