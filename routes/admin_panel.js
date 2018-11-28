@@ -9,6 +9,7 @@ let Product = require('../models/product');
 let Transaction = require('../models/transaction');
 let User = require('../models/user');
 let Promotion = require('../models/promotion');
+let Contact = require('../models/contact');
 
 //Panel
 router.get('/', ensureAuthenticated, function(req, res) {
@@ -16,11 +17,14 @@ router.get('/', ensureAuthenticated, function(req, res) {
     Transaction.find({}, function(err2, transactions) {
       User.find({}, function(err3, users) {
         Promotion.find({}, function(err4, promotions){
-          Renderer.renderWithObject(req, res, 'admin_panel', {
-            products: products,
-            transactions: transactions,
-            users: users,
-            promotions: promotions
+          Contact.find({}, function(err5, contacts){
+            Renderer.renderWithObject(req, res, 'admin_panel', {
+              products: products,
+              transactions: transactions,
+              users: users,
+              promotions: promotions,
+              contacts: contacts
+            });
           });
         });
       });

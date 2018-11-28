@@ -30,6 +30,8 @@ block content
                   a(href='#promotion_table') Promotions
                 li
                   a(href='#transaction_table') Transactions
+                li
+                  a(href='#message_table') Contact Messages
           .cart_list.table-responsive
             table#product_table.table_cart.table-bordered
               | Products
@@ -59,15 +61,13 @@ block content
                         else
                           a.u_printto(href='/product/edit/'+product._id)
                             | Edit
-        .col-lg-2
-        .col-lg-8
           .cart_list.table-responsive            
             table#promotion_table.table_cart.table-bordered
               | Promotions
               thead
                 tr
-                  th.description Code
-                  th.unit_price Description
+                  th.unit_price Code
+                  th.description Description
                   th.unit_price Type
                   th.unit_price For Products
                     br
@@ -120,9 +120,9 @@ block content
             | Transactions
             thead
               tr
-                th.description Date Ordered
+                th.unit_price Date Ordered
                 th.unit_price User
-                th.unit_price Products
+                th.description Products
                 th.unit_price Promotion
                 th.unit_price Price
                 th.unit_price Address
@@ -161,4 +161,24 @@ block content
                           input(type="submit", value="Deliver")
                         form(action='/transaction/cancel/'+transaction._id, method="post")
                           input(type="submit", value="Cancel")
+        .cart_list.table-responsive            
+          table#message_table.table_cart.table-bordered
+            | Contact Messages
+            thead
+              tr
+                th.unit_price Name
+                th.unit_price Email
+                th.unit_price Subject
+                th.description Message
+                th.action Action
+            tbody
+              if contacts
+                each contact in contacts
+                  tr.printto_hover
+                    td.u_printto(style="padding: 0px;") #{contact.name}
+                    td.u_printto(style="padding: 0px;") #{contact.email}
+                    td.u_printto(style="padding: 0px;") #{contact.subject}
+                    td.u_printto(style="padding: 0px;") #{contact.message}
+                    td.p_action(style="padding: 0px;")
+                      | none
   // cart area end
