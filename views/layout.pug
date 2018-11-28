@@ -274,9 +274,9 @@ html.no-js(lang='zxx')
     script(type="text/javascript", src='/bower_components/please-wait/build/please-wait.min.js')
     script(type='text/javascript').
       var loading_screen = pleaseWait({
-      logo: "/img/logo web v1.png",
+      logo: "/img/loader.gif",
       backgroundColor: '#EFEFEF',
-      loadingHtml: "<p class='loading-message'>Please wait, we are loading your page very hard!</p>"
+      loadingHtml: "<h4 class='loading-message'>Please wait~<br>We are loading your page very hard!</p>"
       });
       $(document).ready(function(){
         loading_screen.finish();
