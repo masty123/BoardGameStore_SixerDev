@@ -15,80 +15,81 @@ block content
             h2 CHECKOUT
   // banner end
   // banner bottom start
-  .banner_bottom_area
-    .container
-      .row
-        .col-lg-4.col-md-4.col-sm-12
-          .single_banner_bottom.active.text-center
-            p.active 01
-            h4 SHOPPING CART
-        .col-lg-4.col-md-4.col-sm-12
-          .single_banner_bottom.text-center
-            p.active 02
-            h4 CHECK OUT
-        .col-lg-4.col-md-4.col-sm-12
-          .single_banner_bottom.text-center
-            p.greyed_out 03
-            h4.greyed_out ORDER COMPLETE
-  // banner bottom end
-  // cart start
-  .checkout_area
-    .container
-      .row
-        .col-lg-2
-        .col-lg-8
-          .promotion_code
-            form(method='POST', action='/checkout/confirm').your_order
-              h2.order_title #{user.name}'s Order
-              .order_table
-                ul
-                  li
-                    h5
-                      | PRODUCTS 
-                      span TOTALS
-                    each product in products
-                      p #{product.name}
-                        span
-                          //This is for quantity
-                        span 
-                          | ฿#{product.price}
-                  li
-                    h5
-                      | Cart Subtotal 
-                      span ฿#{price}
-                  li
-                    h5
-                      | Shipping 
-                      span Free Shipping
-                  li.order_total_purple
-                    h5
-                      | Order Totals 
-                      span ฿#{price}
-                  li
-                    h2.order_title Payment Methods
-                    p.checkbox_title
-                      //- input(type='checkbox')
-                      | Cash on Delivery
-                  li
-                    h2.order_title Delivery Information
-                    p
-                      a(href="/account/edit_address")  Edit
-                    p.checkbox_title #{user.address} #{user.address2} #{user.address3}, #{user.address5} #{user.address4}
-                    p.checkbox_title Tel. #{user.tel_num}
-                  li
-                    p.checkbox_title
-                      input(type='checkbox', name='promotion_check')
-                      | Use promotion 
+  .checkout
+    .banner_bottom_area
+      .container
+        .row
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.active.text-center
+              p.active 01
+              h4 SHOPPING CART
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.text-center
+              p.active 02
+              h4 CHECK OUT
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.text-center
+              p.greyed_out 03
+              h4.greyed_out ORDER COMPLETE
+    // banner bottom end
+    // cart start
+    .checkout_area
+      .container
+        .row
+          .col-lg-2
+          .col-lg-8
+            .promotion_code
+              form(method='POST', action='/checkout/confirm').your_order
+                h2.order_title #{user.name}'s Order
+                .order_table
+                  ul
+                    li
+                      h5
+                        | PRODUCTS 
+                        span TOTALS
+                      each product in products
+                        p #{product.name}
+                          span
+                            //This is for quantity
+                          span 
+                            | ฿#{product.price}
+                    li
+                      h5
+                        | Cart Subtotal 
+                        span ฿#{price}
+                    li
+                      h5
+                        | Shipping 
+                        span Free Shipping
+                    li.order_total_purple
+                      h5
+                        | Order Totals 
+                        span ฿#{price}
+                    li
+                      h2.order_title Payment Methods
                       p.checkbox_title
-                      span
-                        input(type='text', name='promotion_code', placeholder='Enter your promotion code here', style='width: 100%;')
-                  li
-                    p.checkbox_title
-                      input(type='checkbox', name='term')
-                      | I’ve read & Accept the 
-                      span.terms_left terms & Conditions
-                      span
-                        input.confirm_order_button(type='submit', value='CONFIRM')
+                        //- input(type='checkbox')
+                        | Cash on Delivery
+                    li
+                      h2.order_title Delivery Information
+                      p
+                        a(href="/account/edit_address")  Edit
+                      p.checkbox_title #{user.address} #{user.address2} #{user.address3}, #{user.address5} #{user.address4}
+                      p.checkbox_title Tel. #{user.tel_num}
+                    li
+                      p.checkbox_title
+                        input(type='checkbox', name='promotion_check')
+                        | Use promotion 
+                        p.checkbox_title
+                        span
+                          input(type='text', name='promotion_code', placeholder='Enter your promotion code here', style='width: 100%;')
+                    li
+                      p.checkbox_title
+                        input(type='checkbox', name='term')
+                        | I’ve read & Accept the 
+                        span.terms_left terms & Conditions
+                        span
+                          input.confirm_order_button(type='submit', value='CONFIRM')
                           
   script(src='/js/checkout.js')
   // cart area end

@@ -81,6 +81,10 @@ html.no-js(lang='zxx')
     link(rel='stylesheet', href='/css/responsive.css')
     script(src='/js/vendor/modernizr-2.8.3.min.js')
     link(rel='stylesheet', href='/css/alerterror.css')
+    //
+      please-wait CSS
+      ============================================
+    link(rel='stylesheet', href='/bower_components/please-wait/build/please-wait.css')
   body.home_one
     //if lt IE 8
       p.browserupgrade
@@ -264,6 +268,19 @@ html.no-js(lang='zxx')
       jquery-1.11.3.min js
       ============================================
     script(src='/js/vendor/jquery-1.12.4.min.js')
+    //
+      please-wait js
+      ============================================
+    script(type="text/javascript", src='/bower_components/please-wait/build/please-wait.min.js')
+    script(type='text/javascript').
+      var loading_screen = pleaseWait({
+      logo: "/img/logo web v1.png",
+      backgroundColor: '#EFEFEF',
+      loadingHtml: "<p class='loading-message'>Please wait, we are loading your page very hard!</p>"
+      });
+      $(document).ready(function(){
+        loading_screen.finish();
+      });
     
     block content
     // footer start

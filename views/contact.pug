@@ -25,24 +25,24 @@ block content
           .address.text-center
             .single_address
               .single_address_img
-                img(src='img/map.png', alt='')
+                img(src='/img/map.png', alt='')
               p
                 | 2033 Phahonyothin Alley, Khwaeng Lat Yao, Khet Chatuchak, Krung Thep Maha Nakhon 10900
                 br
                 | Thailand
             .single_address
               .single_address_img
-                img(src='img/phone.png', alt='')
+                img(src='/img/phone.png', alt='')
               p 012-345-6789
             .single_address
               .single_address_img
-                img(src='img/mail.png', alt='')
+                img(src='/img/mail.png', alt='')
               p
                 a(href='#') kk@kk.com
         .col-lg-6.col-md-6
           .register_customer.margin_short
             h2.register_heading We will love to hear from you
-            img(src='img/offers/best_sellers_1.png', alt='')
+            img(src='/img/offers/best_sellers_1.png', alt='')
             form(action='/page/contact', method='post')
               if user
                 input(type='text', name='name', placeholder='Name', value="User ID: "+user._id, disabled)

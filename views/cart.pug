@@ -19,86 +19,87 @@ block content
       each outdated_item, i in outdated
         p #{outdated_item}
   // banner bottom start
-  .banner_bottom_area
-    .container
-      .row
-        .col-lg-4.col-md-4.col-sm-12
-          .single_banner_bottom.active.text-center
-            p.active 01
-            h4 SHOPPING CART
-        .col-lg-4.col-md-4.col-sm-12
-          .single_banner_bottom.text-center
-            p.greyed_out 02
-            h4.greyed_out CHECK OUT
-        .col-lg-4.col-md-4.col-sm-12
-          .single_banner_bottom.text-center
-            p.greyed_out 03
-            h4.greyed_out ORDER COMPLETE
-  // banner bottom end
-  // cart start
-  .cart_area
-    .container
-      .row
-        .col-lg-2
-        .col-lg-8
-          p
-            | You have picked 
-            span  (#{products.length}) items 
-            | in your Bag
-          .cart_list.table-responsive
-            table.table_cart.table-bordered
-              thead
-                tr
-                  th.product Item
-                  th.description Description
-                  th.unit_price Unit Price
-                  //- th.quantity Quantity
-                  //- th.value Subtotal
-                  th.action
-              tbody
-                each product in products
+  .checkout
+    .banner_bottom_area
+      .container
+        .row
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.active.text-center
+              p.active 01
+              h4 SHOPPING CART
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.text-center
+              p.greyed_out 02
+              h4.greyed_out CHECK OUT
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.text-center
+              p.greyed_out 03
+              h4.greyed_out ORDER COMPLETE
+    // banner bottom end
+    // cart start
+    .cart_area
+      .container
+        .row
+          .col-lg-2
+          .col-lg-8
+            p
+              | You have picked 
+              span  (#{products.length}) items 
+              | in your Bag
+            .cart_list.table-responsive
+              table.table_cart.table-bordered
+                thead
                   tr
-                    td.product_img
-                      a(href='/product/'+product._id)
-                        img(src=product.picture, alt='cart')
-                    td.product_des
-                      a(href='/product/'+product._id)
-                        h3 #{product.name}
-                    td.u_price ฿#{product.price}
-                    //- td.p_quantity
-                    //-   .pp_quantity
-                    //-     span  03
-                    //- td.p_value ฿333.00
-                    td.p_action
-                      a(href='/cart/remove/'+product._id)
-                        i.fa.fa-times
-      .row
-        .col-md-3
-        .col-md-6
-          .shipping_total
-            h2 total carts
-            .mini_table
-              table.table-bordered
+                    th.product Item
+                    th.description Description
+                    th.unit_price Unit Price
+                    //- th.quantity Quantity
+                    //- th.value Subtotal
+                    th.action
                 tbody
-                  tr
-                    td Sub total:
-                    td ฿#{price}
-                  tr
-                    td Shipping Fee:
-                    td Free
-                  tr
-                    td Order Total:
-                    td.purple_total ฿#{price}
-      .row
-        .col-12
-          .coupon
-            .row
-              .col-md-6.col-lg-6
-              .col-md-6.col-lg-6
-                .porcess-checkout
-                  a.shopping(href='/') continue shopping
-                  if outdated
-                    a.process(href='/cart') process to checkout
-                  else
-                    a.process(href='/checkout') process to checkout
+                  each product in products
+                    tr
+                      td.product_img
+                        a(href='/product/'+product._id)
+                          img(src=product.picture, alt='cart')
+                      td.product_des
+                        a(href='/product/'+product._id)
+                          h3 #{product.name}
+                      td.u_price ฿#{product.price}
+                      //- td.p_quantity
+                      //-   .pp_quantity
+                      //-     span  03
+                      //- td.p_value ฿333.00
+                      td.p_action
+                        a(href='/cart/remove/'+product._id)
+                          i.fa.fa-times
+        .row
+          .col-md-3
+          .col-md-6
+            .shipping_total
+              h2 total carts
+              .mini_table
+                table.table-bordered
+                  tbody
+                    tr
+                      td Sub total:
+                      td ฿#{price}
+                    tr
+                      td Shipping Fee:
+                      td Free
+                    tr
+                      td Order Total:
+                      td.purple_total ฿#{price}
+        .row
+          .col-12
+            .coupon
+              .row
+                .col-md-6.col-lg-6
+                .col-md-6.col-lg-6
+                  .porcess-checkout
+                    a.shopping(href='/') continue shopping
+                    if outdated
+                      a.process(href='/cart') process to checkout
+                    else
+                      a.process(href='/checkout') process to checkout
   // cart area end
