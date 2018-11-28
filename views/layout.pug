@@ -94,6 +94,23 @@ html.no-js(lang='zxx')
         a(href='http://browsehappy.com/') upgrade your browser
         |  to improve your experience.
     // Add your site or application content here
+    //
+      jquery-1.11.3.min js
+      ============================================
+    script(src='/js/vendor/jquery-1.12.4.min.js')
+    //
+      please-wait js
+      ============================================
+    script(type="text/javascript", src='/bower_components/please-wait/build/please-wait.min.js')
+    script(type='text/javascript').
+      var loading_screen = pleaseWait({
+      logo: "/img/loader.gif",
+      backgroundColor: '#EFEFEF',
+      loadingHtml: "<h4 class='loading-message'>Please wait~<br>We are loading your page very hard!</p>"
+      });
+      $(document).ready(function(){
+        loading_screen.finish();
+      });
     // header start
     header.header
       #sticker
@@ -262,25 +279,6 @@ html.no-js(lang='zxx')
                           a(href='') LOGGED IN AS #{user.name}
         // Mobile Menu Area end
     // header end
-    
-    // JS
-    //
-      jquery-1.11.3.min js
-      ============================================
-    script(src='/js/vendor/jquery-1.12.4.min.js')
-    //
-      please-wait js
-      ============================================
-    script(type="text/javascript", src='/bower_components/please-wait/build/please-wait.min.js')
-    script(type='text/javascript').
-      var loading_screen = pleaseWait({
-      logo: "/img/loader.gif",
-      backgroundColor: '#EFEFEF',
-      loadingHtml: "<h4 class='loading-message'>Please wait~<br>We are loading your page very hard!</p>"
-      });
-      $(document).ready(function(){
-        loading_screen.finish();
-      });
     
     block content
     // footer start
