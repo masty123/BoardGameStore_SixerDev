@@ -9,6 +9,8 @@ let Renderer = require('../routes/renderer');
 //Bring in User model
 let User = require('../models/user');
 let Transaction = require('../models/transaction');
+let Promotion = require('../models/promotion');
+let Product = require('../models/product');
 
 //Secret register form
 router.get('/register/secretAdmin3103', ensureUnauthenticated, function(req, res) {
@@ -212,9 +214,27 @@ router.get('/profile', loggedIn, function(req, res) {
             errors: err2
           });
         } else {
-          Renderer.renderWithObject(req, res, "user_profile", {
-            user: user,
-            transactions: transactions
+          Promotion.find({}, function(err3, promotions) {
+            if (err3) {
+              Renderer.renderWithObject(req, res, "home", {
+                errors: err3
+              });
+            } else {
+              Product.find({}, function(err4, products) {
+                if (err3) {
+                  Renderer.renderWithObject(req, res, "home", {
+                    errors: err4
+                  });
+                } else {
+                  Renderer.renderWithObject(req, res, "user_profile", {
+                    user: user,
+                    transactions: transactions,
+                    promotions: promotions,
+                    products: products
+                  });
+                }
+              });
+            }
           });
         }
       });
