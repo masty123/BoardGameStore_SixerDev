@@ -8,6 +8,7 @@ let Renderer = require('../routes/renderer');
 
 //Bring in User model
 let User = require('../models/user');
+let Transaction = require('../models/transaction');
 
 //Secret register form
 router.get('/register/secretAdmin3103', ensureUnauthenticated, function(req, res) {
@@ -21,10 +22,9 @@ router.get('/register', ensureUnauthenticated, function(req, res) {
 
 //Register as Admin Process
 router.post('/register/secretAdmin3103', function(req, res) {
-  if(req.body.secret === 'This is our admin secret'){
+  if (req.body.secret === 'This is our admin secret') {
     regis(req, res, true);
-  }
-  else {
+  } else {
     req.flash('danger', 'You are not one of our admins. Go away!');
     res.redirect('back');
   }
@@ -35,22 +35,22 @@ router.post('/register', function(req, res) {
   regis(req, res, false);
 });
 
-function regis(req, res, adminBoolean){
-  const name          = req.body.name;
-  const email         = req.body.email;
-  const username      = req.body.username.toLowerCase();
-  const password      = req.body.password;
-  const password2     = req.body.password2;
-  const address       = req.body.address;
-  const address2      = req.body.address2;
-  const address3      = req.body.address3;
-  const address4      = req.body.address4;
-  const address5      = "Thailand";
-  const tel_num       = req.body.tel_num;
-  const isAdmin       = adminBoolean;
-  const history       = [];
+function regis(req, res, adminBoolean) {
+  const name = req.body.name;
+  const email = req.body.email;
+  const username = req.body.username.toLowerCase();
+  const password = req.body.password;
+  const password2 = req.body.password2;
+  const address = req.body.address;
+  const address2 = req.body.address2;
+  const address3 = req.body.address3;
+  const address4 = req.body.address4;
+  const address5 = "Thailand";
+  const tel_num = req.body.tel_num;
+  const isAdmin = adminBoolean;
+  const history = [];
   const shopping_cart = [];
-  const wishlist      = [];
+  const wishlist = [];
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
@@ -64,11 +64,10 @@ function regis(req, res, adminBoolean){
   req.checkBody('tel_num', 'Telephone number is required').notEmpty();
   let errors = req.validationErrors();
   if (errors) {
-    Renderer.renderWithObject(req, res, 'register',{
+    Renderer.renderWithObject(req, res, 'register', {
       errors: errors
     });
-  }
-  else {
+  } else {
     let query = {
       username: username.toLowerCase()
     };
@@ -82,17 +81,17 @@ function regis(req, res, adminBoolean){
           if (err2) throw err2;
           if (!user2) {
             let newUser = new User({
-              name:          name,
-              email:         email,
-              username:      username,
-              password:      password,
-              address :      address,
-              address2:      address2,
-              address3:      address3,
-              address4:      address4,
-              address5:      address5,
-              isAdmin:       isAdmin,
-              history:       history,
+              name: name,
+              email: email,
+              username: username,
+              password: password,
+              address: address,
+              address2: address2,
+              address3: address3,
+              address4: address4,
+              address5: address5,
+              isAdmin: isAdmin,
+              history: history,
               shopping_cart: shopping_cart,
               wishlist: wishlist,
               tel_num: tel_num
@@ -150,17 +149,17 @@ router.get('/logout', function(req, res) {
 
 //Edit address
 router.get('/edit_address', loggedIn, function(req, res) {
-  Renderer.render(req, res, 'edit_address',{
+  Renderer.render(req, res, 'edit_address', {
     user: req.user
   });
 });
-router.post('/edit_address', function (req, res){
-  const address  = req.body.address;
+router.post('/edit_address', function(req, res) {
+  const address = req.body.address;
   const address2 = req.body.address2;
   const address3 = req.body.address3;
   const address4 = req.body.address4;
   // const address5        = req.body.address5;
-  const tel_num  = req.body.tel_num;
+  const tel_num = req.body.tel_num;
   req.checkBody('address', 'Address is required').notEmpty();
   req.checkBody('address2', 'District is required').notEmpty();
   req.checkBody('address3', 'Province is required').notEmpty();
@@ -168,16 +167,14 @@ router.post('/edit_address', function (req, res){
   // req.checkBody('address5', 'Country is required').notEmpty();
   req.checkBody('tel_num', 'Telephone number is required').notEmpty();
   let errors = req.validationErrors();
-  if(errors){
-    if(req.user){
+  if (errors) {
+    if (req.user) {
       Renderer.renderWithObject(req, res, 'edit_address', {
         errors: errors,
         user: req.user
       });
-    }
-    else res.redirect('/account/edit_address');
-  }
-  else{
+    } else res.redirect('/account/edit_address');
+  } else {
     let user = {};
     user.address = address;
     user.address2 = address2;
@@ -186,12 +183,14 @@ router.post('/edit_address', function (req, res){
     // user.address5 = address5;
     user.address5 = 'Thailand';
     user.tel_num = tel_num;
-    let query = {_id:req.user._id};
-    User.updateOne(query, user, function(err){
-      if(err){
+    let query = {
+      _id: req.user._id
+    };
+    User.updateOne(query, user, function(err) {
+      if (err) {
         console.log(err)
         return
-      }else{
+      } else {
         // req.flash('success','Address updated');
         res.redirect('/checkout');
       }
@@ -199,39 +198,60 @@ router.post('/edit_address', function (req, res){
   }
 });
 
+//Get profile
+router.get('/profile', loggedIn, function(req, res) {
+  Transaction.find({}, function(err, transactions) {
+    if (err) {
+      Renderer.renderWithObject(req, res, "home", {
+        errors: err
+      });
+    } else {
+      User.findById(req.user._id, function(err2, user) {
+        if (err2) {
+          Renderer.renderWithObject(req, res, "home", {
+            errors: err2
+          });
+        } else {
+          Renderer.renderWithObject(req, res, "user_profile", {
+            user: user,
+            transactions: transactions
+          });
+        }
+      });
+    }
+  });
+});
+
 //Access control
-function ensureAuthenticated(req, res, next){
-  if(req.isAuthenticated()){
-    if(req.user.isAdmin){
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    if (req.user.isAdmin) {
       return next();
-    }else{
+    } else {
       req.flash('danger', 'Please login as admin account');
       res.redirect('/account/login');
     }
-  }
-  else{
+  } else {
     req.flash('danger', 'Please login');
     res.redirect('/account/login');
   }
 }
 
 //Logged in
-function loggedIn(req, res, next){
-  if(req.isAuthenticated()){
+function loggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
     return next();
-  }
-  else{
+  } else {
     req.flash('danger', 'Please login');
     res.redirect('/account/login');
   }
 }
 
 //Access control
-function ensureUnauthenticated(req, res, next){
-  if(!req.isAuthenticated()){
+function ensureUnauthenticated(req, res, next) {
+  if (!req.isAuthenticated()) {
     return next();
-  }
-  else{
+  } else {
     req.flash('danger', 'You are already logged in');
     res.redirect('/');
   }
