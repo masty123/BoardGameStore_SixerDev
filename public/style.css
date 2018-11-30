@@ -1,12 +1,10 @@
 /*-----------------------------------------------------------------------------------
-
     Template Name: huge-multipurpose-ecommerce-bootstrap-template
     Template URI: http://bootexperts.com
     Description: This is html5 template
     Author: BootExperts
     Author URI: http://bootexperts.com
     Version: 1.0
-
      CSS INDEX
     ===================
     1.0.0 Base Css For ALL Content.(Body, section)
@@ -10369,6 +10367,7 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   font-size: 14px;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
+  padding: 0px;
 }
 .printto_hover:hover{
   background-color: #FFFFCC;

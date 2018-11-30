@@ -45,7 +45,7 @@ router.post('/cancel/:id', function(req,res){
       return
     } else {
       req.flash('warning', 'Transaction cancelled');
-      res.redirect('/admin_panel');
+      res.redirect('/back');
       var removedMap = getProductQuantityMap(transaction);
       addProductsBack(removedMap);
     }
