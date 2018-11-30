@@ -33,7 +33,7 @@ block content
       .row
         .col-lg-1
         .col-lg-10
-          //- .customer_order
+          //- customer_order
           h2.register_heading Your orders
           .cart_list          
             table#transaction_table.table_cart.table-bordered
@@ -45,28 +45,28 @@ block content
                   th.unit_price Price
                   th.unit_price Address
                   th.action Status
-              tbody
+              tbody.u_all
                 if transactions
                   each transaction in transactions
                     if user.id === transaction.userID
                       tr.printto_hover
-                        td.u_printto #{transaction.date_ordered}
-                        td.u_printto
+                        td.u_printto(style="padding: 5px;") #{transaction.date_ordered}
+                        td.u_printto(style="padding: 5px;")
                           each product_trans in transaction.productID
                             each product_check in products
                               if product_trans === product_check.id
                                 span
-                                  a.u_printto(href='/product/'+product_trans, style='padding: 0px;') #{product_check.name} 
+                                  a.u_printto(href='/product/'+product_trans) #{product_check.name} 
                                 br
                                 br
-                        td.u_printto
+                        td.u_printto(style="color: black;")
                           each promotion_check in promotions
                             if transaction.promotionID === promotion_check.id
-                              span
+                              span(style="padding: 5px;")
                                 | #{promotion_check.name}
                               br
-                        td.u_printto #{transaction.calculatedPrice}
-                        td.u_printto #{transaction.deliveryAddress} #{transaction.tel_num}
+                        td.u_printto(style="padding: 5px;") #{transaction.calculatedPrice}
+                        td.u_printto(style="padding: 5px;") #{transaction.deliveryAddress} #{transaction.tel_num}
                         td.p_action
                           if transaction.isDelivered
                             span(style='color: green; font-weight: bold;') Delivered
