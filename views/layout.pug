@@ -160,7 +160,7 @@ html.no-js(lang='zxx')
                       a(href='/page/contact') contact
                     if user
                       li
-                        a #{user.name}
+                        a(href='/account/profile') #{user.name}
                     else
                       li
                         a(href='') 
@@ -200,6 +200,7 @@ html.no-js(lang='zxx')
                             .shopping-cart
                               a(href='/cart')
                                 img(src='/img/header_cart.png', alt='shopping_cart')
+                                //if user.shopping_cart.length != 0
                                 p #{user.shopping_cart.length} 
                                   .mini-cart-content
                                     if user.shopping_cart.length != 0

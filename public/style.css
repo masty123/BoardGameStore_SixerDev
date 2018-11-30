@@ -10366,7 +10366,6 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   padding: 0px;
 }
 .u_printto {
-  color: #000000;
   font-size: 14px;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
@@ -10450,7 +10449,7 @@ h3.widget-title-modal{background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 }
 .customer_order a{
     margin-left: 10px;
-    background: #C43B68;
+    /* background: #C43B68; */
     color: #fff;
-    border: 1px solid #C43B68;
+    /* border: 1px solid #C43B68; */
 }
