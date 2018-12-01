@@ -13,8 +13,8 @@ block content
   .register_area
     .container
       .row
-        .col-lg-3
-        .col-lg-6(style='margin-bottom: 30px;')
+        .col-lg-1
+        .col-lg-10(style='margin-bottom: 30px;')
           if user.isAdmin
             h4(style='color: red;') Admin account
           h2.register_heading Your Profile
@@ -63,7 +63,7 @@ block content
                           each promotion_check in promotions
                             if transaction.promotionID === promotion_check.id
                               span(style="padding: 5px;")
-                                | #{promotion_check.name}
+                                a.u_printto(href='/promotion/'+promotion_check.id) #{promotion_check.name}
                               br
                         td.u_printto(style="padding: 5px;") #{transaction.calculatedPrice}
                         td.u_printto(style="padding: 5px;") #{transaction.deliveryAddress} #{transaction.tel_num}
@@ -73,6 +73,7 @@ block content
                           else if transaction.isCancelled
                             span.u_printto Cancelled
                           else
+                            | Processing...
                             form(action='/transaction/cancel/'+transaction._id, method="post")
                               input(type="submit", value="Cancel")
             //- a.shopping(href='account_set.html') BACK
