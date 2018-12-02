@@ -1,0 +1,86 @@
+extends layout
+
+block content
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 ORDER COMPLETE
+  // banner end
+  // banner bottom start
+  .checkout
+    .banner_bottom_area
+      .container
+        .row
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.active.text-center
+              p.active 01
+              h4 SHOPPING CART
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.text-center
+              p.active 02
+              h4 CHECK OUT
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.text-center
+              p.greyed_out 03
+              h4.greyed_out ORDER COMPLETE
+    // banner bottom end
+    // cart start
+    .checkout_area
+      .container
+        .row
+          .col-lg-2
+          .col-lg-8
+            .promotion_code
+              form(method='POST', action='/checkout/confirm').your_order
+                h2.order_title #{user.name}'s Order
+                .order_table
+                  ul
+                    li
+                      h5
+                        | PRODUCTS 
+                        span TOTALS
+                      each product in products
+                        p #{product.name}
+                          span
+                            //This is for quantity
+                          span 
+                            | ฿#{product.price}
+                    li
+                      h5
+                        | Cart Subtotal 
+                        span ฿#{price}
+                    li
+                      h5
+                        | Shipping 
+                        span Free Shipping
+                    li
+                      h5
+                        | Promotion
+                        span #{promotion.name}
+                    li
+                      h5
+                        | Discount
+                        span #{promotion.discountValue}
+                    li
+                      h5
+                        | Free Items
+                        span #{promotion.getFreeProductID}
+                    li.order_total_purple
+                      h5
+                        | Order Totals 
+                        span ฿#{price}
+                    li
+                      h2.order_title Thank you for your purchase!
+                      p Your order has been placed and is being processed. You will receive an email with the order detail.
+                    li
+                      input.confirm_order_button(type='submit', value='RETURN HOME')
+                          
+  script(src='/js/checkout.js')
