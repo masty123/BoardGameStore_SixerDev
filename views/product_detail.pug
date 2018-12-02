@@ -49,12 +49,6 @@ block content
                 | Players: #{product.player}
               else
                 | Players: #{product.player} - #{product.maxPlayer}
-              //- br
-              //- | Playtime: 30+ minutes
-              //- br
-              //- | Ages: 7+
-              //- br
-              //- | Designer: James Napong
               br
               | Category: #{product.category}
             .wish_icon_hover.text-center
@@ -66,8 +60,6 @@ block content
                         | EDIT THIS PRODUCT
                 if product.stock > 0
                   li.active.cart
-                    //- form(method='POST', action='/cart/add/'+product._id)
-                    //-   input(type='submit', value='      ADD TO CART')
                     a(href='/cart/add/'+product._id, data-toggle='tooltip', title='Shopping Cart')
                       img(src='/img/trend/shopping_cart.png', alt='cart')
                       | ADD TO CART

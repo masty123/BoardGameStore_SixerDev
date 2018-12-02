@@ -58,10 +58,6 @@ block content
                             a(href='/product/'+product_checker.id) #{product_checker.name}
                             span 
                               | ฿#{product_checker.price}
-                  //- li
-                  //-   h5
-                  //-     | Cart Subtotal 
-                  //-     span ฿#{price}
                   li
                     h5
                       | Shipping 
@@ -90,9 +86,4 @@ block content
                     h5
                       | Order Totals 
                       span ฿#{transaction.calculatedPrice}
-                  //- li
-                  //-   input.confirm_order_button(type='submit', value='RETURN HOME')
                   div(style='margin-top: 50px; margin-bottom: 70px;')
-                  //- p(style='margin-top: 50px; margin-bottom: 70px;') You can check your order in your 
-                  //-   a(href='/account/profile') user profile
-                  //-   | .

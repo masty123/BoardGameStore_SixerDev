@@ -152,8 +152,6 @@ html.no-js(lang='zxx')
                           a(href='/browse/dice_set') Dice Sets
                         li
                           a(href='/browse/playmats') Playmats
-                    //- li
-                    //-   a(href='') sales
                     li
                       a(href='/page/about') about
                     li
@@ -180,8 +178,6 @@ html.no-js(lang='zxx')
                             a(href="/product/add") Add Products
                           li 
                             a(href="/promotion/add") Add Promotions
-                        //- li
-                        //-   a(href='/wishlist') Wishlist
                         li
                           a(href='/cart') Shopping Cart
                         li
@@ -271,8 +267,6 @@ html.no-js(lang='zxx')
                             a(href='/browse/dice_set') Dice Sets
                           li
                             a(href='/browse/playmats') Playmats
-                      //- li
-                      //-   a(href='') SALES
                       li
                         a(href='/page/about') ABOUT
                       if user
@@ -310,7 +304,7 @@ html.no-js(lang='zxx')
                 a(href='#')
                   i.fa.fa-envelope-o
                 a(href='#')
-                  p kk@kk.com
+                  p pappim.p@ku.th
       .footer_middle_area
         .container
           .row
@@ -334,14 +328,21 @@ html.no-js(lang='zxx')
                     a(href='#') shipping & policies
                   li
                     a(href='#') store locations
-            .col-lg-2.col-md-6.col-sm-6
-              .footer_widget
-                h4 my account
-                ul.footer_menu
-                  li
-                    a(href='#') my orders
-                  li
-                    a(href='#') my personal info
+            if user
+              .col-lg-2.col-md-6.col-sm-6
+                .footer_widget
+                  h4 my account
+                  ul.footer_menu
+                    li
+                      a(href='/account/profile') my orders & personal info      
+            else
+              .col-lg-2.col-md-6.col-sm-6
+                .footer_widget
+                  h4 my account
+                  ul.footer_menu
+                    li
+                      a(href='/account/login') login first!
+  
       .footer_bottom_area
         .container
           .row
