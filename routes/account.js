@@ -193,7 +193,7 @@ router.post('/edit_address', function(req, res) {
         console.log(err)
         return
       } else {
-        // req.flash('success','Address updated');
+        req.flash('success',"Your informations updated");
         res.redirect('/account/profile');
       }
     })
