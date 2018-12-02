@@ -1,0 +1,98 @@
+extends layout
+
+block content
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
+  // banner start
+  .blog_banner_area
+    .container
+      .row
+        .col-12
+          .page_title
+            h2 ORDER COMPLETE
+  // banner end
+  // banner bottom start
+  .checkout
+    .banner_bottom_area
+      .container
+        .row
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.active.text-center
+              p.active 01
+              h4 SHOPPING CART
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.text-center
+              p.active 02
+              h4.active CHECK OUT
+          .col-lg-4.col-md-4.col-sm-12
+            .single_banner_bottom.text-center
+              p.active 03
+              h4.active ORDER COMPLETE
+    // banner bottom end
+    // cart start
+    .checkout_area
+      .container
+        .row
+          .col-lg-2
+          .col-lg-8
+            .promotion_code
+              .order_table
+                ul
+                  h2.order_title Thank you for your purchase!
+                  p Your order has been placed and is being processed.
+                    br
+                    | You can check your orders in your 
+                    a(href='/account/profile') user profile
+                    | .
+                  li
+                    h5
+                      | PRODUCTS 
+                      span TOTALS
+                    each product_checker in products_checker
+                      each transaction_productID in transaction.productID
+                        if transaction_productID === product_checker.id
+                          p 
+                            a(href='/product/'+product_checker.id) #{product_checker.name}
+                            span 
+                              | ฿#{product_checker.price}
+                  //- li
+                  //-   h5
+                  //-     | Cart Subtotal 
+                  //-     span ฿#{price}
+                  li
+                    h5
+                      | Shipping 
+                      span Free Shipping
+                  if promotion
+                    li
+                      h5
+                        | Promotion
+                        span #{promotion.name}
+                      if promotion.discountValue !== 0
+                        h5
+                          | Discount
+                          if promotion.type == 2
+                            span -#{promotion.discountValue}
+                          if promotion.type == 2
+                            span -#{promotion.discountValue}%
+                      if promotion.getFreeProductID !== '-'
+                        h5
+                          | Free Item(s)
+                          each product_checker in products_checker
+                            each promotion_productID in promotion.getFreeProductID
+                              if promotion_productID === product_checker.id
+                                span
+                                  a(href='/product/'+product_checker.id) #{product_checker.name}
+                  li.order_total_purple
+                    h5
+                      | Order Totals 
+                      span ฿#{transaction.calculatedPrice}
+                  //- li
+                  //-   input.confirm_order_button(type='submit', value='RETURN HOME')
+                  div(style='margin-top: 50px; margin-bottom: 70px;')
+                  //- p(style='margin-top: 50px; margin-bottom: 70px;') You can check your order in your 
+                  //-   a(href='/account/profile') user profile
+                  //-   | .
