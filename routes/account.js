@@ -194,7 +194,7 @@ router.post('/edit_address', function(req, res) {
         return
       } else {
         // req.flash('success','Address updated');
-        res.redirect('/checkout');
+        res.redirect('/account/profile');
       }
     })
   }
