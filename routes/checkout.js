@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/confirm', loggedIn, function(req, res) {
-    let productMap = getProductQuantityMap(req, res);
+    let productMap = getProductQuantityMap(req.user.shopping_cart);
     var shopping_cart = req.user.shopping_cart;
     var promotion_check = req.body.promotion_check;
     var promotion_code = req.body.promotion_code.trim();
@@ -82,6 +82,7 @@ router.post('/confirm', loggedIn, function(req, res) {
                         isDelivered: false,
                         isCancelled: false,
                       });
+                      productMap = getProductQuantityMap(shopping_cart);
                       placeOrder(req, res, transaction, productMap);
                     }
                     else if (promotion.type == 2 && promotion.isActive) {
@@ -185,13 +186,54 @@ function placeOrder(req, res, transaction, productMap){
           res.redirect('back');
         } else {
           removeProducts(req, res, productMap);
-          req.flash('success', 'Placed your order into the queue');
-          res.redirect('/');
+          // req.flash('success', 'Placed your order into the queue');
+          // res.redirect('/');
         }
       });
     }
-  })
+  });
+  Promotion.findById(transaction.promotionID , function(err, promotion) {
+    if (err) {
+      req.flash('danger', 'Product bought, but cannot load receipt page');
+      res.redirect('back');
+    }
+    else {
+      Renderer.renderWithObject(req, res, 'ordercomplete', {
+        promotion: promotion,
+        transaction: transaction,
+        user: req.user
+      });
+    }
+  });
 }
+
+// // For testing order complete page
+// router.get('/test', function(req, res) {
+//   var transaction = new Transaction({
+//     date_ordered: Date.now(),
+//     userID: req.user._id,
+//     productID: ["5bd9747c4999c20004073a81","5bd9747c4999c20004073a81"],
+//     promotionID: "5bf6d91b3b56e000047deb29",
+//     calculatedPrice:  1000,
+//     deliveryAddress: req.user.address + " " + req.user.address2 + " " + req.user.address3 + " " + req.user.address4 + " " + req.user.address5,
+//     tel_num: req.user.tel_num,
+//     isDelivered: false,
+//     isCancelled: false,
+//   });
+//   Promotion.findById(transaction.promotionID , function(err, promotion) {
+//     if (err) {
+//       req.flash('danger', 'Product bought, but cannot load receipt page');
+//       res.redirect('back');
+//     }
+//     else {
+//       Renderer.renderWithObject(req, res, 'ordercomplete', {
+//         promotion: promotion,
+//         transaction: transaction,
+//         user: req.user
+//       });
+//     }
+//   });
+// });
 
 function removeProducts(req, res, productMap){
   productMap.forEach(function(value, key){
@@ -212,9 +254,9 @@ function removeProducts(req, res, productMap){
   });
 }
 
-function getProductQuantityMap(req, res){
+function getProductQuantityMap(items){
   let productMap = new HashMap();
-  var shopping_cart = req.user.shopping_cart;
+  var shopping_cart = items;
   for (var i = 0; i < shopping_cart.length; i++) {
     if (productMap.has(shopping_cart[i])) {
       productMap.set(shopping_cart[i], productMap.get(shopping_cart[i]) + 1);

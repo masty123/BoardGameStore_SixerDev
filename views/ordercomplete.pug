@@ -26,11 +26,11 @@ block content
           .col-lg-4.col-md-4.col-sm-12
             .single_banner_bottom.text-center
               p.active 02
-              h4 CHECK OUT
+              h4.active CHECK OUT
           .col-lg-4.col-md-4.col-sm-12
             .single_banner_bottom.text-center
-              p.greyed_out 03
-              h4.greyed_out ORDER COMPLETE
+              p.active 03
+              h4.active ORDER COMPLETE
     // banner bottom end
     // cart start
     .checkout_area
@@ -39,48 +39,60 @@ block content
           .col-lg-2
           .col-lg-8
             .promotion_code
-              form(method='POST', action='/checkout/confirm').your_order
-                h2.order_title #{user.name}'s Order
-                .order_table
-                  ul
-                    li
-                      h5
-                        | PRODUCTS 
-                        span TOTALS
-                      each product in products
-                        p #{product.name}
-                          span
-                            //This is for quantity
-                          span 
-                            | ฿#{product.price}
-                    li
-                      h5
-                        | Cart Subtotal 
-                        span ฿#{price}
-                    li
-                      h5
-                        | Shipping 
-                        span Free Shipping
+              .order_table
+                ul
+                  h2.order_title Thank you for your purchase!
+                  p Your order has been placed and is being processed.
+                    br
+                    | You can check your orders in your 
+                    a(href='/account/profile') user profile
+                    | .
+                  li
+                    h5
+                      | PRODUCTS 
+                      span TOTALS
+                    each product_checker in products_checker
+                      each transaction_productID in transaction.productID
+                        if transaction_productID === product_checker.id
+                          p 
+                            a(href='/product/'+product_checker.id) #{product_checker.name}
+                            span 
+                              | ฿#{product_checker.price}
+                  //- li
+                  //-   h5
+                  //-     | Cart Subtotal 
+                  //-     span ฿#{price}
+                  li
+                    h5
+                      | Shipping 
+                      span Free Shipping
+                  if promotion
                     li
                       h5
                         | Promotion
                         span #{promotion.name}
-                    li
-                      h5
-                        | Discount
-                        span #{promotion.discountValue}
-                    li
-                      h5
-                        | Free Items
-                        span #{promotion.getFreeProductID}
-                    li.order_total_purple
-                      h5
-                        | Order Totals 
-                        span ฿#{price}
-                    li
-                      h2.order_title Thank you for your purchase!
-                      p Your order has been placed and is being processed. You will receive an email with the order detail.
-                    li
-                      input.confirm_order_button(type='submit', value='RETURN HOME')
-                          
-  script(src='/js/checkout.js')
+                      if promotion.discountValue !== 0
+                        h5
+                          | Discount
+                          if promotion.type == 2
+                            span -#{promotion.discountValue}
+                          if promotion.type == 2
+                            span -#{promotion.discountValue}%
+                      if promotion.getFreeProductID !== '-'
+                        h5
+                          | Free Item(s)
+                          each product_checker in products_checker
+                            each promotion_productID in promotion.getFreeProductID
+                              if promotion_productID === product_checker.id
+                                span
+                                  a(href='/product/'+product_checker.id) #{product_checker.name}
+                  li.order_total_purple
+                    h5
+                      | Order Totals 
+                      span ฿#{transaction.calculatedPrice}
+                  //- li
+                  //-   input.confirm_order_button(type='submit', value='RETURN HOME')
+                  div(style='margin-top: 50px; margin-bottom: 70px;')
+                  //- p(style='margin-top: 50px; margin-bottom: 70px;') You can check your order in your 
+                  //-   a(href='/account/profile') user profile
+                  //-   | .
