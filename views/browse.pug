@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  #min-price-value(hidden) #{minprice}
+  #max-price-value(hidden) #{maxprice}
   // Start About shop area
   section.shop_banner
     .container
@@ -58,17 +60,21 @@ block content
                   //- form(action='#')
                   .toolbar-section(style='margin-right: 20px;')
                     select#sort(name='sort')
-                      option(value='default') DEFAULT SORTING
-                      option(value='name_a_z') SORT BY NAME: A-Z
-                      option(value='name_a_z') SORT BY NAME: Z-A
-                      option(value='price_min') SORT BY PRICE:LOW TO HIGH
-                      option(value='price_max') SORT BY PRICE:HIGH TO LOW
+                      if sort
+                        option(value=sort) Current: #{sort}
+                      option(value='default') Default Sorting
+                      option(value='name_a_z') Sort by Name: A-Z
+                      option(value='name_a_z') Sort by Name: Z-A
+                      option(value='price_min') Sort by Price: Low to High
+                      option(value='price_max') Sort by Price: High to Low
                 .toolbar-form.clearfix
                   p Category
                   //- form(action='#')
                   .toolbar-section
                     select#sort(name='category')
-                      option(value='all') All
+                      if category
+                        option(value=category) Current: #{title}
+                      option(value='strategy+party+thematic+family+children+dice_bag+dice_set+playmats') All
                       option(value='strategy+party+thematic+family+children') All Games
                       option(value='dice_bag+dice_set+playmats') All Accessories
                       option(value='strategy') Strategy Games
@@ -83,7 +89,7 @@ block content
             if products
               each product in products
                 if category
-                  - var check_category = category.split('+').includes(product.category.toLowerCase()) || category === "all"
+                  - var check_category = category.split('+').includes(product.category.toLowerCase()) && product.price >= minprice && product.price <= maxprice
                 else
                   - var check_category = true
                 if check_category
@@ -97,7 +103,8 @@ block content
                         .single_trend_label.text-center
                           a(href='/product/'+product._id)
                             h3 #{product.name}
-                            h4 ฿#{product.price}
+                            h4(style='color: grey; margin-top: 0px; padding-top: 0px;') #{product.category}
+                            h4(style='margin-top: 0px; padding-top: 0px;') ฿#{product.price}
                         .wish_icon_hover.text-center
                           ul
                             li.active

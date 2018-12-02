@@ -7,12 +7,17 @@ let Renderer = require('../routes/renderer');
 
 let Product = require('../models/product');
 
+var MIN_PRODUCT_PRICE = 0;
+var MAX_PRODUCT_PRICE = 8000;
+
 //Browser
 router.get('/', function(req, res) {
   Product.find({}, function(err, products) {
     Renderer.renderWithObject(req, res, 'browse', {
       title: "Shop All",
       products: products,
+      minprice: MIN_PRODUCT_PRICE,
+      maxprice: MAX_PRODUCT_PRICE
     });
   });
 });
@@ -23,33 +28,62 @@ router.get('/:category', function(req, res) {
     Renderer.renderWithObject(req, res, 'browse', {
       title: getTitle(req.params.category),
       products: products,
-      category: req.params.category
+      category: req.params.category,
+      minprice: MIN_PRODUCT_PRICE,
+      maxprice: MAX_PRODUCT_PRICE
     });
   });
 });
 
-//Browser
-router.get('/all/:sort', function(req, res) {
-  Product.find({}, function(err, products) {
-    // TODO: Sort first
-    var sortedProducts = sortProducts(products, req.params.sort);
-    Renderer.renderWithObject(req, res, 'browse', {
-      title: "Shop All",
-      products: sortedProducts,
-      category: "all"
-    });
-  });
-});
+// //Browser
+// router.get('/all/:sort', function(req, res) {
+//   Product.find({}, function(err, products) {
+//     var sortedProducts = sortProducts(products, req.params.sort);
+//     Renderer.renderWithObject(req, res, 'browse', {
+//       title: "Shop All",
+//       products: sortedProducts,
+//       category: "all",
+//       minprice: MIN_PRODUCT_PRICE,
+//       maxprice: MAX_PRODUCT_PRICE
+//     });
+//   });
+// });
 
 //Browser
 router.get('/:category/:sort', function(req, res) {
   Product.find({}, function(err, products) {
-    // TODO: Sort first
     var sortedProducts = sortProducts(products, req.params.sort);
     Renderer.renderWithObject(req, res, 'browse', {
       title: getTitle(req.params.category),
       products: sortedProducts,
-      category: req.params.category
+      category: req.params.category,
+      minprice: MIN_PRODUCT_PRICE,
+      maxprice: MAX_PRODUCT_PRICE,
+      sort: req.params.sort
+    });
+  });
+});
+
+//Filter
+router.post('/filter' , function(req, res) {
+  const min_price = parseInt(req.body.price_min.substring(1));
+  const max_price = parseInt(req.body.price_max.substring(1));
+  const sort = req.body.sort;
+  const category = req.body.category;
+  res.redirect('/browse/'+category+'/'+sort+'/'+min_price+'/'+max_price);
+});
+
+//Browser
+router.get('/:category/:sort/:minprice/:maxprice', function(req, res) {
+  Product.find({}, function(err, products) {
+    var sortedProducts = sortProducts(products, req.params.sort);
+    Renderer.renderWithObject(req, res, 'browse', {
+      title: getTitle(req.params.category),
+      products: sortedProducts,
+      category: req.params.category,
+      minprice: req.params.minprice,
+      maxprice: req.params.maxprice,
+      sort: req.params.sort
     });
   });
 });
@@ -87,7 +121,10 @@ function sortObjectBy(property) {
 }
 
 function getTitle(category) {
-  if( category === 'strategy+party+thematic+family+children' ){
+  if( category === 'strategy+party+thematic+family+children+dice_bag+dice_set+playmats'){
+    return 'Shop All';
+  }
+  else if( category === 'strategy+party+thematic+family+children' ){
     return 'All Games';
   }
   else if( category === 'dice_bag+dice_set+playmats' ){

@@ -430,9 +430,9 @@ $('.widget_categories li > a.show-submenu').on('click', function () {
     // price slider
     $( "#slider-range" ).slider({
         range: true,
-        min: 0,
-        max: 8000,
-        values: [ 0, 8000 ],
+        min: 0 ,
+        max: 8000 ,
+        values: [ parseInt($("#min-price-value").text()), parseInt($("#max-price-value").text()) ],
         slide: function( event, ui ) {
             $("#min-amount").val("฿" + ui.values[0]);
             $("#max-amount").val("฿" + ui.values[1]);
