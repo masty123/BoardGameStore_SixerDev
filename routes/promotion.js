@@ -36,7 +36,7 @@ router.post('/add', ensureAuthenticated, function(req, res) {
     });
   } else {
     let promotion = new Promotion({
-      name: name,
+      name: name.toLowerCase(),
       description: description,
       type: type,
       productID: productID.split(','),

@@ -61,7 +61,7 @@ router.post('/confirm', loggedIn, function(req, res) {
                 placeOrder(req, res, transaction, productMap);
               }
               else {
-                let query = {name: req.body.promotion_code};
+                let query = {name: req.body.promotion_code.toLowerCase()};
                 Promotion.findOne(query, function(err, promotion) {
                   if (err) throw err;
                   else if(!promotion){
