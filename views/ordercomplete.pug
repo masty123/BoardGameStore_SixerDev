@@ -72,9 +72,9 @@ block content
                           | Discount
                           if promotion.type == 2
                             span -#{promotion.discountValue}
-                          if promotion.type == 2
+                          if promotion.type == 3
                             span -#{promotion.discountValue}%
-                      if promotion.getFreeProductID !== '-'
+                      if promotion.getFreeProductID[0] !== '-'
                         h5
                           | Free Item(s)
                           each product_checker in products_checker
