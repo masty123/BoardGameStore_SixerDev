@@ -86,7 +86,7 @@ router.post('/confirm', loggedIn, function(req, res) {
                       placeOrder(req, res, transaction, productMap);
                     }
                     else if (promotion.type == 2 && promotion.isActive) {
-                      price = product.price - promotion.discountValue;
+                      price = price - promotion.discountValue;
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
                         userID: req.user._id,
@@ -102,7 +102,7 @@ router.post('/confirm', loggedIn, function(req, res) {
                     }
                     else if (promotion.type == 3 && promotion.isActive) {
                       var discount = (100-promotion.discountValue)/100;
-                      price = product.price*discount;
+                      price = price*discount;
                       price = Math.ceil(price);
                       let transaction = new Transaction({
                         date_ordered: Date.now(),
