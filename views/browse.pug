@@ -12,6 +12,11 @@ block content
             .table_cell.text-center
               h2 #{title}
   // End About shop area
+  != messages('message', locals)
+  if errors
+    div(class='alert alert-danger', style='text-align: center;')
+      each error, i in errors
+        p #{error.msg}
   // Start shop page area
   section.shop_page_area.section_padding_6
     form.container(method='POST', action='/browse/filter')
@@ -89,7 +94,7 @@ block content
             if products
               each product in products
                 if category
-                  - var check_category = category.split('+').includes(product.category.toLowerCase()) && product.price >= minprice && product.price <= maxprice
+                  - var check_category = category.split('+').includes(product.category.toLowerCase()) && product.price >= minprice && product.price <= maxprice && product.stock > 0
                 else
                   - var check_category = true
                 if check_category
