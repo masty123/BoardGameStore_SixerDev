@@ -53,13 +53,13 @@ block content
                       td.u_printto(style="padding-top: 0px; padding-bottom: 0px;") #{product.category}
                       td.u_printto(style="padding-top: 0px; padding-bottom: 0px;")
                         if product.stock == 0
-                          a.u_printto(href='/product/edit/'+product._id)
+                          a.u_printto(href='/product/edit/'+product._id, style='color: yellow;')
                             | Restock
                         else if product.stock < 0
                           a.u_printto(href='/product/edit/'+product._id, style="color: red;")
                             | Conflict
                         else
-                          a.u_printto(href='/product/edit/'+product._id)
+                          a.u_printto(href='/product/edit/'+product._id, style='color: green;')
                             | Edit
           .cart_list.table-responsive            
             table#promotion_table.table_cart.table-bordered
