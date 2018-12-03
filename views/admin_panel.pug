@@ -53,7 +53,7 @@ block content
                       td.u_printto(style="padding-top: 0px; padding-bottom: 0px;") #{product.category}
                       td.u_printto(style="padding-top: 0px; padding-bottom: 0px;")
                         if product.stock == 0
-                          a.u_printto(href='/product/edit/'+product._id, style='color: yellow;')
+                          a.u_printto(href='/product/edit/'+product._id, style='color: orange;')
                             | Restock
                         else if product.stock < 0
                           a.u_printto(href='/product/edit/'+product._id, style="color: red;")
